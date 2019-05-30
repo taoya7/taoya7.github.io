@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>Linis</title>
   
-  
+  <subtitle>linis</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://taoya7.github.io/"/>
-  <updated>2019-05-30T07:10:29.167Z</updated>
+  <updated>2019-05-30T11:38:46.237Z</updated>
   <id>https://taoya7.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Requests库</title>
+    <link href="https://taoya7.github.io/2019/05/python-requests.html"/>
+    <id>https://taoya7.github.io/2019/05/python-requests.html</id>
+    <published>2019-05-30T09:00:14.000Z</published>
+    <updated>2019-05-30T11:38:46.237Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;Requests库&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;Get请求&quot;&gt;&lt;a href=&quot;#Get请求&quot; class=&quot;headerlink&quot; title=&quot;Get请求&quot;&gt;&lt;/a&gt;Get请求&lt;/h3&gt;&lt;pre class=&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="https://taoya7.github.io/categories/Python/"/>
+    
+    
+      <category term="爬虫" scheme="https://taoya7.github.io/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>Selenium</title>
@@ -482,30 +511,6 @@
         
           &lt;h1 id=&quot;过滤器&quot;&gt;&lt;a href=&quot;#过滤器&quot; class=&quot;headerlink&quot; title=&quot;过滤器&quot;&gt;&lt;/a&gt;过滤器&lt;/h1&gt;&lt;p&gt;&lt;code&gt;Vue.filter&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;div
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Vue" scheme="https://taoya7.github.io/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue-组件</title>
-    <link href="https://taoya7.github.io/2019/05/vue-zu-jian.html"/>
-    <id>https://taoya7.github.io/2019/05/vue-zu-jian.html</id>
-    <published>2019-05-05T14:40:59.000Z</published>
-    <updated>2019-05-30T08:00:37.451Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;组件&quot;&gt;&lt;a href=&quot;#组件&quot; class=&quot;headerlink&quot;
         
       
     

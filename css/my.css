@@ -1,1 +1,110 @@
 /* Here is your custom css styles. */
+
+.card-content hr{
+    border:2px dashed black;
+}
+
+.card-content p img{
+    display: block;
+    margin:24px auto;
+    text-align: center;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0,0,25,0.1), 0 5px 75px 1px rgba(0,0,50,0.2);
+}
+.card-content p code{
+    padding:10px 15px;
+    color:#032d3c;
+    background: #dedede;
+    border-radius: 3px;
+}
+.card-conten table{
+    margin:auto;
+}
+
+.card-content strong{
+    color:#ff4949;
+    font-size:16px;
+}
+.card-content blockquote h3{
+  
+}
+
+.card-content  h5{
+    font-size:18px;
+    padding:20px;
+    background: #6fc2d0;
+    border-radius: 5px;
+    margin-bottom: 52.1px;
+    position: relative;
+}
+.card-content  h5::before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-20%) translateY(50%);
+    width: 23px;
+    height: 72px;
+    background: url(http://img3.doubanio.com/f/ithildin/529f46d…/pics/export/icon_guide_arrow.png);
+    background-size: cover;
+    background:red;
+    z-index:10;
+}
+.hbtn {
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    overflow: hidden;
+    padding: 8px 20px;
+    margin: 0px 3px 6px;
+    text-align: center;
+    border: 2px solid rgb(255, 255, 255);
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    white-space: nowrap;
+    z-index: 0;
+}
+
+
+.hbtn i {
+    padding-right: 8px;
+}
+
+
+.hb-border-bottom-br4 {
+    position: relative;
+    transition-duration: 0.3s;
+    overflow: visible;
+    box-sizing: border-box;
+    border: none;
+    padding: 10px 22px;
+}
+
+
+.hb-border-bottom-br4::after {
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: "";
+    border: 2px solid #240041;
+    z-index: 2;
+    margin: 0px;
+    left: 0px;
+    bottom: 0px;
+    border-top-width: 2px;
+    transition: border-top-width 0.1s ease 0.2s, height 0.2s ease 0.1s, width 0.2s ease 0s, margin 0.2s ease 0s, border-bottom-width 0.2s ease 0s;
+}
+
+
+.hb-border-bottom-br4:hover::after {
+    width: 60%;
+    height: 0px;
+    border-width: 0px 2px 4px;
+    margin: 0px 20%;
+    transition: border-top-width 0.1s ease 0s, height 0.2s ease 0.1s, width 0.2s ease 0.2s, margin 0.2s ease 0.2s, border-bottom-width 0.2s ease 0.2s;
+}
+
+
+

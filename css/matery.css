@@ -64,7 +64,7 @@ h4 {
 h5 {
     margin: 28px 0 8px -4px;
     font-size: 1.2rem;
-    font-weight: bold;
+   
     line-height: 1.2rem;
 }
 
@@ -163,7 +163,8 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #009975 0%, #348498 100%);
+    background-image: linear-gradient(to right, #49beb7 0%, #49beb7 100%);
+    /* background: #71a0a5; */
 }
 
 .text-color {
