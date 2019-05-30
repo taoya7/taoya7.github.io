@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://taoya7.github.io/linisDaily.github.io/"/>
+  <link href="linisDaily.github.io/"/>
   <updated>2019-05-29T14:33:57.537Z</updated>
-  <id>https://taoya7.github.io/linisDaily.github.io/</id>
+  <id>linisDaily.github.io/</id>
   
   <author>
     <name>linis</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Selenium</title>
-    <link href="https://taoya7.github.io/linisDaily.github.io/2019/05/28/selenium/"/>
-    <id>https://taoya7.github.io/linisDaily.github.io/2019/05/28/selenium/</id>
+    <link href="linisDaily.github.io/2019/05/28/selenium/"/>
+    <id>linisDaily.github.io/2019/05/28/selenium/</id>
     <published>2019-05-28T13:52:12.000Z</published>
     <updated>2019-05-29T14:33:57.537Z</updated>
     
@@ -35,17 +35,17 @@
     
     </summary>
     
-      <category term="Python" scheme="https://taoya7.github.io/linisDaily.github.io/categories/Python/"/>
+      <category term="Python" scheme="linisDaily.github.io/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://taoya7.github.io/linisDaily.github.io/tags/Python/"/>
+      <category term="Python" scheme="linisDaily.github.io/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Servlet</title>
-    <link href="https://taoya7.github.io/linisDaily.github.io/2019/05/27/servlet/"/>
-    <id>https://taoya7.github.io/linisDaily.github.io/2019/05/27/servlet/</id>
+    <link href="linisDaily.github.io/2019/05/27/servlet/"/>
+    <id>linisDaily.github.io/2019/05/27/servlet/</id>
     <published>2019-05-27T09:15:48.000Z</published>
     <updated>2019-05-29T15:12:38.492Z</updated>
     
@@ -61,10 +61,10 @@
     
     </summary>
     
-      <category term="JavaWeb" scheme="https://taoya7.github.io/linisDaily.github.io/categories/JavaWeb/"/>
+      <category term="JavaWeb" scheme="linisDaily.github.io/categories/JavaWeb/"/>
     
     
-      <category term="Servlet" scheme="https://taoya7.github.io/linisDaily.github.io/tags/Servlet/"/>
+      <category term="Servlet" scheme="linisDaily.github.io/tags/Servlet/"/>
     
   </entry>
   
