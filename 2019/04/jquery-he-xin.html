@@ -1,0 +1,1033 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="JQuery-核心, Hexo">
+    <meta name="description" content="JQuery入口函数的其他写法$(document).ready(function(){
+    alert(&#34;Hello&#34;);
+});
+
+$(window).on(&amp;#39;load&amp;#39;,function(){
+    alert(">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>JQuery-核心 | Hexo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">Hexo</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search" title="搜索"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hexo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link">
+    <a href="https://github.com/taoya7" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:569781231@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=569781231" class="tooltipped" data-tooltip="QQ联系我: 569781231" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        JQuery-核心
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JQuery/" target="_blank">
+                                <span class="chip bg-color">JQuery</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-04-21
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        1.3k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        5 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="JQuery入口函数的其他写法"><a href="#JQuery入口函数的其他写法" class="headerlink" title="JQuery入口函数的其他写法"></a>JQuery入口函数的其他写法</h3><pre class=" language-html"><code class="language-html">$(document).ready(function(){
+    alert("Hello");
+});
+</code></pre>
+<pre><code>$(window).on(&#39;load&#39;,function(){
+    alert(&quot;Hello&quot;);
+});
+</code></pre><h3 id="JQuery核心函数"><a href="#JQuery核心函数" class="headerlink" title="JQuery核心函数$();"></a>JQuery核心函数<code>$();</code></h3><p><strong>用法</strong></p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 接收一个函数</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 接收一个DOM元素</span>
+<span class="token keyword">var</span> div <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span>div<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>div<span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 接收一个字符串选择器  </span>
+<span class="token keyword">var</span> div <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">".box"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>div<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">/*返回一个JQuery对象，对象中保存了找到的DOM元素*/</span>
+</code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 接受一个字符串代码片段</span>
+<span class="token keyword">var</span> p <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"&lt;p>我是段落&lt;/p>"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*返回一个JQuery对象，对象中保存了创建的DOM元素*/</span>
+</code></pre>
+<h3 id="静态方法与实例方法"><a href="#静态方法与实例方法" class="headerlink" title="静态方法与实例方法"></a>静态方法与实例方法</h3><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//定义类</span>
+<span class="token keyword">function</span> <span class="token function">AClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//直接添加给类的是静态方法</span>
+AClass<span class="token punctuation">.</span>staticMethod <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"StaticMethod!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//调用</span>
+AClass<span class="token punctuation">.</span><span class="token function">staticMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+</code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//1.创建类</span>
+<span class="token keyword">function</span> <span class="token function">AClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//2. 创建实例方法</span>
+AClass<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>instanceMethod <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"InstanceMethod"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 3. 创建对象</span>
+<span class="token keyword">var</span> a <span class="token operator">=</span><span class="token keyword">new</span>  <span class="token class-name">AClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 4. 对象调用</span>
+a<span class="token punctuation">.</span><span class="token function">instanceMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>JQuery-foreach()</strong></p>
+<pre class=" language-js"><code class="language-js">    <span class="token comment" spellcheck="true">/*原生ForEach
+    *
+    * 参数1：遍历到的数组
+    * 参数2：当前遍历到的索引
+    * 注意： 原生foreach只能遍历数组
+    * */</span>
+    <span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    arr<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+    <span class="token comment" spellcheck="true">/*
+    * JQuery-ForEach
+    * */</span>
+    <span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    $<span class="token punctuation">.</span><span class="token function">each</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Name"</span><span class="token punctuation">:</span><span class="token string">"Aha"</span><span class="token punctuation">,</span> <span class="token string">"Age"</span><span class="token punctuation">:</span><span class="token number">15</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    $<span class="token punctuation">.</span><span class="token function">each</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>JQuery-map()</strong></p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Name"</span><span class="token punctuation">:</span><span class="token string">"Aha"</span><span class="token punctuation">,</span> <span class="token string">"Age"</span><span class="token punctuation">:</span><span class="token number">15</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/*原生JS-map遍历
+*
+* 参数1：当前遍历的元素
+* 参数2：当前遍历的索引
+* 参数3：当前遍历的数组
+*
+* 注意：只能遍历数组
+* */</span>
+arr<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> index<span class="token punctuation">,</span> array<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> index<span class="token punctuation">,</span> array<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/*JQuery-map
+* 参数1：要遍历的对象
+* 参数2：遍历一个元素之后执行的回调函数
+* */</span>
+$<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> index<span class="token punctuation">,</span> array<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> index<span class="token punctuation">,</span> array<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+$<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> index<span class="token punctuation">,</span> array<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> index<span class="token punctuation">,</span> array<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<blockquote>
+<p>each()与map()</p>
+</blockquote>
+<ol>
+<li>each静态方法默认的返回值就是,遍历谁就返回谁</li>
+<li>map静态方法返回值是一个空数组</li>
+</ol>
+<p><strong>其他静态方法</strong></p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">/*
+* trim();
+* 作用：去除字符串两端的空格
+* 参数：需要去除的字符串
+* 返回值：去除之后的字符串
+* */</span>
+<span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">"     Ha     "</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> res <span class="token operator">=</span> $<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/*
+* isWindow();
+* 作用：判断传入的对象是否window对象
+* */</span>
+
+<span class="token comment" spellcheck="true">/*
+* isArray();
+* 作用：判断传入的对象是否为真数组
+* */</span>
+
+<span class="token comment" spellcheck="true">/*
+* isFunction();
+* 作用：判断传入的是否为函数
+* */</span>
+
+<span class="token comment" spellcheck="true">/*
+* $.holdReady(true);
+* 作用：暂停ready执行
+* */</span>
+</code></pre>
+<h3 id="JQuery-选择器"><a href="#JQuery-选择器" class="headerlink" title="JQuery-选择器"></a>JQuery-选择器</h3><ul>
+<li>基本选择器</li>
+<li>层级选择器<ul>
+<li>后代<code>$(&quot;ul li&quot;)</code> <code>$(&quot;ul&gt;li&quot;)</code></li>
+<li>兄弟<code>$(&quot;p~div&quot;)`</code>$(“p+div”)`</li>
+</ul>
+</li>
+<li>属性选择器</li>
+<li>筛选选择器<ul>
+<li><code>parent()</code></li>
+<li><code>parents()</code></li>
+<li><code>children()</code></li>
+<li><code>siblings()</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="JQuery-尺寸操作-位置操作"><a href="#JQuery-尺寸操作-位置操作" class="headerlink" title="JQuery-尺寸操作|位置操作"></a>JQuery-尺寸操作|位置操作</h3><ul>
+<li><code>width()</code> 设置或返回元素的宽度（不包括内边距，边框 ， 外边距）</li>
+<li><code>height()</code> 设置或返回元素的高度（不包括内边距，边框 ， 外边距）</li>
+<li><code>innerWidth()</code>设置或返回元素的宽度（包括内边距）</li>
+<li><code>innerHeight()</code>设置或返回元素的高度（包括内边距）</li>
+<li><code>outerWidth()</code>设置或返回元素的宽度（包括内边距，边框）</li>
+<li><code>outerHeight()</code>设置或返回元素的高度（包括内边距，边框）</li>
+<li><code>outerWidth(true)</code>设置或返回元素的宽度（包括内边距，边框，外边距）</li>
+<li><code>outerHeight(true)</code>设置或返回元素的高度（包括内边距，边框，外边距）</li>
+</ul>
+<hr>
+<ul>
+<li><code>offset([coordinates])</code> 作用：设置|获取元素距离窗口的偏移位<pre class=" language-js"><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.box'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">offset</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//设置</span>
+      left<span class="token punctuation">:</span><span class="token number">100</span><span class="token punctuation">,</span>
+      top<span class="token punctuation">:</span><span class="token number">110</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.box'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">offset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//获取</span>
+</code></pre>
+</li>
+<li><code>position()</code> 作用：获取元素距离定位元素的偏移位<pre class=" language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.son'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">position</span><span class="token punctuation">(</span><span class="token string">'.box'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//获取</span>
+  <span class="token comment" spellcheck="true">//不能设置</span>
+</code></pre>
+</li>
+<li><code>scrollTop([val])</code> 作用：设置|获取元素的滚动值</li>
+<li><code>scrollLeft([val])</code><pre class=" language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"div"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">scrollTop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"div"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">scrollLeft</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//设置</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="JQuery-动画"><a href="#JQuery-动画" class="headerlink" title="JQuery-动画"></a>JQuery-动画</h3><p><strong>自定义动画</strong></p>
+<pre class=" language-js"><code class="language-js">
+<span class="token comment" spellcheck="true">/*
+    //三个参数
+    1. 接受一个对象可以在对象中修改属性
+    2. 指定动画时长
+    3. 动画节奏 默认swing linear
+    4. 动画执行完毕之后的回调函数
+*/</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"div"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">animate</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//属性</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"动画执行完毕！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>/**
+     * //立即停止当前动画的执行,继续执行后续的
+     * stop()
+     * stop(false)
+     * stop(false,false)
+     *
+     * //停止所有动画的执行和后续所有的动画
+     * stop(true)
+     * stop(true,false)
+     *
+     * //立即完成当前的，并且停止后续所有的
+     * stop(true,true)
+     * */
+</code></pre><h3 id="JQuery-标签处理"><a href="#JQuery-标签处理" class="headerlink" title="JQuery-标签处理"></a>JQuery-标签处理</h3><ul>
+<li>获取内容<code>text()</code><ul>
+<li>获取标签和内容<code>html()</code></li>
+<li>获取输入框的内容<code>val()</code></li>
+</ul>
+</li>
+<li>设置内容<code>text(内容)</code></li>
+<li>获取属性<code>attr(属性)</code> <ul>
+<li><strong>注意</strong>无论找到多少元素，都只会返回第一个元素指定属性节点的值</li>
+</ul>
+</li>
+<li>设置属性<code>attr(属性,值)</code> </li>
+<li>删除属性<code>removeAttr(属性);</code><ul>
+<li><strong>注意</strong>删除多个属性用空格隔开</li>
+</ul>
+</li>
+</ul>
+<h3 id="JQuery-文档处理"><a href="#JQuery-文档处理" class="headerlink" title="JQuery-文档处理"></a>JQuery-文档处理</h3><p><strong>添加节点</strong></p>
+<ul>
+<li><p>内部插入</p>
+<pre class=" language-js"><code class="language-js"><span class="token function">append</span><span class="token punctuation">(</span>content<span class="token operator">|</span>fn<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//元素添加到指定元素内部</span>
+<span class="token function">appendTo</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+<span class="token function">prepend</span><span class="token punctuation">(</span>content<span class="token operator">|</span>fn<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//将元素添加到指定元素的最前面</span>
+<span class="token function">prependTo</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+</code></pre>
+</li>
+<li><p>外部插入<br><code>`</code>js<br>after(content|fn) //将元素添加到指定元素外部的后面<br>insertAfter(content)</p>
+</li>
+</ul>
+<p>before(content|fn)//将元素添加到指定元素外部的前面<br>insertBefore(content)</p>
+<pre><code>
+**删除节点**
+
+```js
+remove() //删除指定元素
+empty() //删除指定元素的内容和子元素，指定元素自身不会被删除
+detach([expr]) //删除所有匹配的元素
+</code></pre><p><strong>替换</strong></p>
+<pre class=" language-js"><code class="language-js"><span class="token function">replaceWith</span><span class="token punctuation">(</span>content<span class="token operator">|</span>fn<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//替换所有匹配的元素</span>
+
+<span class="token function">replaceAll</span><span class="token punctuation">(</span>selector<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//替换顺序不一样</span>
+</code></pre>
+<p><strong>复制节点</strong></p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//传入false是浅复制 传入true是深复制</span>
+<span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">[</span>Even<span class="token punctuation">[</span><span class="token punctuation">,</span>deepEven<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> 
+</code></pre>
+<p><a href="http://jquery.cuishifeng.cn/" target="_blank" rel="noopener">中文文档</a></p>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://taoya7.github.io" class="b-link-green">Hexo</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/04/jquery-he-xin.html" class="b-link-green">JQuery-核心</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: null,
+        id: '2019-04-21T14-01-48',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/04/jquery-shi-jian.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="JQuery事件">
+                        
+                        <span class="card-title">JQuery事件</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">一.事件绑定
+方式一
+
+eventName
+
+
+$("button").click(function(){
+    // Code
+});
+
+
+方式二
+
+$("button").on("click", function(){
+       </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            linis
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JQuery/" target="_blank">
+                        <span class="chip bg-color">JQuery</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/04/css-flex-bu-ju.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="CSS-Flex布局">
+                        
+                        <span class="card-title">CSS-Flex布局</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Flex1. Flex布局
+display：flex 将对象作为弹性伸缩盒展示，用于块级元素
+
+display：inline-flex 将对象作为弹性伸缩盒展示，用于行内元素
+
+
+2. flex容器属性flex-direction用于指定F</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            linis
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CSS3/" target="_blank">
+                        <span class="chip bg-color">CSS3</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Hexo<br />'
+            + '作者: linis<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+       
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">48.2k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/taoya7" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:569781231@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=569781231" class="tooltipped" data-tooltip="QQ联系我: 569781231" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

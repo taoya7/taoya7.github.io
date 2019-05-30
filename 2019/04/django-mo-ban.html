@@ -1,0 +1,1430 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="模板, Hexo">
+    <meta name="description" content="模板Template怎样动态生成HTML？
+模板技术。模板包含所需HTML页面的静态部分，以及一些特殊的模版语法，用于将动态内容插入静态部分
+视图函数可以直接返回文本，若是要浏览器渲染出漂亮的HTML页面，需要模板系统，知名有DTL和Jin">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>模板 | Hexo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">Hexo</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search" title="搜索"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hexo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link">
+    <a href="https://github.com/taoya7" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:569781231@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=569781231" class="tooltipped" data-tooltip="QQ联系我: 569781231" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        模板
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Django/" target="_blank">
+                                <span class="chip bg-color">Django</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-04-16
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        3k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        12 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="模板Template"><a href="#模板Template" class="headerlink" title="模板Template"></a>模板Template</h1><p><strong>怎样动态生成HTML？</strong></p>
+<p>模板技术。模板包含所需HTML页面的静态部分，以及一些特殊的模版语法，用于将动态内容插入静态部分</p>
+<p>视图函数可以直接返回文本，若是要浏览器渲染出漂亮的HTML页面，需要模板系统，知名有DTL和Jinja2.</p>
+<p>DTL是Django Template Language三个单词的缩写，也就是Django自带的模板语言</p>
+<blockquote>
+<p>HTML 与 DTL文件的区别</p>
+</blockquote>
+<p>DTL模板是一种带有特殊语法的HTML文件。它可以被Django编译，可以传递参数，实现数据动态化。 在编译完成后，生成一个普通的HTML文件，然后发送客户端</p>
+<h3 id="主要分类"><a href="#主要分类" class="headerlink" title="主要分类"></a>主要分类</h3><ul>
+<li>变量</li>
+<li>标签</li>
+<li>过滤器</li>
+</ul>
+<h3 id="配置引擎"><a href="#配置引擎" class="headerlink" title="配置引擎"></a>配置引擎</h3><p>模板引擎通过settings中的TEMPLATES设置来配置。这是一个列表，与引擎一一对应，每个元素都是一个引擎配置字典。由startproject命令生成的settings.py会自定定义如下的值</p>
+<p><strong>模板查找路径配置</strong></p>
+<p>在项目的<code>settings.py</code>文件中。有一个<code>TEMPLATES</code>配置。它包含了模板引擎的配置，模板查找路径的配置，这个模板上下文配置等。</p>
+<p><code>DIRS</code>这是一个空列表，存放所有的模板路径。使用<code>render_to_string render</code>渲染模板 会优先在这个列表路径查找</p>
+<p><code>APP_DIRS</code>默认True。 会在<code>INSTALLED_APPS</code>安装的APP下的<code>templates</code>文件中查找模板</p>
+<p>修改<code>&#39;DIRS&#39;:[os.path.join(BASE_DIR,&#39;templates&#39;).replace(&#39;\\&#39;,&#39;/&#39;)],</code>这样就可以在APP内创建templates文件夹内放置模板文件</p>
+<p><strong>如果想要在APP下创建HTML文件</strong></p>
+<p><code>settings.py</code>配置<code>TEMPLATES</code>的<code>&#39;APP_DIRS&#39;: True</code></p>
+<p><code>INSTALLED_APPS</code>添加APP文件名</p>
+<h3 id="渲染模板"><a href="#渲染模板" class="headerlink" title="渲染模板"></a>渲染模板</h3><p>两种方式</p>
+<ul>
+<li>reader_to_string</li>
+</ul>
+<p>找到模板，然后将模板编译后的渲染Python字符串格式。最后通过HttpResponse类包装成一个HttpResponse对象返回回去</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>shortcuts <span class="token keyword">import</span> render
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>http <span class="token keyword">import</span> HttpResponse
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>template<span class="token punctuation">.</span>loader <span class="token keyword">import</span> render_to_string
+<span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    html <span class="token operator">=</span> render_to_string<span class="token punctuation">(</span><span class="token string">'index.html'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span>html<span class="token punctuation">)</span>
+</code></pre>
+<ul>
+<li>render</li>
+</ul>
+<p>直接将模板渲染成字符串和包装成HttpResponse对象</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>shortcuts <span class="token keyword">import</span> render
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>http <span class="token keyword">import</span> HttpResponse
+<span class="token comment" spellcheck="true"># Create your views here.</span>
+
+<span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> render<span class="token punctuation">(</span>request<span class="token punctuation">,</span> <span class="token string">'index.html'</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>模板中可以包含变量，在渲染模板的时候，可以传递变量对应的值进行替换。</p>
+<p>变量在视图函数渲染，视图函数需要添加<code>context</code>字典</p>
+<ul>
+<li>在模板中使用变量， 需要将变量放到 大括号里 中</li>
+<li>如果访问对象的属性，可以通过<code>对象.属性名</code>来进行访问</li>
+<li>如果访问一个字典的key对应的value，通过<code>字典.key</code>的方式访问，不可以通过<code>[ ]</code>来访问</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    context <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    context<span class="token punctuation">[</span><span class="token string">'UserName'</span><span class="token punctuation">:</span><span class="token string">'Tashi'</span><span class="token punctuation">]</span>
+    <span class="token keyword">return</span> render<span class="token punctuation">(</span>request<span class="token punctuation">,</span><span class="token string">"index.html"</span><span class="token punctuation">,</span> context<span class="token operator">=</span>context<span class="token punctuation">)</span>
+
+
+<span class="token operator">&lt;</span>h1<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>UserName<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
+</code></pre>
+<p>字典查询，属性查询和列表索引查找都是通过圆点符号.来实现。</p>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><table>
+<thead>
+<tr>
+<th>标签</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>autoescape</td>
+<td>自动转义开关</td>
+</tr>
+<tr>
+<td>block</td>
+<td>块引用</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>注释</td>
+</tr>
+<tr>
+<td>csrf_token</td>
+<td>CSRF令牌</td>
+</tr>
+<tr>
+<td>cycle</td>
+<td>循环对象的值</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>调试模式</td>
+</tr>
+<tr>
+<td>extends</td>
+<td>继承模版</td>
+</tr>
+<tr>
+<td>filter</td>
+<td>过滤功能</td>
+</tr>
+<tr>
+<td>firstof</td>
+<td>输出第一个不为False的参数</td>
+</tr>
+<tr>
+<td>for</td>
+<td>循环对象</td>
+</tr>
+<tr>
+<td>for … empty</td>
+<td>带empty说明的循环</td>
+</tr>
+<tr>
+<td>if</td>
+<td>条件判断</td>
+</tr>
+<tr>
+<td>ifequal</td>
+<td>如果等于</td>
+</tr>
+<tr>
+<td>ifnotequal</td>
+<td>如果不等于</td>
+</tr>
+<tr>
+<td>ifchanged</td>
+<td>如果有变化，则..</td>
+</tr>
+<tr>
+<td>include</td>
+<td>导入子模版的内容</td>
+</tr>
+<tr>
+<td>load</td>
+<td>加载标签和过滤器</td>
+</tr>
+<tr>
+<td>lorem</td>
+<td>生成无用的废话</td>
+</tr>
+<tr>
+<td>now</td>
+<td>当前时间</td>
+</tr>
+<tr>
+<td>regroup</td>
+<td>根据对象重组集合</td>
+</tr>
+<tr>
+<td>resetcycle</td>
+<td>重置循环</td>
+</tr>
+<tr>
+<td>spaceless</td>
+<td>去除空白</td>
+</tr>
+<tr>
+<td>templatetag</td>
+<td>转义模版标签符号</td>
+</tr>
+<tr>
+<td>url</td>
+<td>获取url字符串</td>
+</tr>
+<tr>
+<td>verbatim</td>
+<td>禁用模版引擎</td>
+</tr>
+<tr>
+<td>widthratio</td>
+<td>宽度比例</td>
+</tr>
+<tr>
+<td>with</td>
+<td>上下文变量管理器</td>
+</tr>
+</tbody>
+</table>
+<h4 id="if标签-条件判断"><a href="#if标签-条件判断" class="headerlink" title="if标签-条件判断"></a>if标签-条件判断</h4><ul>
+<li><code>if...elif...else...</code></li>
+<li><code>if...in...</code></li>
+<li><code>闭合标签 % endif %</code></li>
+</ul>
+<pre><code>from django.shortcuts import render
+from django.http import HttpResponse
+from django.template.loader import render_to_string
+def index(request):
+    #context必须为字典形式
+    context = {
+        &quot;age&quot;:18
+    }
+    return render(request, &#39;index.html&#39;, context=context)
+
+
+{% if age < 18 %}
+    <p>未成年</p>
+{% elif age == 18 %}
+    <p>满18</p>
+{% else %}
+    <p>成年人</p>
+{% endif %}
+</code></pre><pre><code>{% if XXX in XXX %}
+    &lt;P&gt;信息&lt;/P&gt;
+</code></pre><h4 id="for标签-循环"><a href="#for标签-循环" class="headerlink" title="for标签-循环"></a>for标签-循环</h4><p><code>for...in...</code></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">#context必须为字典形式</span>
+    context <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">"book"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'三国演义'</span><span class="token punctuation">,</span> <span class="token string">'水浒传'</span><span class="token punctuation">,</span> <span class="token string">'红楼梦'</span><span class="token punctuation">,</span> <span class="token string">'西游记'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> render<span class="token punctuation">(</span>request<span class="token punctuation">,</span> <span class="token string">'index.html'</span><span class="token punctuation">,</span> context<span class="token operator">=</span>context<span class="token punctuation">)</span>
+
+
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> book <span class="token operator">%</span><span class="token punctuation">}</span>
+   <span class="token punctuation">{</span><span class="token punctuation">{</span> i <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> endfor <span class="token operator">%</span><span class="token punctuation">}</span>
+</code></pre>
+<p><img src="/2019/04/django-mo-ban/1556097715612.png" alt></p>
+<p><code>for...in...</code> 反转</p>
+<pre class=" language-python"><code class="language-python"><span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> book reversed <span class="token operator">%</span><span class="token punctuation">}</span>
+   <span class="token punctuation">{</span><span class="token punctuation">{</span> i <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> endfor <span class="token operator">%</span><span class="token punctuation">}</span>
+</code></pre>
+<p><img src="/2019/04/django-mo-ban/1556097747741.png" alt></p>
+<p><code>遍历字典</code></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">#context必须为字典形式</span>
+    context <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">"Person"</span><span class="token punctuation">:</span><span class="token punctuation">{</span>
+            <span class="token string">"username"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'小红'</span><span class="token punctuation">,</span> <span class="token string">'小花'</span><span class="token punctuation">,</span> <span class="token string">'小明'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token string">"age"</span><span class="token punctuation">:</span><span class="token number">18</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> render<span class="token punctuation">(</span>request<span class="token punctuation">,</span> <span class="token string">'index.html'</span><span class="token punctuation">,</span> context<span class="token operator">=</span>context<span class="token punctuation">)</span>
+
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">for</span> key<span class="token punctuation">,</span> value <span class="token keyword">in</span> Person<span class="token punctuation">.</span>items <span class="token operator">%</span><span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>Key<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> key<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>Value<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> value <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+<span class="token punctuation">{</span><span class="token operator">%</span> endfor <span class="token operator">%</span><span class="token punctuation">}</span>
+</code></pre>
+<p><img src="/2019/04/django-mo-ban/1556097774161.png" alt></p>
+<p><strong>在for循环中，DTL提供了一些变量提供使用</strong></p>
+<ol>
+<li><code>forloop.counter</code>当前循环的下标，以1起始</li>
+<li><code>forloop.counter0</code>以0开始</li>
+<li><code>forloop.revcunter</code>反向遍历</li>
+<li><code>forloop.first</code>是否第一次遍历</li>
+<li><code>forloop.last</code>是否最后一次遍历</li>
+<li><code>forloop.parentloop</code>如果多个循环嵌套，那么这个属性代表是上一级的for循环</li>
+</ol>
+<p><code>for...in...empty</code></p>
+<p>与for…in…不同的是，在遍历对象如果没有元素的情况下，会执行empty中的内容</p>
+<pre class=" language-python"><code class="language-python"><span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">for</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token keyword">in</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token keyword">pass</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> empty <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token keyword">pass</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> endfor <span class="token operator">%</span><span class="token punctuation">}</span>
+</code></pre>
+<h4 id="模板继承"><a href="#模板继承" class="headerlink" title="模板继承"></a>模板继承</h4><p><img src="/2019/04/django-mo-ban/1556435171295.jpg" alt></p>
+<p>父模版的% block %标签中的内容总是被用作默认内容</p>
+<p><img src="/2019/04/django-mo-ban/1556435191242.jpg" alt></p>
+<h4 id="转义标签"><a href="#转义标签" class="headerlink" title="转义标签"></a>转义标签</h4><ul>
+<li><code>&lt;</code>会转换为<code>&amp;lt;</code></li>
+<li><code>&gt;</code>会转换为<code>&amp;gt;</code></li>
+<li><code>&#39;</code>（单引号）转换为<code>&amp;#39;</code></li>
+<li><code>&quot;</code>双引号)会转换为<code>&amp;quot;</code></li>
+<li><code>&amp;</code>会转换为<code>&amp;amp;</code></li>
+</ul>
+<h4 id="with标签"><a href="#with标签" class="headerlink" title="with标签"></a>with标签</h4><pre><code>定义变量
+% with  zs=Age  %
+    &lt;h1&gt;{{ zs }}&lt;/h1&gt;
+% endwith %
+</code></pre><h4 id="URL标签"><a href="#URL标签" class="headerlink" title="URL标签"></a>URL标签</h4><p>urls.py</p>
+<pre class=" language-python"><code class="language-python">urlpatterns <span class="token operator">=</span> <span class="token punctuation">[</span>
+    path<span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>index<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">#首页</span>
+    path<span class="token punctuation">(</span><span class="token string">'book/'</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>book<span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'book'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    path<span class="token punctuation">(</span><span class="token string">'movie/'</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>movie<span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'movie'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    path<span class="token punctuation">(</span><span class="token string">'city/'</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>city<span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'city'</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<p>views.py</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">#context必须为字典形式</span>
+    <span class="token keyword">return</span> render<span class="token punctuation">(</span>request<span class="token punctuation">,</span> <span class="token string">'index.html'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">book</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">'读书页面'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">movie</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">'电影页面'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">city</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">'同城页面'</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="/2019/04/django-mo-ban/1556097889267.gif" alt></p>
+<p><strong>总结</strong></p>
+<pre><code>1. &lt;a href=&quot;{% url 'url_name' %}&quot;&gt; &lt;/a&gt;
+2. &lt;a href=&quot;{% url 'url_name' 参数=值 %}&quot;&gt; &lt;/a&gt;
+3. &lt;a href=&quot;{% url 'url_name' %}?参数=值 参数=值&quot;&gt; &lt;/a&gt;
+</code></pre><pre><code>http://127.0.0.1:8000/book/info/1
+
+http://127.0.0.1:8000/login/?user=&quot;Tashi&quot;&amp;pwd=&quot;123456&quot;
+</code></pre><h4 id="autoescape自动转义标签"><a href="#autoescape自动转义标签" class="headerlink" title="autoescape自动转义标签"></a>autoescape自动转义标签</h4><h4 id="加载静态文件"><a href="#加载静态文件" class="headerlink" title="加载静态文件"></a>加载静态文件</h4><p>在一个网页当中不仅仅只有一个HTML骨架，还需要CSS样式文件，JS执行文件。因此DTL中加载静态文件是一个必须解决的问题，在DTL中使用<code>static</code>标签 加载静态文件。 要使用<code>static</code>标签。需要% load static %</p>
+<ol>
+<li><p>首先确保项目文件夹下settings.py中<code>django.contrib.staticfiles</code>添加到<code>settings.INSTALLED_APPS</code>当中</p>
+</li>
+<li><p>settings.py 中设置了<code>STATIC_URL</code></p>
+</li>
+<li><p><code>APP</code>下创建文件夹<code>static</code>.</p>
+</li>
+<li><p>加载标签<code>load static</code> <code>&lt;link rel=&quot;stylesheet&quot; href=&quot;static 文件路径 &quot;&gt;</code></p>
+</li>
+</ol>
+<h2 id="过滤器"><a href="#过滤器" class="headerlink" title="#过滤器"></a>#过滤器</h2><p><strong>为什么需要过滤器？</strong></p>
+<p>因为在DTL中，不支持函数的调用形式</p>
+<table>
+<thead>
+<tr>
+<th>过滤器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>add</td>
+<td>加法</td>
+</tr>
+<tr>
+<td>addslashes</td>
+<td>添加斜杠</td>
+</tr>
+<tr>
+<td>capfirst</td>
+<td>首字母大写</td>
+</tr>
+<tr>
+<td>center</td>
+<td>文本居中</td>
+</tr>
+<tr>
+<td>cut</td>
+<td>切除字符</td>
+</tr>
+<tr>
+<td>date</td>
+<td>日期格式化</td>
+</tr>
+<tr>
+<td>default</td>
+<td>设置默认值</td>
+</tr>
+<tr>
+<td>default_if_none</td>
+<td>为None设置默认值</td>
+</tr>
+<tr>
+<td>dictsort</td>
+<td>字典排序</td>
+</tr>
+<tr>
+<td>dictsortreversed</td>
+<td>字典反向排序</td>
+</tr>
+<tr>
+<td>divisibleby</td>
+<td>整除判断</td>
+</tr>
+<tr>
+<td>escape</td>
+<td>转义</td>
+</tr>
+<tr>
+<td>escapejs</td>
+<td>转义js代码</td>
+</tr>
+<tr>
+<td>filesizeformat</td>
+<td>文件尺寸人性化显示</td>
+</tr>
+<tr>
+<td>first</td>
+<td>第一个元素</td>
+</tr>
+<tr>
+<td>floatformat</td>
+<td>浮点数格式化</td>
+</tr>
+<tr>
+<td>force_escape</td>
+<td>强制立刻转义</td>
+</tr>
+<tr>
+<td>get_digit</td>
+<td>获取数字</td>
+</tr>
+<tr>
+<td>iriencode</td>
+<td>转换IRI</td>
+</tr>
+<tr>
+<td>join</td>
+<td>字符列表链接</td>
+</tr>
+<tr>
+<td>last</td>
+<td>最后一个</td>
+</tr>
+<tr>
+<td>length</td>
+<td>长度</td>
+</tr>
+<tr>
+<td>length_is</td>
+<td>长度等于</td>
+</tr>
+<tr>
+<td>linebreaks</td>
+<td>行转换</td>
+</tr>
+<tr>
+<td>linebreaksbr</td>
+<td>行转换</td>
+</tr>
+<tr>
+<td>linenumbers</td>
+<td>行号</td>
+</tr>
+<tr>
+<td>ljust</td>
+<td>左对齐</td>
+</tr>
+<tr>
+<td>lower</td>
+<td>小写</td>
+</tr>
+<tr>
+<td>make_list</td>
+<td>分割成字符列表</td>
+</tr>
+<tr>
+<td>phone2numeric</td>
+<td>电话号码</td>
+</tr>
+<tr>
+<td>pluralize</td>
+<td>复数形式</td>
+</tr>
+<tr>
+<td>pprint</td>
+<td>调试</td>
+</tr>
+<tr>
+<td>random</td>
+<td>随机获取</td>
+</tr>
+<tr>
+<td>rjust</td>
+<td>右对齐</td>
+</tr>
+<tr>
+<td>safe</td>
+<td>安全确认</td>
+</tr>
+<tr>
+<td>safeseq</td>
+<td>列表安全确认</td>
+</tr>
+<tr>
+<td>slice</td>
+<td>切片</td>
+</tr>
+<tr>
+<td>slugify</td>
+<td>转换成ASCII</td>
+</tr>
+<tr>
+<td>stringformat</td>
+<td>字符串格式化</td>
+</tr>
+<tr>
+<td>striptags</td>
+<td>去除HTML中的标签</td>
+</tr>
+<tr>
+<td>time</td>
+<td>时间格式化</td>
+</tr>
+<tr>
+<td>timesince</td>
+<td>从何时开始</td>
+</tr>
+<tr>
+<td>timeuntil</td>
+<td>到何时多久</td>
+</tr>
+<tr>
+<td>title</td>
+<td>所有单词首字母大写</td>
+</tr>
+<tr>
+<td>truncatechars</td>
+<td>截断字符</td>
+</tr>
+<tr>
+<td>truncatechars_html</td>
+<td>截断字符</td>
+</tr>
+<tr>
+<td>truncatewords</td>
+<td>截断单词</td>
+</tr>
+<tr>
+<td>truncatewords_html</td>
+<td>截断单词</td>
+</tr>
+<tr>
+<td>unordered_list</td>
+<td>无序列表</td>
+</tr>
+<tr>
+<td>upper</td>
+<td>大写</td>
+</tr>
+<tr>
+<td>urlencode</td>
+<td>转义url</td>
+</tr>
+<tr>
+<td>urlize</td>
+<td>url转成可点击的链接</td>
+</tr>
+<tr>
+<td>urlizetrunc</td>
+<td>urlize的截断方式</td>
+</tr>
+<tr>
+<td>wordcount</td>
+<td>单词计数</td>
+</tr>
+<tr>
+<td>wordwrap</td>
+<td>单词包裹</td>
+</tr>
+<tr>
+<td>yesno</td>
+<td>将True，False和None，映射成字符串‘yes’，‘no’，‘maybe’</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><code>length</code> 返回值的长度</li>
+<li><code>default</code> 为false或者空变量提供默认值</li>
+<li><code>filesizeformat</code> 文件大小单位</li>
+<li><code>add</code>  添加字符串|数值</li>
+<li><code>cut</code> 移除字符串指定的字符</li>
+<li><code>date</code> 时间</li>
+<li><code>first</code>|<code>last</code> 返回元祖或列表的首元素或尾元素</li>
+<li><code>join</code> 字符串的拼接</li>
+<li><code>floatformat</code> 使用四舍五入的方式格式化一个浮点类型。若没有传递参数，只会保留一个小数</li>
+<li><code>random</code>给被给的列表/字符串/元祖中随机选择一个值</li>
+<li><code>slice</code> 类似Python中的切片</li>
+<li><code>striptags</code> 删除所有html标签</li>
+<li><code>truncatechars</code> 如果给定的字符串长度超过过滤器的长度就会切割，并且会以三个点来展示</li>
+</ol>
+<h4 id="自定义过滤器模板"><a href="#自定义过滤器模板" class="headerlink" title="自定义过滤器模板"></a>自定义过滤器模板</h4><p>在app中新建一个templatetags包 (名字固定，不能变，只能是这个）.不要忘记创建<strong>init</strong>.py文件以使得该目录可以作为Python的包.自定义标签的app必须在INSTALLED_APPS中注册</p>
+<ol>
+<li>新建templatetags包</li>
+<li>在<code>templatetags</code>新建自定义python文件</li>
+<li>定义过滤器</li>
+</ol>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> django <span class="token keyword">import</span> template
+
+register <span class="token operator">=</span> template<span class="token punctuation">.</span>Library<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#过滤器最多只能两个参数</span>
+<span class="token comment" spellcheck="true"># 过滤器的第一个参数固定value</span>
+<span class="token keyword">def</span> <span class="token function">myadd</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span>word<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> value<span class="token operator">+</span>word
+
+register<span class="token punctuation">.</span>filter<span class="token punctuation">(</span><span class="token string">"great"</span><span class="token punctuation">,</span>myadd<span class="token punctuation">)</span>
+</code></pre>
+<ol start="4">
+<li>把过滤器这个app添加到<code>settings.py</code>中</li>
+<li>模板中使用<code>load</code>标签加载过滤器</li>
+</ol>
+<pre class=" language-python"><code class="language-python"><span class="token punctuation">{</span><span class="token operator">%</span> load  python文件名 <span class="token operator">%</span><span class="token punctuation">}</span>
+</code></pre>
+<ol start="6">
+<li>使用</li>
+</ol>
+<pre><code>&quot;000&quot;|great:&quot;23&quot;
+</code></pre><h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#如果文章超过100字 以。。。中止</span>
+article<span class="token punctuation">.</span>content<span class="token operator">|</span>truncatewords<span class="token punctuation">:</span><span class="token number">100</span>
+</code></pre>
+<p>truncateword和slice的区别</p>
+<pre class=" language-python"><code class="language-python">content<span class="token operator">|</span>truncatewords<span class="token punctuation">:</span><span class="token string">"15"</span>
+表示显示变量content中前<span class="token number">15</span>个字符，适用于英文内容
+
+content<span class="token operator">|</span>slice<span class="token punctuation">:</span><span class="token string">"15"</span>
+表示显示变量content中的<span class="token number">15</span>个字符，使用于中文内容
+</code></pre>
+<pre><code># add
+&quot;Tashi&quot;|add:&quot;&lt;h1&gt;www.itaolaity.com&lt;/h1&gt;&quot; 
+&gt;&gt;&gt; Tashi www.itaolaity.com
+
+5|add:6 
+&gt;&gt;&gt; 11
+
+#Cut
+ &quot;My Name Is Luck!&quot;| cut:&quot;Name&quot; 
+ &gt;&gt;&gt; My Is Luck!
+
+
+#length
+&quot;My Name Is Luck!&quot;| length 
+&gt;&gt;&gt; 16
+
+
+#filesizeformat
+ 1024 | filesizeformat 
+1048576 | filesizeformat 
+1099511627776 | filesizeformat 
+&gt;&gt;&gt;1.0 KB 1.0 MB 1.0 TB
+
+#slice
+&#39;abcdefg&#39;|slice:&quot;1:4&quot; 
+&gt;&gt;&gt; bcd
+
+#date
+&gt;&gt;&gt; Feb. 27, 2019, 5:22 p.m.
+date|date:&quot;Y-m-d  G:i:s&quot; 
+&gt;&gt;&gt; 2019-02-27 17:21:31
+</code></pre><h4 id="关于过滤器的一些奇技淫巧"><a href="#关于过滤器的一些奇技淫巧" class="headerlink" title="关于过滤器的一些奇技淫巧"></a>关于过滤器的一些奇技淫巧</h4><p>Django在django.contrib.humanize中提供了一系列的模板过滤器，有助于为数据展示添加“人文关怀”。</p>
+<p>需要把django.contrib.humanize添加到INSTALLED_APPS设置中来激活这些过滤器。然后在模板中使用&lt;% load humanize %&gt;标签，就可以使用下面的过滤器了。</p>
+<p><strong>apnumber</strong></p>
+<p>对于数字1~9，返回英文单词，否则返回数字本身。 </p>
+<p><strong>intcomma</strong></p>
+<p>将整数或浮点数（或两者的字符串表示形式）转换为每隔三位数字包含逗号的字符串。这在财务报表中很有用</p>
+<p><img src="/2019/04/django-mo-ban/1556435071410.jpg" alt></p>
+<p><strong>naturalday</strong></p>
+<p>对于当天或者一天之内的日期，返回“today”,“tomorrow”或者“yesterday”的表示形式，视情况而定。否则，使用传进来的格式字符串进行日期格式化。</p>
+<p><strong>naturaltime</strong></p>
+<p>对于日期时间的值，返回一个字符串来表示多少秒、分钟或者小时之前。如果超过一天之前，则回退为使用timesince格式。如果是未来的日期时间，返回值会自动使用合适的文字表述。</p>
+<pre><code>17 Feb 2007 16:30:00 会变成 now。
+17 Feb 2007 16:29:31 会变成 29 seconds ago。
+17 Feb 2007 16:29:00 会变成 a minute ago。
+17 Feb 2007 16:25:35 会变成 4 minutes ago。
+17 Feb 2007 15:30:29 会变成 59 minutes ago。
+17 Feb 2007 15:30:01 会变成 59 minutes ago。
+17 Feb 2007 15:30:00 会变成 an hour ago。
+17 Feb 2007 13:31:29 会变成 2 hours ago。
+16 Feb 2007 13:31:29 会变成 1 day, 2 hours ago。
+16 Feb 2007 13:30:01 会变成 1 day, 2 hours ago。
+16 Feb 2007 13:30:00 会变成 1 day, 3 hours ago。
+17 Feb 2007 16:30:30 会变成 30 seconds from now。
+17 Feb 2007 16:30:29 会变成 29 seconds from now。
+17 Feb 2007 16:31:00 会变成 a minute from now。
+17 Feb 2007 16:34:35 会变成 4 minutes from now。
+17 Feb 2007 17:30:29 会变成 an hour from now。
+17 Feb 2007 18:31:29 会变成 2 hours from now。
+18 Feb 2007 16:31:29 会变成 1 day from now。
+26 Feb 2007 18:31:29 会变成 1 week, 2 days from now。
+</code></pre><p><strong>ordinal</strong></p>
+<p>将一个整数转化为它的序数词字符串</p>
+<p><img src="/2019/04/django-mo-ban/1556435039765.jpg" alt></p>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://taoya7.github.io" class="b-link-green">Hexo</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/04/django-mo-ban.html" class="b-link-green">模板</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: null,
+        id: '2019-04-16T15-08-09',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/04/django-shu-ju-ku.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Django-数据库">
+                        
+                        <span class="card-title">Django-数据库</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">数据库驱动常见MySQL驱动介绍：
+
+MySQL-python：也就是MySQLdb。是对C语言操作MySQL数据库的一个简单封装。遵循了Python DB API v2。但是只支持Python2，目前还不支持Python3
+mysqlcl</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            linis
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Django/" target="_blank">
+                        <span class="chip bg-color">Django</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/04/django-url-yu-shi-tu.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Django-URL与视图">
+                        
+                        <span class="card-title">Django-URL与视图</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+安装Django
+
+pip install django
+
+#检查是否安装成功
+import django
+django.get_version()
+创建项目
+命令行
+django-admin startproject 目录名称
+
+
+Py</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            linis
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Django/" target="_blank">
+                        <span class="chip bg-color">Django</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Hexo<br />'
+            + '作者: linis<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+       
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">48.2k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/taoya7" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:569781231@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=569781231" class="tooltipped" data-tooltip="QQ联系我: 569781231" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,916 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Django-admin后台管理, Hexo">
+    <meta name="description" content="#准备工作
+创建用户名与密码
+
+python manage.py createsuperuser
+
+为APP注册到后台
+
+#admin.py
+from django.contrib import admin
+from book import">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Django-admin后台管理 | Hexo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">Hexo</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search" title="搜索"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hexo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link">
+    <a href="https://github.com/taoya7" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:569781231@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=569781231" class="tooltipped" data-tooltip="QQ联系我: 569781231" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Django-admin后台管理
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Django/" target="_blank">
+                                <span class="chip bg-color">Django</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-04-16
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        997
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        4 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="#准备工作"></a>#准备工作</h1><blockquote>
+<p>创建用户名与密码</p>
+</blockquote>
+<pre><code>python manage.py createsuperuser
+</code></pre><blockquote>
+<p>为APP注册到后台</p>
+</blockquote>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#admin.py</span>
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>contrib <span class="token keyword">import</span> admin
+<span class="token keyword">from</span> book <span class="token keyword">import</span> models <span class="token comment" spellcheck="true">#导入ORM模型</span>
+<span class="token comment" spellcheck="true"># Register your models here.</span>
+
+admin<span class="token punctuation">.</span>site<span class="token punctuation">.</span>register<span class="token punctuation">(</span>models<span class="token punctuation">.</span>Book<span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>搜索admin文件</p>
+</blockquote>
+<p>在<code>INSTALLED_APPS</code>设置中添加了<code>django.contrib.admin</code>后，Django将自动在每个应用中搜索admin模块并导入它。也就是说，通常我们在每个app下都有一个admin.py文件，将当前app和admin有关的内容写到内部的admin.py文件中就可以了，Django会自动搜索并应用它们</p>
+<hr>
+<h3 id="Admin自定义"><a href="#Admin自定义" class="headerlink" title="#Admin自定义"></a>#Admin自定义</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>contrib <span class="token keyword">import</span> admin
+<span class="token keyword">from</span> <span class="token punctuation">.</span>models <span class="token keyword">import</span> Book
+
+
+<span class="token comment" spellcheck="true"># 创建一个BookAdmin的子类</span>
+<span class="token keyword">class</span> <span class="token class-name">BookAdmin</span><span class="token punctuation">(</span>admin<span class="token punctuation">.</span>ModelAdmin<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    list_display <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#添加展示字段</span>
+    list_filter <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#添加过滤器列表</span>
+<span class="token comment" spellcheck="true"># 注册的时候，将原模型和BookAdmin耦合起来</span>
+admin<span class="token punctuation">.</span>site<span class="token punctuation">.</span>register<span class="token punctuation">(</span>Book<span class="token punctuation">,</span>BookAdmin<span class="token punctuation">)</span>
+</code></pre>
+<h4 id="ModelAdmin-actions-selection-counter"><a href="#ModelAdmin-actions-selection-counter" class="headerlink" title="ModelAdmin.actions_selection_counter"></a>ModelAdmin.actions_selection_counter</h4><p>是否在actions下拉框右侧显示选中的对象的数量，默认为True，可改为False</p>
+<p><img src="/2019/04/django-admin-hou-tai-guan-li/1555476176384.png" alt></p>
+<h4 id="ModelAdmin-date-hierarchy"><a href="#ModelAdmin-date-hierarchy" class="headerlink" title="ModelAdmin.date_hierarchy"></a>ModelAdmin.date_hierarchy</h4><p>根据指定的日期相关的字段，为页面创建一个时间导航栏，可通过日期过滤对象</p>
+<p><img src="/2019/04/django-admin-hou-tai-guan-li/1555476182947.png" alt></p>
+<h4 id="ModelAdmin-exclude"><a href="#ModelAdmin-exclude" class="headerlink" title="ModelAdmin.exclude"></a>ModelAdmin.exclude</h4><p>不显示指定的某些字段</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#models.py</span>
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>db <span class="token keyword">import</span> models
+
+<span class="token keyword">class</span> <span class="token class-name">Author</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">)</span>
+    title <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
+    birth_date <span class="token operator">=</span> models<span class="token punctuation">.</span>DateField<span class="token punctuation">(</span>blank<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> null<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#admin.py</span>
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>contrib <span class="token keyword">import</span> admin
+
+<span class="token keyword">class</span> <span class="token class-name">AuthorAdmin</span><span class="token punctuation">(</span>admin<span class="token punctuation">.</span>ModelAdmin<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token comment" spellcheck="true">#注意了，值是个元组！一个元素的时候，最后的逗号不能省略</span>
+    fields <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'title'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#等同于  exclude = ('birth_date',)</span>
+
+</code></pre>
+<h4 id="ModelAdmin-fields"><a href="#ModelAdmin-fields" class="headerlink" title="ModelAdmin.fields"></a>ModelAdmin.fields</h4><p>顺序，显示指定的字段。与exclude相对 </p>
+<p>小技巧，你可以通过组合元组的方式，让某些字段在同一行内显示，例如下面的做法“url”和“title”将在一行内，而“content”则在下一行</p>
+<pre><code>class FlatPageAdmin(admin.ModelAdmin):
+    fields = ((&#39;url&#39;, &#39;title&#39;), &#39;content&#39;)
+</code></pre><h4 id="ModelAdmin-fieldsets"><a href="#ModelAdmin-fieldsets" class="headerlink" title="ModelAdmin.fieldsets"></a>ModelAdmin.fieldsets</h4><p>根据字段对页面进行分组显示或布局了。fieldsets是一个二元元组的列表。每个二元元组代表一个<code>&lt;fieldset&gt;</code>，是整个form的一部分</p>
+<ul>
+<li>classes一个包含额外的CSS类的元组<ul>
+<li>collaspe 将fieldsets折叠起来</li>
+<li>wide 让它具备更宽的水平空间</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>contrib <span class="token keyword">import</span> admin
+<span class="token keyword">from</span> <span class="token punctuation">.</span>models <span class="token keyword">import</span> Book
+
+
+<span class="token comment" spellcheck="true"># 创建一个BookAdmin的子类</span>
+<span class="token keyword">class</span> <span class="token class-name">BookAdmin</span><span class="token punctuation">(</span>admin<span class="token punctuation">.</span>ModelAdmin<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    list_display <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
+    list_filter <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># date_hierarchy = 'pub_date'</span>
+    fieldsets <span class="token operator">=</span> <span class="token punctuation">(</span>
+        <span class="token punctuation">(</span><span class="token string">'文章内容'</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token string">'fields'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'author'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+         <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span><span class="token string">'高级板块'</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token string">'fields'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'classes'</span><span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token string">'collapse'</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 注册的时候，将原模型和BookAdmin耦合起来</span>
+admin<span class="token punctuation">.</span>site<span class="token punctuation">.</span>register<span class="token punctuation">(</span>Book<span class="token punctuation">,</span>BookAdmin<span class="token punctuation">)</span>
+</code></pre>
+<p><img src="/2019/04/django-admin-hou-tai-guan-li/1555422727436.png" alt></p>
+<h4 id="ModelAdmin-list-filter"><a href="#ModelAdmin-list-filter" class="headerlink" title="ModelAdmin.list_filter"></a>ModelAdmin.list_filter</h4><p>设置list_filter属性后，可以激活修改列表页面的右侧边栏，用于对列表元素进行过滤</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 创建一个BookAdmin的子类</span>
+<span class="token keyword">class</span> <span class="token class-name">BookAdmin</span><span class="token punctuation">(</span>admin<span class="token punctuation">.</span>ModelAdmin<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    list_filter <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="/2019/04/django-admin-hou-tai-guan-li/1555476166582.png" alt></p>
+<h4 id="ModelAdmin-search-fields"><a href="#ModelAdmin-search-fields" class="headerlink" title="ModelAdmin.search_fields"></a>ModelAdmin.search_fields</h4><p>设置这个属性，可以为admin的修改列表页面添加一个搜索框.</p>
+<p>被搜索的字段可以是CharField或者TextField文本类型，也可以通过双下划线进行ForeignKey或者ManyToManyField的查询</p>
+<p><img src="/2019/04/django-admin-hou-tai-guan-li/1555476159543.png" alt></p>
+<pre><code>search_fields = [&#39;name&#39;]
+</code></pre><h4 id="ModelAdmin-filter-horizontal"><a href="#ModelAdmin-filter-horizontal" class="headerlink" title="ModelAdmin.filter_horizontal"></a>ModelAdmin.filter_horizontal</h4><p>水平扩展多对多字段。默认情况下，ManyTOManyField在admin的页面中会显示为一个select框。在需要选择大量对象时，这会有点困难。将ManyTOManyField添加到这个属性列表里后，页面就会对字段进行扩展，并提供过滤功能</p>
+<pre class=" language-python"><code class="language-python">filter_horizontal <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'tags'</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="/2019/04/django-admin-hou-tai-guan-li/1555476143787.png" alt></p>
+<p>#### </p>
+<p><strong>list_per_page</strong></p>
+<p>每页展示多少数据</p>
+<p><strong>autocomplete_fields =[‘字段’]</strong></p>
+<p>自动补全。只能放外键</p>
+<p><strong>radio_fields = {‘字段’,admin.VERTICAL}</strong></p>
+<p>下拉框变Radio 水平排列</p>
+<h3 id="list-display"><a href="#list-display" class="headerlink" title="#list_display"></a>#list_display</h3><p>指定显示在修改页面上的字段。这是一个很常用也是最重要的技巧</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">BookAdmin</span><span class="token punctuation">(</span>admin<span class="token punctuation">.</span>ModelAdmin<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    list_display <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span><span class="token string">'author'</span><span class="token punctuation">,</span><span class="token string">'id'</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="/2019/04/django-admin-hou-tai-guan-li/1555476134789.png" alt></p>
+<p>如果你不设置这个属性，admin站点将只显示一列，内容是每个对象的<code>__str__()</code></p>
+<p>在<code>list_display</code>中，你可以设置四种值</p>
+<ul>
+<li>模型的 <del>字段名</del></li>
+<li>一个 <del>函数</del>，接受一个模型实例作为参数</li>
+<li>一个表示ModelAdmin的某个属性的字符串</li>
+<li>一个表示模型的某个属性的字符串</li>
+</ul>
+<blockquote>
+<p>如何引用CSS样式</p>
+</blockquote>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#Models.py</span>
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>db <span class="token keyword">import</span> models
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>html <span class="token keyword">import</span> format_html
+
+<span class="token keyword">class</span> <span class="token class-name">Book</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>、
+    id <span class="token operator">=</span> models<span class="token punctuation">.</span>AutoField<span class="token punctuation">(</span>primary_key<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    name <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">255</span><span class="token punctuation">,</span> null<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    author <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">255</span><span class="token punctuation">,</span> null<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">showStr</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> format_html<span class="token punctuation">(</span><span class="token string">'&lt;span style="color:blue">Good&lt;/>'</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#Admin.py</span>
+<span class="token keyword">class</span> <span class="token class-name">BookAdmin</span><span class="token punctuation">(</span>admin<span class="token punctuation">.</span>ModelAdmin<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    list_display <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span><span class="token string">'author'</span><span class="token punctuation">,</span><span class="token string">'id'</span><span class="token punctuation">,</span><span class="token string">'showStr'</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="/2019/04/django-admin-hou-tai-guan-li/1555476122014.png" alt></p>
+<blockquote>
+<p>自定义表的名称</p>
+</blockquote>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Book</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token keyword">class</span> <span class="token class-name">Meta</span><span class="token punctuation">:</span>
+        verbose_name_plural<span class="token operator">=</span><span class="token string">'书籍'</span>
+</code></pre>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://taoya7.github.io" class="b-link-green">Hexo</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/04/django-admin-hou-tai-guan-li.html" class="b-link-green">Django-admin后台管理</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: null,
+        id: '2019-04-16T20-38-30',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/04/django-you-jian-xi-tong.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Django-邮件系统">
+                        
+                        <span class="card-title">Django-邮件系统</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+准备工作
+
+
+host
+user
+pass
+
+smtp.qq.com
+
+3335215292@qq.com
+
+授权码 syw....vthtk....
+smtplib库发送邮件
+import smtplib
+from email.mime</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-18
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            linis
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Django/" target="_blank">
+                        <span class="chip bg-color">Django</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/04/django-shu-ju-ku.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Django-数据库">
+                        
+                        <span class="card-title">Django-数据库</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">数据库驱动常见MySQL驱动介绍：
+
+MySQL-python：也就是MySQLdb。是对C语言操作MySQL数据库的一个简单封装。遵循了Python DB API v2。但是只支持Python2，目前还不支持Python3
+mysqlcl</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            linis
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Django/" target="_blank">
+                        <span class="chip bg-color">Django</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Hexo<br />'
+            + '作者: linis<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+       
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">48.2k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/taoya7" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:569781231@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=569781231" class="tooltipped" data-tooltip="QQ联系我: 569781231" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,1025 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Django-数据库, Hexo">
+    <meta name="description" content="数据库驱动常见MySQL驱动介绍：
+
+MySQL-python：也就是MySQLdb。是对C语言操作MySQL数据库的一个简单封装。遵循了Python DB API v2。但是只支持Python2，目前还不支持Python3
+mysqlcl">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Django-数据库 | Hexo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">Hexo</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search" title="搜索"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hexo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link">
+    <a href="https://github.com/taoya7" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:569781231@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=569781231" class="tooltipped" data-tooltip="QQ联系我: 569781231" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Django-数据库
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Django/" target="_blank">
+                                <span class="chip bg-color">Django</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-04-16
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        2.3k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        8 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="数据库驱动"><a href="#数据库驱动" class="headerlink" title="数据库驱动"></a>数据库驱动</h2><p>常见MySQL驱动介绍：</p>
+<ul>
+<li>MySQL-python：也就是MySQLdb。是对C语言操作MySQL数据库的一个简单封装。遵循了Python DB API v2。但是只支持Python2，目前还不支持Python3</li>
+<li>mysqlclient：是MySQL-python的另外一个分支。支持Python3并且修复了一些bug。</li>
+<li>pymysql：纯Python实现的一个驱动。因为是纯Python编写的，因此执行效率不如MySQL-python。并且也因为是纯Python编写的，因此可以和Python代码无缝衔接。</li>
+<li>MySQL Connector/Python：MySQL官方推出的使用纯Python连接MySQL的驱动。因为是纯Python开发的。效率不高。</li>
+</ul>
+<blockquote>
+<p>安装数据库</p>
+</blockquote>
+<pre class=" language-python"><code class="language-python">pip install mysqlclient
+</code></pre>
+<h3 id="配置数据库"><a href="#配置数据库" class="headerlink" title="#配置数据库"></a>#配置数据库</h3><p>settings.py</p>
+<pre class=" language-python"><code class="language-python">DATABASES <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'default'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">#数据库引擎（splite3/mysql/oracle）</span>
+        <span class="token string">'ENGINE'</span><span class="token punctuation">:</span> <span class="token string">'django.db.backends.mysql'</span><span class="token punctuation">,</span>
+        <span class="token string">'NAME'</span><span class="token punctuation">:</span><span class="token string">'python_test'</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">#数据库用户名</span>
+        <span class="token string">'USER'</span><span class="token punctuation">:</span><span class="token string">'root'</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">#数据库密码</span>
+        <span class="token string">'PASSWORD'</span><span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">#数据库主机地址</span>
+        <span class="token string">'HOST'</span><span class="token punctuation">:</span><span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">#数据库端口号</span>
+        <span class="token string">'PORT'</span><span class="token punctuation">:</span><span class="token string">'3306'</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="操作方式"><a href="#操作方式" class="headerlink" title="#操作方式"></a>#操作方式</h2><ul>
+<li>原生SQL</li>
+<li>ORM模型</li>
+</ul>
+<h2 id="ORM模型（Object-Relational-Mapping）"><a href="#ORM模型（Object-Relational-Mapping）" class="headerlink" title="ORM模型（Object Relational Mapping）"></a>ORM模型（Object Relational Mapping）</h2><p>Object Relational Mapping.对象关系映射</p>
+<p>通过ORM我们可以通过类的方式去操作数据库，而不用原生的SQL语句。通过把表映射成类，把行当作实例，把字段当作属性。</p>
+<p>ORM在执行对象操作的时候最终还是会把对应的操作转换为数据库原生语句。</p>
+<p>在django中，如果一个模型没有定义主键，那么将会自动生成一个自动增长的int类型的主键，并且这个主键的名字就叫做id</p>
+<p><img src="/2019/04/django-shu-ju-ku/1556435304602.jpg" alt></p>
+<p>那…什么是模型呢(Model)。一个模型（model）就是一个单独的、确定的数据的信息源，包含了数据的字段和操作方法。通常，每个模型映射为一张数据库中的表。</p>
+<p>模型的基本原则：</p>
+<ul>
+<li>每个模型在Django中的存在形式为一个Python类</li>
+<li>每个模型都是django.db.models.Model的子类</li>
+<li>模型的每个字段（属性）代表数据表的某一列</li>
+</ul>
+<blockquote>
+<p>优点</p>
+<ol>
+<li>简单易用、直观、清晰</li>
+<li>性能损耗小</li>
+<li>设计灵活</li>
+<li>移植性强</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>步骤</p>
+</blockquote>
+<ol>
+<li>配置数据库</li>
+<li>app中在<code>models.py</code>定义好模型 继承<code>django.db.models</code></li>
+<li>app在<code>settings.py</code>注册</li>
+<li>生成迁移脚本文件<code>python manage.py makemigrations</code></li>
+<li>映射到数据库中<code>python manage.py migrate</code></li>
+</ol>
+<ul>
+<li><strong>基本操作</strong></li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>db <span class="token keyword">import</span> models
+
+<span class="token comment" spellcheck="true"># Create your models here.</span>
+
+
+<span class="token comment" spellcheck="true"># 如果将一个普通的类 编程一个可以映射到数据库中的ORM模型</span>
+<span class="token comment" spellcheck="true"># 继承models.Model</span>
+<span class="token keyword">class</span> <span class="token class-name">Book</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    1. id int 自动增
+    2. name varchar
+    3. author varchar
+    '''</span>
+    id <span class="token operator">=</span> models<span class="token punctuation">.</span>AutoField<span class="token punctuation">(</span>primary_key<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    name <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">255</span><span class="token punctuation">,</span> null<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    author <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">255</span><span class="token punctuation">,</span> null<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+
+
+    <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true">#&lt;Book:(name,author)></span>
+        <span class="token keyword">return</span> <span class="token string">"&lt;Book:({name},{author})>"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>name<span class="token operator">=</span>self<span class="token punctuation">.</span>name<span class="token punctuation">,</span>author<span class="token operator">=</span>self<span class="token punctuation">.</span>author<span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#添加数据</span>
+<span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 1. 使用ORM添加一条数据到数据库中</span>
+    book <span class="token operator">=</span> Book<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"三国演义"</span><span class="token punctuation">,</span>author<span class="token operator">=</span><span class="token string">"罗贯中"</span><span class="token punctuation">)</span>
+    book<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#save()方法</span>
+    <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">"添加成功"</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 2. 查询 根据主键(PK)</span>
+        book <span class="token operator">=</span> Book<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>get<span class="token punctuation">(</span>pk<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>book<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span>book<span class="token punctuation">)</span>
+</code></pre>
+<pre><code> #根据其他条件查询
+    books = Book.objects.filter(name=&quot;三国演义&quot;)
+    books = Book.objects.filter(author=&quot;罗贯中&quot;).first()
+    print(books)
+    return HttpResponse(books)
+</code></pre><pre><code>#3. 删除数据
+    book = Book.objects.get(pk=1)
+    book.delete()
+    return HttpResponse(&quot;删除成功&quot;)
+</code></pre><pre><code>#4. 修改数据
+    book = Book.objects.get(pk=2)
+    book.name = &quot;未知&quot;
+    book.save()
+    return HttpResponse(&quot;Success&quot;)
+</code></pre><h3 id="常用字段"><a href="#常用字段" class="headerlink" title="常用字段"></a><strong>常用字段</strong></h3><table>
+<thead>
+<tr>
+<th>说明</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AutoField</td>
+<td>一个自动增加的整数类型字段。Django会自动帮你添加字段：id = models.AutoField(primary_key=True)，这是一个自增字段，从1开始计数。如果你非要自己设置主键，那么请务必将字段设置为primary_key=True。Django在一个模型中只允许有一个自增字段，并且该字段必须为主键！</td>
+</tr>
+<tr>
+<td>BigAutoField</td>
+<td>(1.10新增)64位整数类型自增字段，数字范围更大，从1到9223372036854775807</td>
+</tr>
+<tr>
+<td>BigIntegerField</td>
+<td>64位整数字段（看清楚，非自增），类似IntegerField ，-9223372036854775808 到9223372036854775807。在Django的模板表单里体现为一个textinput标签。</td>
+</tr>
+<tr>
+<td>BinaryField</td>
+<td>二进制数据类型。</td>
+</tr>
+<tr>
+<td><strong>BooleanField</strong></td>
+<td>布尔值类型。默认值是None。在HTML表单中体现为CheckboxInput标签。如果要接收null值，请使用NullBooleanField。</td>
+</tr>
+<tr>
+<td><strong>CharField</strong></td>
+<td>字符串类型。必须接收一个max_length参数，表示字符串长度不能超过该值。默认的表单标签是input text。最常用的filed，没有之一！</td>
+</tr>
+<tr>
+<td>DateField</td>
+<td>日期类型。一个Python中的datetime.date的实例。</td>
+</tr>
+<tr>
+<td><strong>DateTimeField</strong></td>
+<td>日期时间类型。Python的datetime.datetime的实例。与DateField相比就是多了小时、分和秒的显示，其它功能、参数、用法、默认值等等都一样。</td>
+</tr>
+<tr>
+<td>DecimalField</td>
+<td>固定精度的十进制小数。相当于Python的Decimal实例，必须提供两个指定的参数！参数max_digits：最大的位数，必须大于或等于小数点位数 。decimal_places：小数点位数，精度。 当localize=False时，它在HTML表现为NumberInput标签，否则是text类型。例子：储存最大不超过999，带有2位小数位精度的数，定义如下：models.DecimalField(…, max_digits=5, decimal_places=2)。</td>
+</tr>
+<tr>
+<td><strong>EmailField</strong></td>
+<td>邮箱类型，默认max_length最大长度254位。使用这个字段的好处是，可以使用DJango内置的EmailValidator进行邮箱地址合法性验证。</td>
+</tr>
+<tr>
+<td><strong>FileField</strong></td>
+<td>class FileField(upload_to=None, max_length=100, **options)上传文件类型</td>
+</tr>
+<tr>
+<td>FilePathField</td>
+<td>文件路径类型，</td>
+</tr>
+<tr>
+<td>FloatField</td>
+<td>浮点数类型</td>
+</tr>
+<tr>
+<td><strong>ImageField</strong></td>
+<td>图像类型</td>
+</tr>
+<tr>
+<td><strong>IntegerField</strong></td>
+<td>整数类型，最常用的字段之一。取值范围-2147483648到2147483647。在HTML中表现为NumberInput标签</td>
+</tr>
+<tr>
+<td><strong>GenericIPAddressField</strong></td>
+<td>class GenericIPAddressField(protocol=’both’, unpack_ipv4=False, **options)[source],IPV4或者IPV6地址，字符串形式，例如192.0.2.30在HTML中表现为TextInput标签。参数protocol默认值为‘both’，可选‘IPv4’或者‘IPv6’，表示你的IP地址类型。</td>
+</tr>
+<tr>
+<td>NullBooleanField</td>
+<td>类似布尔字段，只不过额外允许NULL作为选项之一。</td>
+</tr>
+<tr>
+<td><strong>TextField</strong></td>
+<td>大量文本内容，在HTML中表现为Textarea标签，最常用的字段类型之一！如果你为它设置一个max_length参数，那么在前端页面中会受到输入字符数量限制，然而在模型和数据库层面却不受影响。只有CharField才能同时作用于两者。</td>
+</tr>
+<tr>
+<td>TimeField</td>
+<td>时间字段，Python中datetime.time的实例。接收同DateField一样的参数，只作用于小时、分和秒</td>
+</tr>
+<tr>
+<td><strong>URLField</strong></td>
+<td>一个用于保存URL地址的字符串类型，默认最大长度200。</td>
+</tr>
+<tr>
+<td><strong>UUIDField</strong></td>
+<td>用于保存通用唯一识别码（Universally Unique Identifier）的字段。使用Python的UUID类。在PostgreSQL数据库中保存为uuid类型，其它数据库中为char(32)。这个字段是自增主键的最佳替代品</td>
+</tr>
+</tbody>
+</table>
+<h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a><strong>常用参数</strong></h3><p><strong>null</strong></p>
+<p>如果设置为True，Django将会在映射表的时候指定是否为空。默认是为False。在使用字符串相关的Field（CharField/TextField）的时候，官方推荐尽量不要使用这个参数，也就是保持默认值False。因为Django在处理字符串相关的Field的时候，即使这个Field的null=False，如果你没有给这个Field传递任何值，那么Django也会使用一个空的字符串””来作为默认值存储进去。因此如果再使用null=True，Django会产生两种空值的情形（NULL或者空字符串）。如果想要在表单验证的时候允许这个字符串为空，那么建议使用blank=True。如果你的Field是BooleanField，那么对应的可空的字段则为NullBooleanField</p>
+<p><strong>blank</strong></p>
+<p>标识这个字段在表单验证的时候是否可以为空。默认是False</p>
+<p><strong>db_column</strong></p>
+<p>这个字段在数据库中的名字。如果没有设置这个参数，那么将会使用模型中属性的名字</p>
+<p><strong>default</strong></p>
+<p>默认值。可以为一个值，或者是一个函数，但是不支持lambda表达式。并且不支持列表/字典/集合等可变的数据结构。</p>
+<p><strong>priary_key</strong></p>
+<p>是否为主键。默认是False</p>
+<p><strong>unique</strong></p>
+<p>在表中这个字段的值是否唯一。一般是设置手机号码/邮箱等</p>
+<ul>
+<li><h3 id="Meta配置"><a href="#Meta配置" class="headerlink" title="Meta配置"></a><strong>Meta配置</strong></h3></li>
+</ul>
+<p>类中定义类Meta。在这个类中添加一些类属性来控制模型的作用。比如我们想要在数据库映射的时候使用自己指定的表名，而不是使用模型的名称</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Book</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span>null<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    desc <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span>name<span class="token operator">=</span><span class="token string">'description'</span><span class="token punctuation">,</span>db_column<span class="token operator">=</span><span class="token string">"description1"</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">class</span> <span class="token class-name">Meta</span><span class="token punctuation">:</span>
+        db_table <span class="token operator">=</span> <span class="token string">'book_model'</span>
+</code></pre>
+<p><strong>db_table</strong></p>
+<p>这个模型映射到数据库中的表名。如果没有指定这个参数，那么在映射的时候将会使用模型名来作为默认的表名。</p>
+<p><strong>ordering</strong></p>
+<p>设置在提取数据的排序方式</p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a><strong>应用</strong></h3><blockquote>
+<p>上传文件</p>
+</blockquote>
+<blockquote>
+<p>上传图片</p>
+</blockquote>
+<blockquote>
+<p>UUID</p>
+</blockquote>
+<pre><code>import uuid
+from django.db import models
+
+class MyModel(models.Model):
+    id = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
+</code></pre><blockquote>
+<p>FilePathField </p>
+</blockquote>
+<p>它是用来保存文件路径信息的字段，在数据表内以字符串的形式存在，最大长度100</p>
+<p><strong>参数</strong></p>
+<ul>
+<li>path 必须指定的参数。表示一个系统绝对路径。<ul>
+<li>match 可选参数，一个正则表达式，用于过滤文件名。只匹配基本文件名，不匹配路径。</li>
+<li>recursive 可选参数，只能是True或者False。默认为False。决定是否包含子目录，也就是是否递归的意思</li>
+<li>allow_files 可选参数，只能是True或者False。默认为True。决定是否应该将文件名包括在内。它和allow_folders其中，必须有一个为True</li>
+<li>allow_folders  可选参数，只能是True或者False。默认为False。决定是否应该将目录名包括在内</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://taoya7.github.io" class="b-link-green">Hexo</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/04/django-shu-ju-ku.html" class="b-link-green">Django-数据库</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: null,
+        id: '2019-04-16T15-40-52',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/04/django-admin-hou-tai-guan-li.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Django-admin后台管理">
+                        
+                        <span class="card-title">Django-admin后台管理</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">#准备工作
+创建用户名与密码
+
+python manage.py createsuperuser
+
+为APP注册到后台
+
+#admin.py
+from django.contrib import admin
+from book import</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            linis
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Django/" target="_blank">
+                        <span class="chip bg-color">Django</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/04/django-mo-ban.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="模板">
+                        
+                        <span class="card-title">模板</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">模板Template怎样动态生成HTML？
+模板技术。模板包含所需HTML页面的静态部分，以及一些特殊的模版语法，用于将动态内容插入静态部分
+视图函数可以直接返回文本，若是要浏览器渲染出漂亮的HTML页面，需要模板系统，知名有DTL和Jin</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            linis
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Django/" target="_blank">
+                        <span class="chip bg-color">Django</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Hexo<br />'
+            + '作者: linis<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+       
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">48.2k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/taoya7" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:569781231@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=569781231" class="tooltipped" data-tooltip="QQ联系我: 569781231" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

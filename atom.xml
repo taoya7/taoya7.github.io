@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://taoya7.github.io/"/>
-  <updated>2019-05-29T14:33:57.537Z</updated>
+  <updated>2019-05-30T07:10:29.167Z</updated>
   <id>https://taoya7.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://taoya7.github.io/2019/05/selenium.html"/>
     <id>https://taoya7.github.io/2019/05/selenium.html</id>
     <published>2019-05-28T13:52:12.000Z</published>
-    <updated>2019-05-29T14:33:57.537Z</updated>
+    <updated>2019-05-30T07:10:29.167Z</updated>
     
     <summary type="html">
     
@@ -38,7 +38,7 @@
       <category term="Python" scheme="https://taoya7.github.io/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://taoya7.github.io/tags/Python/"/>
+      <category term="爬虫" scheme="https://taoya7.github.io/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
@@ -65,6 +65,454 @@
     
     
       <category term="Servlet" scheme="https://taoya7.github.io/tags/Servlet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Apache服务器配置</title>
+    <link href="https://taoya7.github.io/2019/05/apache-fu-wu-qi-pei-zhi.html"/>
+    <id>https://taoya7.github.io/2019/05/apache-fu-wu-qi-pei-zhi.html</id>
+    <published>2019-05-22T04:37:18.000Z</published>
+    <updated>2019-05-22T04:37:35.870Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;配置Java环境&quot;&gt;&lt;a href=&quot;#配置Java环境&quot; class=&quot;headerlink&quot; title=&quot;配置Java环境&quot;&gt;&lt;/a&gt;配置Java环境&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;解压安装JDK&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;tar -zxvf
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://taoya7.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WebPack打包工具</title>
+    <link href="https://taoya7.github.io/2019/05/webpack-da-bao-gong-ju.html"/>
+    <id>https://taoya7.github.io/2019/05/webpack-da-bao-gong-ju.html</id>
+    <published>2019-05-19T14:48:47.000Z</published>
+    <updated>2019-05-30T08:25:24.377Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;WebPack&quot;&gt;&lt;a href=&quot;#WebPack&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="HTML" scheme="https://taoya7.github.io/tags/HTML/"/>
+    
+      <category term="工具的使用" scheme="https://taoya7.github.io/tags/%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    
+      <category term="WebPack" scheme="https://taoya7.github.io/tags/WebPack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux-文件系统</title>
+    <link href="https://taoya7.github.io/2019/05/linux-wen-jian-xi-tong.html"/>
+    <id>https://taoya7.github.io/2019/05/linux-wen-jian-xi-tong.html</id>
+    <published>2019-05-18T14:59:10.000Z</published>
+    <updated>2019-05-30T08:26:26.634Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;文件的表示&quot;&gt;&lt;a href=&quot;#文件的表示&quot; class=&quot;headerlink&quot; title=&quot;文件的表示&quot;&gt;&lt;/a&gt;文件的表示&lt;/h1&gt;&lt;p&gt;&lt;code&gt;ls&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://taoya7.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Samba服务实验</title>
+    <link href="https://taoya7.github.io/2019/05/samba-fu-wu-shi-yan.html"/>
+    <id>https://taoya7.github.io/2019/05/samba-fu-wu-shi-yan.html</id>
+    <published>2019-05-15T12:17:10.000Z</published>
+    <updated>2019-05-15T12:21:44.615Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Samba服务器&quot;&gt;&lt;a href=&quot;#Samba服务器&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://taoya7.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring-总结</title>
+    <link href="https://taoya7.github.io/2019/05/spring-zong-jie.html"/>
+    <id>https://taoya7.github.io/2019/05/spring-zong-jie.html</id>
+    <published>2019-05-13T09:28:11.000Z</published>
+    <updated>2019-05-30T08:22:39.773Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Spring 是一个轻量级的控制反转（IOC）和面向切面（AOP）的容器框架。&lt;/p&gt;
+&lt;p&gt;Spring是一个从实际开发中抽取出来的框架，因此完成了大量开发中通用的步骤&lt;/p&gt;
+&lt;h2 id=&quot;学习目标&quot;&gt;&lt;a href=&quot;#学习目标&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Spring" scheme="https://taoya7.github.io/tags/Spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring-事务</title>
+    <link href="https://taoya7.github.io/2019/05/spring-shi-wu.html"/>
+    <id>https://taoya7.github.io/2019/05/spring-shi-wu.html</id>
+    <published>2019-05-12T12:14:00.000Z</published>
+    <updated>2019-05-30T07:37:00.050Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;事务&quot;&gt;&lt;a href=&quot;#事务&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Spring" scheme="https://taoya7.github.io/tags/Spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring-JDBC</title>
+    <link href="https://taoya7.github.io/2019/05/spring-jdbc.html"/>
+    <id>https://taoya7.github.io/2019/05/spring-jdbc.html</id>
+    <published>2019-05-12T10:06:08.000Z</published>
+    <updated>2019-05-30T08:04:16.888Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Spring框架会对定义在配置文件中的bean实例自动管理，也就是说Bean就是Java的实例Java组件&lt;/p&gt;
+&lt;h2 id=&quot;模板写法&quot;&gt;&lt;a href=&quot;#模板写法&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Spring" scheme="https://taoya7.github.io/tags/Spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NMap</title>
+    <link href="https://taoya7.github.io/2019/05/nmap.html"/>
+    <id>https://taoya7.github.io/2019/05/nmap.html</id>
+    <published>2019-05-11T08:41:41.000Z</published>
+    <updated>2019-05-30T08:06:02.093Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;基本功能&quot;&gt;&lt;a href=&quot;#基本功能&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="工具的使用" scheme="https://taoya7.github.io/tags/%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    
+      <category term="安全" scheme="https://taoya7.github.io/tags/%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AOP</title>
+    <link href="https://taoya7.github.io/2019/05/aop.html"/>
+    <id>https://taoya7.github.io/2019/05/aop.html</id>
+    <published>2019-05-09T13:17:51.000Z</published>
+    <updated>2019-05-30T08:10:37.696Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;AOP&quot;&gt;&lt;a href=&quot;#AOP&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Spring" scheme="https://taoya7.github.io/tags/Spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring注解</title>
+    <link href="https://taoya7.github.io/2019/05/spring-zhu-jie.html"/>
+    <id>https://taoya7.github.io/2019/05/spring-zhu-jie.html</id>
+    <published>2019-05-09T04:23:53.000Z</published>
+    <updated>2019-05-30T08:28:35.878Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;注解&quot;&gt;&lt;a href=&quot;#注解&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Spring" scheme="https://taoya7.github.io/tags/Spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>属性注入</title>
+    <link href="https://taoya7.github.io/2019/05/shu-xing-zhu-ru.html"/>
+    <id>https://taoya7.github.io/2019/05/shu-xing-zhu-ru.html</id>
+    <published>2019-05-08T13:49:21.000Z</published>
+    <updated>2019-05-30T08:04:52.557Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Spring属性注入&quot;&gt;&lt;a href=&quot;#Spring属性注入&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Spring" scheme="https://taoya7.github.io/tags/Spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Array(总结)</title>
+    <link href="https://taoya7.github.io/2019/05/arrayzong-jie.html"/>
+    <id>https://taoya7.github.io/2019/05/arrayzong-jie.html</id>
+    <published>2019-05-08T12:59:09.000Z</published>
+    <updated>2019-05-30T08:19:09.508Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Array数组&quot;&gt;&lt;a href=&quot;#Array数组&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="https://taoya7.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DHCP动态管理主机地址</title>
+    <link href="https://taoya7.github.io/2019/05/dhcp-dong-tai-guan-li-zhu-ji-di-zhi.html"/>
+    <id>https://taoya7.github.io/2019/05/dhcp-dong-tai-guan-li-zhu-ji-di-zhi.html</id>
+    <published>2019-05-08T06:17:09.000Z</published>
+    <updated>2019-05-30T07:38:35.584Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;DHCP动态管理主机地址&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;DHCP-Dynamic-Host-Configuration-Protocol&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://taoya7.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IOC</title>
+    <link href="https://taoya7.github.io/2019/05/ioc.html"/>
+    <id>https://taoya7.github.io/2019/05/ioc.html</id>
+    <published>2019-05-07T13:26:30.000Z</published>
+    <updated>2019-05-30T08:08:56.177Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;IOC（Inbersion-Of-Control）控制反转&quot;&gt;&lt;a href=&quot;#IOC（Inbersion-Of-Control）控制反转&quot; class=&quot;headerlink&quot; title=&quot;IOC（Inbersion Of
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Spring" scheme="https://taoya7.github.io/tags/Spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue-Router</title>
+    <link href="https://taoya7.github.io/2019/05/vue-router.html"/>
+    <id>https://taoya7.github.io/2019/05/vue-router.html</id>
+    <published>2019-05-07T04:48:01.000Z</published>
+    <updated>2019-05-30T08:01:43.627Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Vue-Router&quot;&gt;&lt;a href=&quot;#Vue-Router&quot; class=&quot;headerlink&quot; title=&quot;Vue-Router&quot;&gt;&lt;/a&gt;Vue-Router&lt;/h1&gt;&lt;h2 id=&quot;第一个单页应用&quot;&gt;&lt;a href=&quot;#第一个单页应用&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="https://taoya7.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue-插槽</title>
+    <link href="https://taoya7.github.io/2019/05/vue-cha-cao.html"/>
+    <id>https://taoya7.github.io/2019/05/vue-cha-cao.html</id>
+    <published>2019-05-07T04:11:39.000Z</published>
+    <updated>2019-05-30T08:15:28.547Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;插槽&quot;&gt;&lt;a href=&quot;#插槽&quot; class=&quot;headerlink&quot; title=&quot;插槽&quot;&gt;&lt;/a&gt;插槽&lt;/h1&gt;&lt;h2 id=&quot;slot-实现内容分发&quot;&gt;&lt;a href=&quot;#slot-实现内容分发&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="https://taoya7.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue-过滤器</title>
+    <link href="https://taoya7.github.io/2019/05/vue-guo-lu-qi.html"/>
+    <id>https://taoya7.github.io/2019/05/vue-guo-lu-qi.html</id>
+    <published>2019-05-06T07:17:39.000Z</published>
+    <updated>2019-05-30T08:02:37.549Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;过滤器&quot;&gt;&lt;a href=&quot;#过滤器&quot; class=&quot;headerlink&quot; title=&quot;过滤器&quot;&gt;&lt;/a&gt;过滤器&lt;/h1&gt;&lt;p&gt;&lt;code&gt;Vue.filter&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;div
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="https://taoya7.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue-组件</title>
+    <link href="https://taoya7.github.io/2019/05/vue-zu-jian.html"/>
+    <id>https://taoya7.github.io/2019/05/vue-zu-jian.html</id>
+    <published>2019-05-05T14:40:59.000Z</published>
+    <updated>2019-05-30T08:00:37.451Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;组件&quot;&gt;&lt;a href=&quot;#组件&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="https://taoya7.github.io/tags/Vue/"/>
     
   </entry>
   
