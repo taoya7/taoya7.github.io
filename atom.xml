@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="/"/>
+  <link href="https://taoya7.github.io/"/>
   <updated>2019-05-29T14:33:57.537Z</updated>
-  <id>/</id>
+  <id>https://taoya7.github.io/</id>
   
   <author>
     <name>linis</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Selenium</title>
-    <link href="/2019/05/28/selenium/"/>
-    <id>/2019/05/28/selenium/</id>
+    <link href="https://taoya7.github.io/2019/05/28/selenium/"/>
+    <id>https://taoya7.github.io/2019/05/28/selenium/</id>
     <published>2019-05-28T13:52:12.000Z</published>
     <updated>2019-05-29T14:33:57.537Z</updated>
     
@@ -35,17 +35,17 @@
     
     </summary>
     
-      <category term="Python" scheme="/categories/Python/"/>
+      <category term="Python" scheme="https://taoya7.github.io/categories/Python/"/>
     
     
-      <category term="Python" scheme="/tags/Python/"/>
+      <category term="Python" scheme="https://taoya7.github.io/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Servlet</title>
-    <link href="/2019/05/27/servlet/"/>
-    <id>/2019/05/27/servlet/</id>
+    <link href="https://taoya7.github.io/2019/05/27/servlet/"/>
+    <id>https://taoya7.github.io/2019/05/27/servlet/</id>
     <published>2019-05-27T09:15:48.000Z</published>
     <updated>2019-05-29T15:12:38.492Z</updated>
     
@@ -61,10 +61,10 @@
     
     </summary>
     
-      <category term="JavaWeb" scheme="/categories/JavaWeb/"/>
+      <category term="JavaWeb" scheme="https://taoya7.github.io/categories/JavaWeb/"/>
     
     
-      <category term="Servlet" scheme="/tags/Servlet/"/>
+      <category term="Servlet" scheme="https://taoya7.github.io/tags/Servlet/"/>
     
   </entry>
   
