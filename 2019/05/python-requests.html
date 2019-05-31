@@ -11,7 +11,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Requests库 | Linis</title>
+    <title>Requests库 | linis</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
@@ -29,7 +29,8 @@
     <!--HightLine-->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -43,7 +44,7 @@
                         
                         <img src="/medias/logo.png" class="logo-img hide-on-small-only">
                         
-                        <span class="logo-span">Linis</span>
+                        <span class="logo-span">linis</span>
                     </a>
                 </div>
                 
@@ -110,10 +111,10 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Linis</div>
+        <div class="logo-name">linis</div>
         <div class="logo-desc">
             
-            守得住寂寞耐得住繁华
+            多言数穷，不如守中
             
         </div>
     </div>
@@ -378,7 +379,7 @@
                 <blockquote>
 <p>Requests库</p>
 </blockquote>
-<h3 id="Get请求"><a href="#Get请求" class="headerlink" title="Get请求"></a>Get请求</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> response
+<h3 id="Get请求"><a href="#Get请求" class="headerlink" title="Get请求"></a>Get请求</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> response
 
 response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'http://www.baidu.com'</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#&lt;Response [200]></span>
@@ -401,8 +402,8 @@ response <span class="token operator">=</span> requests<span class="token punctu
 
 <span class="token comment" spellcheck="true"># 编码</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>encoding<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># ISO-8859-1</span>
-</code></pre>
-<h3 id="带参数的请求方式"><a href="#带参数的请求方式" class="headerlink" title="带参数的请求方式"></a><strong>带参数的请求方式</strong></h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="带参数的请求方式"><a href="#带参数的请求方式" class="headerlink" title="带参数的请求方式"></a><strong>带参数的请求方式</strong></h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
 
 <span class="token comment" spellcheck="true"># 将数据保存在一个字典中</span>
 data <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -414,24 +415,24 @@ response <span class="token operator">=</span> requests<span class="token punctu
 <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
 
 <span class="token operator">></span> http<span class="token punctuation">:</span><span class="token operator">//</span>www<span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com<span class="token operator">/</span>?name<span class="token operator">=</span>张三<span class="token operator">&amp;</span>age<span class="token operator">=</span><span class="token number">19</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>网页的返回类型实际是str类型的却是json格式,所以添加json()即可转换</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
 
 response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'http://www.baidu.com'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>添加headers</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
 
 headers <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token string">'User-Agent'</span><span class="token punctuation">:</span><span class="token string">'Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Mobile Safari/537.36'</span>
 <span class="token punctuation">}</span>
 response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'https://www.zhihu.com/'</span><span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>抓取二进制文件</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
 
 r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'https://www.baidu.com/img/bd_logo1.png?qua=high'</span><span class="token punctuation">)</span>
 
@@ -441,8 +442,8 @@ r <span class="token operator">=</span> requests<span class="token punctuation">
 
 
 <span class="token comment" spellcheck="true"># 这样就会抓取下百度的logo</span>
-</code></pre>
-<h2 id="Post请求"><a href="#Post请求" class="headerlink" title="Post请求"></a>Post请求</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Post请求"><a href="#Post请求" class="headerlink" title="Post请求"></a>Post请求</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
 
 data <span class="token operator">=</span> <span class="token punctuation">{</span>
     <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'tom'</span><span class="token punctuation">,</span>
@@ -452,8 +453,8 @@ data <span class="token operator">=</span> <span class="token punctuation">{</sp
 response <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">'http://httpbin.org/post'</span><span class="token punctuation">,</span> data<span class="token operator">=</span>data<span class="token punctuation">)</span>
 
 <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
-</code></pre>
-<h2 id="Ip代理"><a href="#Ip代理" class="headerlink" title="Ip代理"></a>Ip代理</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Ip代理"><a href="#Ip代理" class="headerlink" title="Ip代理"></a>Ip代理</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
 
 headers <span class="token operator">=</span> <span class="token punctuation">{</span>
     <span class="token string">'user-agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'</span>
@@ -463,8 +464,8 @@ proxy <span class="token operator">=</span> <span class="token punctuation">{</s
         <span class="token string">'https'</span> <span class="token string">'163.125.222.244:8123'</span>
     <span class="token punctuation">}</span>
 response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">,</span>proxies<span class="token operator">=</span>proxy<span class="token punctuation">)</span>
-</code></pre>
-<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><pre class=" language-python"><code class="language-python">
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><pre class="line-numbers language-python"><code class="language-python">
 <span class="token keyword">import</span> requests
 
 
@@ -479,25 +480,25 @@ run_cookie <span class="token operator">=</span> response<span class="token punc
 <span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>run_cookie<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># &lt;class 'dict'></span>
 
 <span class="token keyword">print</span><span class="token punctuation">(</span>run_cookie<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># {'BDORZ': '27315'}</span>
-</code></pre>
-<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
 
 files <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'file'</span><span class="token punctuation">,</span> open<span class="token punctuation">(</span><span class="token string">'logo.jpg'</span><span class="token punctuation">,</span><span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
 
 r <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">'http://www.baidu.com'</span><span class="token punctuation">,</span> files<span class="token operator">=</span>files<span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
-</code></pre>
-<h2 id="会话维持"><a href="#会话维持" class="headerlink" title="会话维持"></a>会话维持</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="会话维持"><a href="#会话维持" class="headerlink" title="会话维持"></a>会话维持</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
 
 s <span class="token operator">=</span> requests<span class="token punctuation">.</span>Session<span class="token punctuation">(</span><span class="token punctuation">)</span>
 s<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'http://www.baidu.com'</span><span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true"># 这样就会保持会话维持</span>
-</code></pre>
-<h2 id="超时设置"><a href="#超时设置" class="headerlink" title="超时设置"></a>超时设置</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="超时设置"><a href="#超时设置" class="headerlink" title="超时设置"></a>超时设置</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
 
 response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'http://www.baidu.com'</span><span class="token punctuation">,</span> timeout<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr>
@@ -637,7 +638,7 @@ response <span class="token operator">=</span> requests<span class="token punctu
                     <span class="reprint-tip">
                         <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
                     </span>
-                    <a href="https://taoya7.github.io" class="b-link-green">Linis</a>
+                    <a href="https://taoya7.github.io" class="b-link-green">linis</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
                     <a href="/2019/05/python-requests.html" class="b-link-green">Requests库</a>
                 </p>
@@ -645,28 +646,6 @@ response <span class="token operator">=</span> requests<span class="token punctu
         </div>
     </div>
 
-    
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
-
-<div class="card gitalk-card" data-aos="fade-up">
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: '777c6869496344476594',
-        clientSecret: 'd0321f1e4cd149443dc7a1c303844c95a27540fc',
-        repo: 'taoya7.github.io',
-        owner: 'taoya7',
-        admin: "taoya7",
-        id: '2019-05-30T17-00-14',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
     
 
     
@@ -814,7 +793,7 @@ from selenium.webdriver.common.by i</div>
 
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
-            + '来源: Linis<br />'
+            + '来源: linis<br />'
             + '作者: linis<br />'
             + '链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';

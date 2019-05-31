@@ -11,7 +11,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Json存储 | Linis</title>
+    <title>Json存储 | linis</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
@@ -29,7 +29,8 @@
     <!--HightLine-->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -43,7 +44,7 @@
                         
                         <img src="/medias/logo.png" class="logo-img hide-on-small-only">
                         
-                        <span class="logo-span">Linis</span>
+                        <span class="logo-span">linis</span>
                     </a>
                 </div>
                 
@@ -110,10 +111,10 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Linis</div>
+        <div class="logo-name">linis</div>
         <div class="logo-desc">
             
-            守得住寂寞耐得住繁华
+            多言数穷，不如守中
             
         </div>
     </div>
@@ -375,7 +376,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="JSON格式"><a href="#JSON格式" class="headerlink" title="JSON格式"></a>JSON格式</h1><h3 id="转换JSON"><a href="#转换JSON" class="headerlink" title="转换JSON"></a>转换JSON</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> json
+                <h1 id="JSON格式"><a href="#JSON格式" class="headerlink" title="JSON格式"></a>JSON格式</h1><h3 id="转换JSON"><a href="#转换JSON" class="headerlink" title="转换JSON"></a>转换JSON</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> json
 
 str <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
 [
@@ -399,8 +400,8 @@ data <span class="token operator">=</span> json<span class="token punctuation">.
 <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">str</span><span class="token operator">></span>
 <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token string">'001'</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Aha'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token string">'18'</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token string">'002'</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Tashi'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token string">'20'</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
 <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">list</span><span class="token operator">></span>
-</code></pre>
-<h3 id="输出JSON"><a href="#输出JSON" class="headerlink" title="输出JSON"></a>输出JSON</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> json
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="输出JSON"><a href="#输出JSON" class="headerlink" title="输出JSON"></a>输出JSON</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> json
 
 data <span class="token operator">=</span><span class="token punctuation">[</span>
     <span class="token punctuation">{</span>   
@@ -420,8 +421,8 @@ str <span class="token operator">=</span> json<span class="token punctuation">.<
 
 <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token string">"001"</span><span class="token punctuation">,</span> <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Aha"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token string">"18"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token string">"002"</span><span class="token punctuation">,</span> <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Tashi"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token string">"20"</span><span class="token punctuation">}</span><span class="token punctuation">]</span> 
 <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">str</span><span class="token operator">></span>
-</code></pre>
-<h3 id="写入JSON格式文件"><a href="#写入JSON格式文件" class="headerlink" title="写入JSON格式文件"></a>写入JSON格式文件</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> json
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="写入JSON格式文件"><a href="#写入JSON格式文件" class="headerlink" title="写入JSON格式文件"></a>写入JSON格式文件</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> json
 
 data <span class="token operator">=</span><span class="token punctuation">[</span>
     <span class="token punctuation">{</span>   
@@ -438,7 +439,7 @@ data <span class="token operator">=</span><span class="token punctuation">[</spa
 
 <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'data.json'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
     f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>data<span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> ensure_ascii<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr>
@@ -578,7 +579,7 @@ data <span class="token operator">=</span><span class="token punctuation">[</spa
                     <span class="reprint-tip">
                         <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
                     </span>
-                    <a href="https://taoya7.github.io" class="b-link-green">Linis</a>
+                    <a href="https://taoya7.github.io" class="b-link-green">linis</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
                     <a href="/2019/04/python-jsonsave.html" class="b-link-green">Json存储</a>
                 </p>
@@ -586,28 +587,6 @@ data <span class="token operator">=</span><span class="token punctuation">[</spa
         </div>
     </div>
 
-    
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
-
-<div class="card gitalk-card" data-aos="fade-up">
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: '777c6869496344476594',
-        clientSecret: 'd0321f1e4cd149443dc7a1c303844c95a27540fc',
-        repo: 'taoya7.github.io',
-        owner: 'taoya7',
-        admin: "taoya7",
-        id: '2019-04-29T12-00-22',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
     
 
     
@@ -757,7 +736,7 @@ import java.util.Set;
 
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
-            + '来源: Linis<br />'
+            + '来源: linis<br />'
             + '作者: linis<br />'
             + '链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';

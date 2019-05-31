@@ -11,7 +11,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Django-admin后台管理 | Linis</title>
+    <title>Django-admin后台管理 | linis</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
@@ -29,7 +29,8 @@
     <!--HightLine-->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -43,7 +44,7 @@
                         
                         <img src="/medias/logo.png" class="logo-img hide-on-small-only">
                         
-                        <span class="logo-span">Linis</span>
+                        <span class="logo-span">linis</span>
                     </a>
                 </div>
                 
@@ -110,10 +111,10 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Linis</div>
+        <div class="logo-name">linis</div>
         <div class="logo-desc">
             
-            守得住寂寞耐得住繁华
+            多言数穷，不如守中
             
         </div>
     </div>
@@ -373,19 +374,19 @@
 </code></pre><blockquote>
 <p>为APP注册到后台</p>
 </blockquote>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#admin.py</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#admin.py</span>
 <span class="token keyword">from</span> django<span class="token punctuation">.</span>contrib <span class="token keyword">import</span> admin
 <span class="token keyword">from</span> book <span class="token keyword">import</span> models <span class="token comment" spellcheck="true">#导入ORM模型</span>
 <span class="token comment" spellcheck="true"># Register your models here.</span>
 
 admin<span class="token punctuation">.</span>site<span class="token punctuation">.</span>register<span class="token punctuation">(</span>models<span class="token punctuation">.</span>Book<span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>搜索admin文件</p>
 </blockquote>
 <p>在<code>INSTALLED_APPS</code>设置中添加了<code>django.contrib.admin</code>后，Django将自动在每个应用中搜索admin模块并导入它。也就是说，通常我们在每个app下都有一个admin.py文件，将当前app和admin有关的内容写到内部的admin.py文件中就可以了，Django会自动搜索并应用它们</p>
 <hr>
-<h3 id="Admin自定义"><a href="#Admin自定义" class="headerlink" title="#Admin自定义"></a>#Admin自定义</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>contrib <span class="token keyword">import</span> admin
+<h3 id="Admin自定义"><a href="#Admin自定义" class="headerlink" title="#Admin自定义"></a>#Admin自定义</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>contrib <span class="token keyword">import</span> admin
 <span class="token keyword">from</span> <span class="token punctuation">.</span>models <span class="token keyword">import</span> Book
 
 
@@ -395,13 +396,13 @@ admin<span class="token punctuation">.</span>site<span class="token punctuation"
     list_filter <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#添加过滤器列表</span>
 <span class="token comment" spellcheck="true"># 注册的时候，将原模型和BookAdmin耦合起来</span>
 admin<span class="token punctuation">.</span>site<span class="token punctuation">.</span>register<span class="token punctuation">(</span>Book<span class="token punctuation">,</span>BookAdmin<span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="ModelAdmin-actions-selection-counter"><a href="#ModelAdmin-actions-selection-counter" class="headerlink" title="ModelAdmin.actions_selection_counter"></a>ModelAdmin.actions_selection_counter</h4><p>是否在actions下拉框右侧显示选中的对象的数量，默认为True，可改为False</p>
 <p><img src="/2019/04/django-admin-hou-tai-guan-li/1555476176384.png" alt></p>
 <h4 id="ModelAdmin-date-hierarchy"><a href="#ModelAdmin-date-hierarchy" class="headerlink" title="ModelAdmin.date_hierarchy"></a>ModelAdmin.date_hierarchy</h4><p>根据指定的日期相关的字段，为页面创建一个时间导航栏，可通过日期过滤对象</p>
 <p><img src="/2019/04/django-admin-hou-tai-guan-li/1555476182947.png" alt></p>
 <h4 id="ModelAdmin-exclude"><a href="#ModelAdmin-exclude" class="headerlink" title="ModelAdmin.exclude"></a>ModelAdmin.exclude</h4><p>不显示指定的某些字段</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#models.py</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#models.py</span>
 <span class="token keyword">from</span> django<span class="token punctuation">.</span>db <span class="token keyword">import</span> models
 
 <span class="token keyword">class</span> <span class="token class-name">Author</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -416,7 +417,7 @@ admin<span class="token punctuation">.</span>site<span class="token punctuation"
 <span class="token comment" spellcheck="true">#注意了，值是个元组！一个元素的时候，最后的逗号不能省略</span>
     fields <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'title'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#等同于  exclude = ('birth_date',)</span>
 
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="ModelAdmin-fields"><a href="#ModelAdmin-fields" class="headerlink" title="ModelAdmin.fields"></a>ModelAdmin.fields</h4><p>顺序，显示指定的字段。与exclude相对 </p>
 <p>小技巧，你可以通过组合元组的方式，让某些字段在同一行内显示，例如下面的做法“url”和“title”将在一行内，而“content”则在下一行</p>
 <pre><code>class FlatPageAdmin(admin.ModelAdmin):
@@ -429,7 +430,7 @@ admin<span class="token punctuation">.</span>site<span class="token punctuation"
 </ul>
 </li>
 </ul>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>contrib <span class="token keyword">import</span> admin
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>contrib <span class="token keyword">import</span> admin
 <span class="token keyword">from</span> <span class="token punctuation">.</span>models <span class="token keyword">import</span> Book
 
 
@@ -445,21 +446,21 @@ admin<span class="token punctuation">.</span>site<span class="token punctuation"
     <span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true"># 注册的时候，将原模型和BookAdmin耦合起来</span>
 admin<span class="token punctuation">.</span>site<span class="token punctuation">.</span>register<span class="token punctuation">(</span>Book<span class="token punctuation">,</span>BookAdmin<span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="/2019/04/django-admin-hou-tai-guan-li/1555422727436.png" alt></p>
 <h4 id="ModelAdmin-list-filter"><a href="#ModelAdmin-list-filter" class="headerlink" title="ModelAdmin.list_filter"></a>ModelAdmin.list_filter</h4><p>设置list_filter属性后，可以激活修改列表页面的右侧边栏，用于对列表元素进行过滤</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 创建一个BookAdmin的子类</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 创建一个BookAdmin的子类</span>
 <span class="token keyword">class</span> <span class="token class-name">BookAdmin</span><span class="token punctuation">(</span>admin<span class="token punctuation">.</span>ModelAdmin<span class="token punctuation">)</span><span class="token punctuation">:</span>
     list_filter <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><img src="/2019/04/django-admin-hou-tai-guan-li/1555476166582.png" alt></p>
 <h4 id="ModelAdmin-search-fields"><a href="#ModelAdmin-search-fields" class="headerlink" title="ModelAdmin.search_fields"></a>ModelAdmin.search_fields</h4><p>设置这个属性，可以为admin的修改列表页面添加一个搜索框.</p>
 <p>被搜索的字段可以是CharField或者TextField文本类型，也可以通过双下划线进行ForeignKey或者ManyToManyField的查询</p>
 <p><img src="/2019/04/django-admin-hou-tai-guan-li/1555476159543.png" alt></p>
 <pre><code>search_fields = [&#39;name&#39;]
 </code></pre><h4 id="ModelAdmin-filter-horizontal"><a href="#ModelAdmin-filter-horizontal" class="headerlink" title="ModelAdmin.filter_horizontal"></a>ModelAdmin.filter_horizontal</h4><p>水平扩展多对多字段。默认情况下，ManyTOManyField在admin的页面中会显示为一个select框。在需要选择大量对象时，这会有点困难。将ManyTOManyField添加到这个属性列表里后，页面就会对字段进行扩展，并提供过滤功能</p>
-<pre class=" language-python"><code class="language-python">filter_horizontal <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'tags'</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
-</code></pre>
+<pre class="line-numbers language-python"><code class="language-python">filter_horizontal <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'tags'</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="/2019/04/django-admin-hou-tai-guan-li/1555476143787.png" alt></p>
 <p>#### </p>
 <p><strong>list_per_page</strong></p>
@@ -469,9 +470,9 @@ admin<span class="token punctuation">.</span>site<span class="token punctuation"
 <p><strong>radio_fields = {‘字段’,admin.VERTICAL}</strong></p>
 <p>下拉框变Radio 水平排列</p>
 <h3 id="list-display"><a href="#list-display" class="headerlink" title="#list_display"></a>#list_display</h3><p>指定显示在修改页面上的字段。这是一个很常用也是最重要的技巧</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">BookAdmin</span><span class="token punctuation">(</span>admin<span class="token punctuation">.</span>ModelAdmin<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">BookAdmin</span><span class="token punctuation">(</span>admin<span class="token punctuation">.</span>ModelAdmin<span class="token punctuation">)</span><span class="token punctuation">:</span>
     list_display <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span><span class="token string">'author'</span><span class="token punctuation">,</span><span class="token string">'id'</span><span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><img src="/2019/04/django-admin-hou-tai-guan-li/1555476134789.png" alt></p>
 <p>如果你不设置这个属性，admin站点将只显示一列，内容是每个对象的<code>__str__()</code></p>
 <p>在<code>list_display</code>中，你可以设置四种值</p>
@@ -484,7 +485,7 @@ admin<span class="token punctuation">.</span>site<span class="token punctuation"
 <blockquote>
 <p>如何引用CSS样式</p>
 </blockquote>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#Models.py</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#Models.py</span>
 <span class="token keyword">from</span> django<span class="token punctuation">.</span>db <span class="token keyword">import</span> models
 <span class="token keyword">from</span> django<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>html <span class="token keyword">import</span> format_html
 
@@ -499,16 +500,16 @@ admin<span class="token punctuation">.</span>site<span class="token punctuation"
 <span class="token comment" spellcheck="true">#Admin.py</span>
 <span class="token keyword">class</span> <span class="token class-name">BookAdmin</span><span class="token punctuation">(</span>admin<span class="token punctuation">.</span>ModelAdmin<span class="token punctuation">)</span><span class="token punctuation">:</span>
     list_display <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span><span class="token string">'author'</span><span class="token punctuation">,</span><span class="token string">'id'</span><span class="token punctuation">,</span><span class="token string">'showStr'</span><span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="/2019/04/django-admin-hou-tai-guan-li/1555476122014.png" alt></p>
 <blockquote>
 <p>自定义表的名称</p>
 </blockquote>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Book</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Book</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
     <span class="token keyword">class</span> <span class="token class-name">Meta</span><span class="token punctuation">:</span>
         verbose_name_plural<span class="token operator">=</span><span class="token string">'书籍'</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr>
@@ -648,7 +649,7 @@ admin<span class="token punctuation">.</span>site<span class="token punctuation"
                     <span class="reprint-tip">
                         <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
                     </span>
-                    <a href="https://taoya7.github.io" class="b-link-green">Linis</a>
+                    <a href="https://taoya7.github.io" class="b-link-green">linis</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
                     <a href="/2019/04/django-admin-hou-tai-guan-li.html" class="b-link-green">Django-admin后台管理</a>
                 </p>
@@ -656,28 +657,6 @@ admin<span class="token punctuation">.</span>site<span class="token punctuation"
         </div>
     </div>
 
-    
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
-
-<div class="card gitalk-card" data-aos="fade-up">
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: '777c6869496344476594',
-        clientSecret: 'd0321f1e4cd149443dc7a1c303844c95a27540fc',
-        repo: 'taoya7.github.io',
-        owner: 'taoya7',
-        admin: "taoya7",
-        id: '2019-04-16T20-38-30',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
     
 
     
@@ -823,7 +802,7 @@ mysqlcl</div>
 
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
-            + '来源: Linis<br />'
+            + '来源: linis<br />'
             + '作者: linis<br />'
             + '链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';

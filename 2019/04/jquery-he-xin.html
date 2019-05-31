@@ -11,7 +11,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>JQuery-核心 | Linis</title>
+    <title>JQuery-核心 | linis</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
@@ -29,7 +29,8 @@
     <!--HightLine-->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -43,7 +44,7 @@
                         
                         <img src="/medias/logo.png" class="logo-img hide-on-small-only">
                         
-                        <span class="logo-span">Linis</span>
+                        <span class="logo-span">linis</span>
                     </a>
                 </div>
                 
@@ -110,10 +111,10 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Linis</div>
+        <div class="logo-name">linis</div>
         <div class="logo-desc">
             
-            守得住寂寞耐得住繁华
+            多言数穷，不如守中
             
         </div>
     </div>
@@ -366,33 +367,33 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="JQuery入口函数的其他写法"><a href="#JQuery入口函数的其他写法" class="headerlink" title="JQuery入口函数的其他写法"></a>JQuery入口函数的其他写法</h3><pre class=" language-html"><code class="language-html">$(document).ready(function(){
+                <h3 id="JQuery入口函数的其他写法"><a href="#JQuery入口函数的其他写法" class="headerlink" title="JQuery入口函数的其他写法"></a>JQuery入口函数的其他写法</h3><pre class="line-numbers language-html"><code class="language-html">$(document).ready(function(){
     alert("Hello");
 });
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <pre><code>$(window).on(&#39;load&#39;,function(){
     alert(&quot;Hello&quot;);
 });
 </code></pre><h3 id="JQuery核心函数"><a href="#JQuery核心函数" class="headerlink" title="JQuery核心函数$();"></a>JQuery核心函数<code>$();</code></h3><p><strong>用法</strong></p>
-<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 接收一个函数</span>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 接收一个函数</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 接收一个DOM元素</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 接收一个DOM元素</span>
 <span class="token keyword">var</span> div <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span>div<span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>div<span class="token punctuation">)</span>
-</code></pre>
-<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 接收一个字符串选择器  </span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 接收一个字符串选择器  </span>
 <span class="token keyword">var</span> div <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">".box"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>div<span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true">/*返回一个JQuery对象，对象中保存了找到的DOM元素*/</span>
-</code></pre>
-<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 接受一个字符串代码片段</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 接受一个字符串代码片段</span>
 <span class="token keyword">var</span> p <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"&lt;p>我是段落&lt;/p>"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">/*返回一个JQuery对象，对象中保存了创建的DOM元素*/</span>
-</code></pre>
-<h3 id="静态方法与实例方法"><a href="#静态方法与实例方法" class="headerlink" title="静态方法与实例方法"></a>静态方法与实例方法</h3><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//定义类</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="静态方法与实例方法"><a href="#静态方法与实例方法" class="headerlink" title="静态方法与实例方法"></a>静态方法与实例方法</h3><pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//定义类</span>
 <span class="token keyword">function</span> <span class="token function">AClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 
 <span class="token punctuation">}</span>
@@ -402,8 +403,8 @@ AClass<span class="token punctuation">.</span>staticMethod <span class="token op
 <span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">//调用</span>
 AClass<span class="token punctuation">.</span><span class="token function">staticMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
-</code></pre>
-<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//1.创建类</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//1.创建类</span>
 <span class="token keyword">function</span> <span class="token function">AClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 
 <span class="token punctuation">}</span>
@@ -415,9 +416,9 @@ AClass<span class="token punctuation">.</span>prototype<span class="token punctu
 <span class="token keyword">var</span> a <span class="token operator">=</span><span class="token keyword">new</span>  <span class="token class-name">AClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 4. 对象调用</span>
 a<span class="token punctuation">.</span><span class="token function">instanceMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>JQuery-foreach()</strong></p>
-<pre class=" language-js"><code class="language-js">    <span class="token comment" spellcheck="true">/*原生ForEach
+<pre class="line-numbers language-js"><code class="language-js">    <span class="token comment" spellcheck="true">/*原生ForEach
     *
     * 参数1：遍历到的数组
     * 参数2：当前遍历到的索引
@@ -441,9 +442,9 @@ a<span class="token punctuation">.</span><span class="token function">instanceMe
     $<span class="token punctuation">.</span><span class="token function">each</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">{</span>
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>JQuery-map()</strong></p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Name"</span><span class="token punctuation">:</span><span class="token string">"Aha"</span><span class="token punctuation">,</span> <span class="token string">"Age"</span><span class="token punctuation">:</span><span class="token number">15</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">/*原生JS-map遍历
@@ -468,7 +469,7 @@ $<span class="token punctuation">.</span><span class="token function">map</span>
 $<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> index<span class="token punctuation">,</span> array<span class="token punctuation">)</span><span class="token punctuation">{</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> index<span class="token punctuation">,</span> array<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>each()与map()</p>
 </blockquote>
@@ -477,7 +478,7 @@ $<span class="token punctuation">.</span><span class="token function">map</span>
 <li>map静态方法返回值是一个空数组</li>
 </ol>
 <p><strong>其他静态方法</strong></p>
-<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">/*
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">/*
 * trim();
 * 作用：去除字符串两端的空格
 * 参数：需要去除的字符串
@@ -507,7 +508,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 * $.holdReady(true);
 * 作用：暂停ready执行
 * */</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="JQuery-选择器"><a href="#JQuery-选择器" class="headerlink" title="JQuery-选择器"></a>JQuery-选择器</h3><ul>
 <li>基本选择器</li>
 <li>层级选择器<ul>
@@ -536,25 +537,25 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </ul>
 <hr>
 <ul>
-<li><code>offset([coordinates])</code> 作用：设置|获取元素距离窗口的偏移位<pre class=" language-js"><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.box'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">offset</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//设置</span>
+<li><code>offset([coordinates])</code> 作用：设置|获取元素距离窗口的偏移位<pre class="line-numbers language-js"><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.box'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">offset</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//设置</span>
       left<span class="token punctuation">:</span><span class="token number">100</span><span class="token punctuation">,</span>
       top<span class="token punctuation">:</span><span class="token number">110</span>
   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.box'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">offset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//获取</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><code>position()</code> 作用：获取元素距离定位元素的偏移位<pre class=" language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.son'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">position</span><span class="token punctuation">(</span><span class="token string">'.box'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//获取</span>
+<li><code>position()</code> 作用：获取元素距离定位元素的偏移位<pre class="line-numbers language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.son'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">position</span><span class="token punctuation">(</span><span class="token string">'.box'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//获取</span>
   <span class="token comment" spellcheck="true">//不能设置</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><code>scrollTop([val])</code> 作用：设置|获取元素的滚动值</li>
-<li><code>scrollLeft([val])</code><pre class=" language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"div"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">scrollTop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<li><code>scrollLeft([val])</code><pre class="line-numbers language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"div"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">scrollTop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"div"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">scrollLeft</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//设置</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 </ul>
 <h3 id="JQuery-动画"><a href="#JQuery-动画" class="headerlink" title="JQuery-动画"></a>JQuery-动画</h3><p><strong>自定义动画</strong></p>
-<pre class=" language-js"><code class="language-js">
+<pre class="line-numbers language-js"><code class="language-js">
 <span class="token comment" spellcheck="true">/*
     //三个参数
     1. 接受一个对象可以在对象中修改属性
@@ -567,7 +568,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"动画执行完毕！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre><code>/**
      * //立即停止当前动画的执行,继续执行后续的
      * stop()
@@ -601,11 +602,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <h3 id="JQuery-文档处理"><a href="#JQuery-文档处理" class="headerlink" title="JQuery-文档处理"></a>JQuery-文档处理</h3><p><strong>添加节点</strong></p>
 <ul>
 <li><p>内部插入</p>
-<pre class=" language-js"><code class="language-js"><span class="token function">append</span><span class="token punctuation">(</span>content<span class="token operator">|</span>fn<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//元素添加到指定元素内部</span>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token function">append</span><span class="token punctuation">(</span>content<span class="token operator">|</span>fn<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//元素添加到指定元素内部</span>
 <span class="token function">appendTo</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span>
 <span class="token function">prepend</span><span class="token punctuation">(</span>content<span class="token operator">|</span>fn<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//将元素添加到指定元素的最前面</span>
 <span class="token function">prependTo</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>外部插入<br><code>`</code>js<br>after(content|fn) //将元素添加到指定元素外部的后面<br>insertAfter(content)</p>
 </li>
@@ -619,14 +620,14 @@ remove() //删除指定元素
 empty() //删除指定元素的内容和子元素，指定元素自身不会被删除
 detach([expr]) //删除所有匹配的元素
 </code></pre><p><strong>替换</strong></p>
-<pre class=" language-js"><code class="language-js"><span class="token function">replaceWith</span><span class="token punctuation">(</span>content<span class="token operator">|</span>fn<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//替换所有匹配的元素</span>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token function">replaceWith</span><span class="token punctuation">(</span>content<span class="token operator">|</span>fn<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//替换所有匹配的元素</span>
 
 <span class="token function">replaceAll</span><span class="token punctuation">(</span>selector<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//替换顺序不一样</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><strong>复制节点</strong></p>
-<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//传入false是浅复制 传入true是深复制</span>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//传入false是浅复制 传入true是深复制</span>
 <span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">[</span>Even<span class="token punctuation">[</span><span class="token punctuation">,</span>deepEven<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> 
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><a href="http://jquery.cuishifeng.cn/" target="_blank" rel="noopener">中文文档</a></p>
 
             </div>
@@ -767,7 +768,7 @@ detach([expr]) //删除所有匹配的元素
                     <span class="reprint-tip">
                         <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
                     </span>
-                    <a href="https://taoya7.github.io" class="b-link-green">Linis</a>
+                    <a href="https://taoya7.github.io" class="b-link-green">linis</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
                     <a href="/2019/04/jquery-he-xin.html" class="b-link-green">JQuery-核心</a>
                 </p>
@@ -775,28 +776,6 @@ detach([expr]) //删除所有匹配的元素
         </div>
     </div>
 
-    
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
-
-<div class="card gitalk-card" data-aos="fade-up">
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: '777c6869496344476594',
-        clientSecret: 'd0321f1e4cd149443dc7a1c303844c95a27540fc',
-        repo: 'taoya7.github.io',
-        owner: 'taoya7',
-        admin: "taoya7",
-        id: '2019-04-21T14-01-48',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
     
 
     
@@ -944,7 +923,7 @@ display：inline-flex 将对象作为弹性伸缩盒展示，用于行内元素
 
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
-            + '来源: Linis<br />'
+            + '来源: linis<br />'
             + '作者: linis<br />'
             + '链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';

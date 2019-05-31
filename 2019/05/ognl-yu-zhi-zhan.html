@@ -11,7 +11,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Ognl与值栈 | Linis</title>
+    <title>Ognl与值栈 | linis</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
@@ -29,7 +29,8 @@
     <!--HightLine-->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -43,7 +44,7 @@
                         
                         <img src="/medias/logo.png" class="logo-img hide-on-small-only">
                         
-                        <span class="logo-span">Linis</span>
+                        <span class="logo-span">linis</span>
                     </a>
                 </div>
                 
@@ -110,10 +111,10 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Linis</div>
+        <div class="logo-name">linis</div>
         <div class="logo-desc">
             
-            守得住寂寞耐得住繁华
+            多言数穷，不如守中
             
         </div>
     </div>
@@ -387,7 +388,7 @@
 </ol>
 <h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p>Ognl核心OgnlContext()</p>
 <h4 id="存取数据"><a href="#存取数据" class="headerlink" title="存取数据"></a>存取数据</h4><p><strong>根对象存取数据</strong></p>
-<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@org</span><span class="token punctuation">.</span>junit<span class="token punctuation">.</span>Test
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@org</span><span class="token punctuation">.</span>junit<span class="token punctuation">.</span>Test
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">t1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> OgnlException <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">//Ognl 使用</span>
         OgnlContext ognlContext <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">OgnlContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -416,9 +417,9 @@
         Object name <span class="token operator">=</span> Ognl<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">,</span> ognlContext<span class="token punctuation">,</span> root1<span class="token punctuation">)</span><span class="token punctuation">;</span>
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>非根对象存取数据</strong></p>
-<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@org</span><span class="token punctuation">.</span>junit<span class="token punctuation">.</span>Test
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@org</span><span class="token punctuation">.</span>junit<span class="token punctuation">.</span>Test
 <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">f2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> OgnlException <span class="token punctuation">{</span>
         OgnlContext ognlContext <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">OgnlContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -437,7 +438,7 @@
         Student astu <span class="token operator">=</span> <span class="token punctuation">(</span>Student<span class="token punctuation">)</span>Ognl<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token string">"#Student"</span><span class="token punctuation">,</span> ognlContext<span class="token punctuation">,</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>astu<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>注意点：非根对象不可以取单一字段取的时候取的就是存的内容。表达式前加上#</p>
 <h4 id="调用方法"><a href="#调用方法" class="headerlink" title="调用方法"></a>调用方法</h4><ul>
 <li>调用普通方法</li>
@@ -465,7 +466,7 @@ System.out.println(Integer.MAX_VALUE);
 <h3 id="值栈的内部结构"><a href="#值栈的内部结构" class="headerlink" title="值栈的内部结构"></a>值栈的内部结构</h3><p>值栈分为根区与非根区</p>
 <p>根区：存放当前action相关数据</p>
 <p>非根区：是一些整个程序相关数据 比如req域、 session域 、application域。</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> String <span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> String <span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>goods<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         <span class="token comment" spellcheck="true">//获取值栈</span>
@@ -480,7 +481,7 @@ System.out.println(Integer.MAX_VALUE);
 
         <span class="token keyword">return</span> null<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>通过查看断点</p>
 <p><img src="/2019/05/ognl-yu-zhi-zhan/1557039743564.png" alt></p>
 <h4 id="存放数据与出栈"><a href="#存放数据与出栈" class="headerlink" title="存放数据与出栈"></a>存放数据与出栈</h4><p><strong>根区</strong></p>
@@ -666,7 +667,7 @@ ActionContext.getContext().put(&quot;name&quot;, &quot;啊哈&quot;);
                     <span class="reprint-tip">
                         <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
                     </span>
-                    <a href="https://taoya7.github.io" class="b-link-green">Linis</a>
+                    <a href="https://taoya7.github.io" class="b-link-green">linis</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
                     <a href="/2019/05/ognl-yu-zhi-zhan.html" class="b-link-green">Ognl与值栈</a>
                 </p>
@@ -674,28 +675,6 @@ ActionContext.getContext().put(&quot;name&quot;, &quot;啊哈&quot;);
         </div>
     </div>
 
-    
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
-
-<div class="card gitalk-card" data-aos="fade-up">
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: '777c6869496344476594',
-        clientSecret: 'd0321f1e4cd149443dc7a1c303844c95a27540fc',
-        repo: 'taoya7.github.io',
-        owner: 'taoya7',
-        admin: "taoya7",
-        id: '2019-05-05T12-34-25',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
     
 
     
@@ -844,7 +823,7 @@ Demo-获取表单的提交数据
 
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
-            + '来源: Linis<br />'
+            + '来源: linis<br />'
             + '作者: linis<br />'
             + '链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';

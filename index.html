@@ -11,7 +11,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Linis</title>
+    <title>linis</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
@@ -29,7 +29,8 @@
     <!--HightLine-->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -43,7 +44,7 @@
                         
                         <img src="/medias/logo.png" class="logo-img hide-on-small-only">
                         
-                        <span class="logo-span">Linis</span>
+                        <span class="logo-span">linis</span>
                     </a>
                 </div>
                 
@@ -110,10 +111,10 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Linis</div>
+        <div class="logo-name">linis</div>
         <div class="logo-desc">
             
-            守得住寂寞耐得住繁华
+            多言数穷，不如守中
             
         </div>
     </div>
@@ -226,7 +227,7 @@
 
                     <div class="description center-align">
                     
-                        守得住寂寞耐得住繁华
+                        多言数穷，不如守中
                     
                     </div>
                 </div>
@@ -237,12 +238,11 @@
             <a href="#recommend-sections" class="waves-effect waves-light btn">
                 <i class="fa fa-angle-double-down"></i>继续阅读
             </a>
-
-            
+            <!--
             <a href="https://github.com/taoya7" class="waves-effect waves-light btn" target="_blank">
                 <i class="fa fa-github-alt"></i>Github
             </a>
-            
+            -->
         </div>
         <div class="cover-social-link">
     <a href="https://github.com/taoya7" class="tooltipped" target="_blank" data-tooltip="GitHub" data-position="top" data-delay="50">
@@ -290,54 +290,47 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     
                         <div class="dream">
     
-    <div class="title center-align">
-        <i class="fa fa-lightbulb-o"></i>&nbsp;&nbsp;
-    </div>
-    
     <div class="row">
         <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
-            内心不极度渴望的东西，它不可能轻易靠近你
+            多言数穷，不如守中
         </div>
     </div>
 </div>
                     
 
                     
+                        
 
-                    
-                        <link rel="stylesheet" href="/libs/dplayer/DPlayer.min.css">
-<div class="video-player">
-    
-    <div class="title center-align">
-        <i class="fa fa-video-camera"></i>&nbsp;&nbsp;精彩视频
-    </div>
+<link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<div class="music-player">
     
     <div class="row">
         <div class="col l8 offset-l2 m10 offset-m1 s12">
-            <div id="dplayer" class="dplayer-video" style="height: 400px;"></div>
+            <div id="aplayer" class="music"></div>
         </div>
     </div>
 </div>
 
-<script src="/libs/dplayer/DPlayer.min.js"></script>
+<script src="/libs/aplayer/APlayer.min.js"></script>
 <script>
-    $(function () {
-        new DPlayer({
-            container: document.getElementById('dplayer'),
-            autoplay: 'false' === 'true',
-            theme: '#42b983',
-            loop: 'false' === 'true',
-            lang: 'zh-CN' === 'zh-CN' ? 'zh-cn' : 'en',
-            preload: 'auto',
-            volume: Number('0.7'),
-            video: {
-                url: '',
-                pic: '',
-                thumbnails: ''
-            }
-        });
+$(function () {
+    new APlayer({
+        container: document.getElementById('aplayer'),
+        fixed: 'false' === 'true',
+        autoplay: 'false' === 'true',
+        theme: '#42b983',
+        loop: 'all',
+        order: 'list',
+        preload: 'auto',
+        volume: Number('0.7'),
+        listFolded: 'true' === 'true',
+        listMaxHeight: '',
+        audio: JSON.parse('[{"name":"Variations On The Canon By Pachelbel","artist":"卡农","url":"http://music.163.com/song/media/outer/url?id=26908739.mp3","cover":"http://p2.music.126.net/g8z5KwQuqkv-VCJmE2CilA==/5692171697095856.jpg?param=130y130"},{"name":"7.棕旨","artist":"福克斯","url":"http://music.163.com/song/media/outer/url?id=1321929928.mp3","cover":"http://p1.music.126.net/7mapknECwMDYhhpYaqTLwQ==/109951163638594141.jpg?param=130y130"}]')
     });
+});
 </script>
+                    
+
                     
 
                     <div id="recommend-sections" class="recommend">

@@ -11,7 +11,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Django-邮件系统 | Linis</title>
+    <title>Django-邮件系统 | linis</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
@@ -29,7 +29,8 @@
     <!--HightLine-->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -43,7 +44,7 @@
                         
                         <img src="/medias/logo.png" class="logo-img hide-on-small-only">
                         
-                        <span class="logo-span">Linis</span>
+                        <span class="logo-span">linis</span>
                     </a>
                 </div>
                 
@@ -110,10 +111,10 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Linis</div>
+        <div class="logo-name">linis</div>
         <div class="logo-desc">
             
-            守得住寂寞耐得住繁华
+            多言数穷，不如守中
             
         </div>
     </div>
@@ -380,7 +381,7 @@
 
 授权码 syw....vthtk....
 </code></pre><h3 id="smtplib库"><a href="#smtplib库" class="headerlink" title="smtplib库"></a>smtplib库</h3><p><strong>发送邮件</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> smtplib
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> smtplib
 <span class="token keyword">from</span> email<span class="token punctuation">.</span>mime<span class="token punctuation">.</span>text <span class="token keyword">import</span> MIMEText
 <span class="token keyword">from</span> email<span class="token punctuation">.</span>header <span class="token keyword">import</span> Header
 
@@ -412,7 +413,7 @@ msg<span class="token punctuation">[</span><span class="token string">'Subject'<
     server<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><code>login()</code>方法用来登录SMTP服务器</li>
 <li><code>sendmail()</code>方法就是发邮件</li>
@@ -420,7 +421,7 @@ msg<span class="token punctuation">[</span><span class="token string">'Subject'<
 </ul>
 <p><strong>发送带有HTML格式的邮件</strong></p>
 <p>在构造MIMEText对象时，把HTML字符串传进去，再把第二个参数由plain变为html就可以了</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> smtplib
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> smtplib
 <span class="token keyword">from</span> email<span class="token punctuation">.</span>mime<span class="token punctuation">.</span>text <span class="token keyword">import</span> MIMEText
 <span class="token keyword">from</span> email<span class="token punctuation">.</span>header <span class="token keyword">import</span> Header
 
@@ -460,17 +461,17 @@ msg<span class="token punctuation">[</span><span class="token string">'Subject'<
     server<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="使用Django发送邮件"><a href="#使用Django发送邮件" class="headerlink" title="使用Django发送邮件"></a>使用Django发送邮件</h3><p><strong>发送文本</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#配置settings.py</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#配置settings.py</span>
 EMAIL_BACKEND <span class="token operator">=</span> <span class="token string">'django.core.mail.backends.smtp.EmailBackend'</span>
 
 EMAIL_HOST <span class="token operator">=</span> <span class="token string">'smtp.qq.com'</span> <span class="token comment" spellcheck="true">#发送方的smtp服务器地址</span>
 EMAIL_PORT <span class="token operator">=</span> <span class="token number">25</span> <span class="token comment" spellcheck="true">#smtp服务端口，默认为25</span>
 EMAIL_HOST_USER <span class="token operator">=</span> <span class="token string">'3335215292@qq.com'</span> <span class="token comment" spellcheck="true">#发送服务器的用户名</span>
 EMAIL_HOST_PASSWORD <span class="token operator">=</span> <span class="token string">'----'</span> <span class="token comment" spellcheck="true">#用户的密码</span>
-</code></pre>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 新建send_mial.py</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 新建send_mial.py</span>
 <span class="token keyword">import</span> os
 <span class="token keyword">from</span> django<span class="token punctuation">.</span>core<span class="token punctuation">.</span>mail <span class="token keyword">import</span> send_mail
 
@@ -485,9 +486,9 @@ os<span class="token punctuation">.</span>environ<span class="token punctuation"
         <span class="token punctuation">[</span><span class="token string">'569781231@qq.com'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">#接受方的邮件地址列表</span>
         fail_silently<span class="token operator">=</span><span class="token boolean">False</span>
     <span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>发送HTML格式的邮件</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> os
 <span class="token keyword">from</span> django<span class="token punctuation">.</span>core<span class="token punctuation">.</span>mail <span class="token keyword">import</span> send_mail
 <span class="token keyword">from</span> django<span class="token punctuation">.</span>core<span class="token punctuation">.</span>mail <span class="token keyword">import</span> EmailMultiAlternatives
 
@@ -508,7 +509,7 @@ os<span class="token punctuation">.</span>environ<span class="token punctuation"
 
     <span class="token comment" spellcheck="true"># 发送</span>
     msg<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr>
@@ -648,7 +649,7 @@ os<span class="token punctuation">.</span>environ<span class="token punctuation"
                     <span class="reprint-tip">
                         <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
                     </span>
-                    <a href="https://taoya7.github.io" class="b-link-green">Linis</a>
+                    <a href="https://taoya7.github.io" class="b-link-green">linis</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
                     <a href="/2019/04/django-you-jian-xi-tong.html" class="b-link-green">Django-邮件系统</a>
                 </p>
@@ -656,28 +657,6 @@ os<span class="token punctuation">.</span>environ<span class="token punctuation"
         </div>
     </div>
 
-    
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
-
-<div class="card gitalk-card" data-aos="fade-up">
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: '777c6869496344476594',
-        clientSecret: 'd0321f1e4cd149443dc7a1c303844c95a27540fc',
-        repo: 'taoya7.github.io',
-        owner: 'taoya7',
-        admin: "taoya7",
-        id: '2019-04-18T12-47-46',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
     
 
     
@@ -825,7 +804,7 @@ from book import</div>
 
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
-            + '来源: Linis<br />'
+            + '来源: linis<br />'
             + '作者: linis<br />'
             + '链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';

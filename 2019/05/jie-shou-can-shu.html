@@ -11,7 +11,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>接受参数 | Linis</title>
+    <title>接受参数 | linis</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
@@ -29,7 +29,8 @@
     <!--HightLine-->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -43,7 +44,7 @@
                         
                         <img src="/medias/logo.png" class="logo-img hide-on-small-only">
                         
-                        <span class="logo-span">Linis</span>
+                        <span class="logo-span">linis</span>
                     </a>
                 </div>
                 
@@ -110,10 +111,10 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Linis</div>
+        <div class="logo-name">linis</div>
         <div class="logo-desc">
             
-            守得住寂寞耐得住繁华
+            多言数穷，不如守中
             
         </div>
     </div>
@@ -496,10 +497,10 @@ ${属性}
     }
 }
 </code></pre><h5 id="配置全局结果页"><a href="#配置全局结果页" class="headerlink" title="配置全局结果页"></a>配置全局结果页</h5><p>先去自己的action找结果页，如果没有再到全局结果页</p>
-<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>global-results</span><span class="token punctuation">></span></span>
+<pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>global-results</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>result</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span> <span class="token punctuation">"</span></span> <span class="token punctuation">></span></span>/login.jsp<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>result</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>global-results</span><span class="token punctuation">></span></span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h4 id="Struts接受参数"><a href="#Struts接受参数" class="headerlink" title="Struts接受参数"></a>Struts接受参数</h4><p>三种方式</p>
 <p><strong>提供属性set方法方式.</strong></p>
 <p>例如：一个学生信息表有姓名、年龄、工作、学校字段 。提供set方法会自动接受参数并且转换类型</p>
@@ -650,7 +651,7 @@ public class HobbyAction extends ActionSupport {
         return null;
     }
 }
-</code></pre><pre class=" language-jsp"><code class="language-jsp">    <form action="hobby.action">
+</code></pre><pre class="line-numbers language-jsp"><code class="language-jsp">    <form action="hobby.action">
     姓名：<input type="text" name="name"><br>
     年龄：<input type="text" name="age"><br>
     职业：<input type="text" name="job"><br>
@@ -658,7 +659,7 @@ public class HobbyAction extends ActionSupport {
 
     <input type="submit">
   </form>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="接收参数错误处理"><a href="#接收参数错误处理" class="headerlink" title="接收参数错误处理"></a>接收参数错误处理</h5><p>接收参数如果输入值错误则会引发错误。所以我们需要对错误进行处理。</p>
 <pre><code>全局结果页
     &lt;result name=&quot;input&quot;&gt;/error.jsp&lt;/result&gt;
@@ -803,7 +804,7 @@ public class HobbyAction extends ActionSupport {
                     <span class="reprint-tip">
                         <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
                     </span>
-                    <a href="https://taoya7.github.io" class="b-link-green">Linis</a>
+                    <a href="https://taoya7.github.io" class="b-link-green">linis</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
                     <a href="/2019/05/jie-shou-can-shu.html" class="b-link-green">接受参数</a>
                 </p>
@@ -811,28 +812,6 @@ public class HobbyAction extends ActionSupport {
         </div>
     </div>
 
-    
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
-
-<div class="card gitalk-card" data-aos="fade-up">
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: '777c6869496344476594',
-        clientSecret: 'd0321f1e4cd149443dc7a1c303844c95a27540fc',
-        repo: 'taoya7.github.io',
-        owner: 'taoya7',
-        admin: "taoya7",
-        id: '2019-05-04T12-32-03',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
     
 
     
@@ -973,7 +952,7 @@ OGNL 对象图像导航语言。EL表达式只能</div>
 
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
-            + '来源: Linis<br />'
+            + '来源: linis<br />'
             + '作者: linis<br />'
             + '链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';

@@ -11,7 +11,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>模板 | Linis</title>
+    <title>模板 | linis</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
@@ -29,7 +29,8 @@
     <!--HightLine-->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -43,7 +44,7 @@
                         
                         <img src="/medias/logo.png" class="logo-img hide-on-small-only">
                         
-                        <span class="logo-span">Linis</span>
+                        <span class="logo-span">linis</span>
                     </a>
                 </div>
                 
@@ -110,10 +111,10 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Linis</div>
+        <div class="logo-name">linis</div>
         <div class="logo-desc">
             
-            守得住寂寞耐得住繁华
+            多言数穷，不如守中
             
         </div>
     </div>
@@ -393,24 +394,24 @@
 <li>reader_to_string</li>
 </ul>
 <p>找到模板，然后将模板编译后的渲染Python字符串格式。最后通过HttpResponse类包装成一个HttpResponse对象返回回去</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>shortcuts <span class="token keyword">import</span> render
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>shortcuts <span class="token keyword">import</span> render
 <span class="token keyword">from</span> django<span class="token punctuation">.</span>http <span class="token keyword">import</span> HttpResponse
 <span class="token keyword">from</span> django<span class="token punctuation">.</span>template<span class="token punctuation">.</span>loader <span class="token keyword">import</span> render_to_string
 <span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
     html <span class="token operator">=</span> render_to_string<span class="token punctuation">(</span><span class="token string">'index.html'</span><span class="token punctuation">)</span>
     <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span>html<span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>render</li>
 </ul>
 <p>直接将模板渲染成字符串和包装成HttpResponse对象</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>shortcuts <span class="token keyword">import</span> render
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>shortcuts <span class="token keyword">import</span> render
 <span class="token keyword">from</span> django<span class="token punctuation">.</span>http <span class="token keyword">import</span> HttpResponse
 <span class="token comment" spellcheck="true"># Create your views here.</span>
 
 <span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">return</span> render<span class="token punctuation">(</span>request<span class="token punctuation">,</span> <span class="token string">'index.html'</span><span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>模板中可以包含变量，在渲染模板的时候，可以传递变量对应的值进行替换。</p>
 <p>变量在视图函数渲染，视图函数需要添加<code>context</code>字典</p>
@@ -419,14 +420,14 @@
 <li>如果访问对象的属性，可以通过<code>对象.属性名</code>来进行访问</li>
 <li>如果访问一个字典的key对应的value，通过<code>字典.key</code>的方式访问，不可以通过<code>[ ]</code>来访问</li>
 </ul>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
     context <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
     context<span class="token punctuation">[</span><span class="token string">'UserName'</span><span class="token punctuation">:</span><span class="token string">'Tashi'</span><span class="token punctuation">]</span>
     <span class="token keyword">return</span> render<span class="token punctuation">(</span>request<span class="token punctuation">,</span><span class="token string">"index.html"</span><span class="token punctuation">,</span> context<span class="token operator">=</span>context<span class="token punctuation">)</span>
 
 
 <span class="token operator">&lt;</span>h1<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>UserName<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>字典查询，属性查询和列表索引查找都是通过圆点符号.来实现。</p>
 <h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><table>
 <thead>
@@ -572,7 +573,7 @@ def index(request):
 </code></pre><pre><code>{% if XXX in XXX %}
     &lt;P&gt;信息&lt;/P&gt;
 </code></pre><h4 id="for标签-循环"><a href="#for标签-循环" class="headerlink" title="for标签-循环"></a>for标签-循环</h4><p><code>for...in...</code></p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token comment" spellcheck="true">#context必须为字典形式</span>
     context <span class="token operator">=</span> <span class="token punctuation">{</span>
         <span class="token string">"book"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'三国演义'</span><span class="token punctuation">,</span> <span class="token string">'水浒传'</span><span class="token punctuation">,</span> <span class="token string">'红楼梦'</span><span class="token punctuation">,</span> <span class="token string">'西游记'</span><span class="token punctuation">]</span>
@@ -583,16 +584,16 @@ def index(request):
 <span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> book <span class="token operator">%</span><span class="token punctuation">}</span>
    <span class="token punctuation">{</span><span class="token punctuation">{</span> i <span class="token punctuation">}</span><span class="token punctuation">}</span>
 <span class="token punctuation">{</span><span class="token operator">%</span> endfor <span class="token operator">%</span><span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="/2019/04/django-mo-ban/1556097715612.png" alt></p>
 <p><code>for...in...</code> 反转</p>
-<pre class=" language-python"><code class="language-python"><span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> book reversed <span class="token operator">%</span><span class="token punctuation">}</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> book reversed <span class="token operator">%</span><span class="token punctuation">}</span>
    <span class="token punctuation">{</span><span class="token punctuation">{</span> i <span class="token punctuation">}</span><span class="token punctuation">}</span>
 <span class="token punctuation">{</span><span class="token operator">%</span> endfor <span class="token operator">%</span><span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><img src="/2019/04/django-mo-ban/1556097747741.png" alt></p>
 <p><code>遍历字典</code></p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token comment" spellcheck="true">#context必须为字典形式</span>
     context <span class="token operator">=</span> <span class="token punctuation">{</span>
         <span class="token string">"Person"</span><span class="token punctuation">:</span><span class="token punctuation">{</span>
@@ -606,7 +607,7 @@ def index(request):
     <span class="token operator">&lt;</span>p<span class="token operator">></span>Key<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> key<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
     <span class="token operator">&lt;</span>p<span class="token operator">></span>Value<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> value <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
 <span class="token punctuation">{</span><span class="token operator">%</span> endfor <span class="token operator">%</span><span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="/2019/04/django-mo-ban/1556097774161.png" alt></p>
 <p><strong>在for循环中，DTL提供了一些变量提供使用</strong></p>
 <ol>
@@ -619,12 +620,12 @@ def index(request):
 </ol>
 <p><code>for...in...empty</code></p>
 <p>与for…in…不同的是，在遍历对象如果没有元素的情况下，会执行empty中的内容</p>
-<pre class=" language-python"><code class="language-python"><span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">for</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token keyword">in</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token operator">%</span><span class="token punctuation">}</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">for</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token keyword">in</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token operator">%</span><span class="token punctuation">}</span>
 <span class="token keyword">pass</span>
 <span class="token punctuation">{</span><span class="token operator">%</span> empty <span class="token operator">%</span><span class="token punctuation">}</span>
 <span class="token keyword">pass</span>
 <span class="token punctuation">{</span><span class="token operator">%</span> endfor <span class="token operator">%</span><span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="模板继承"><a href="#模板继承" class="headerlink" title="模板继承"></a>模板继承</h4><p><img src="/2019/04/django-mo-ban/1556435171295.jpg" alt></p>
 <p>父模版的% block %标签中的内容总是被用作默认内容</p>
 <p><img src="/2019/04/django-mo-ban/1556435191242.jpg" alt></p>
@@ -640,15 +641,15 @@ def index(request):
     &lt;h1&gt;{{ zs }}&lt;/h1&gt;
 % endwith %
 </code></pre><h4 id="URL标签"><a href="#URL标签" class="headerlink" title="URL标签"></a>URL标签</h4><p>urls.py</p>
-<pre class=" language-python"><code class="language-python">urlpatterns <span class="token operator">=</span> <span class="token punctuation">[</span>
+<pre class="line-numbers language-python"><code class="language-python">urlpatterns <span class="token operator">=</span> <span class="token punctuation">[</span>
     path<span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>index<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">#首页</span>
     path<span class="token punctuation">(</span><span class="token string">'book/'</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>book<span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'book'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     path<span class="token punctuation">(</span><span class="token string">'movie/'</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>movie<span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'movie'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     path<span class="token punctuation">(</span><span class="token string">'city/'</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>city<span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'city'</span><span class="token punctuation">)</span>
 <span class="token punctuation">]</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>views.py</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token comment" spellcheck="true">#context必须为字典形式</span>
     <span class="token keyword">return</span> render<span class="token punctuation">(</span>request<span class="token punctuation">,</span> <span class="token string">'index.html'</span><span class="token punctuation">)</span>
 
@@ -660,7 +661,7 @@ def index(request):
 
 <span class="token keyword">def</span> <span class="token function">city</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">'同城页面'</span><span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="/2019/04/django-mo-ban/1556097889267.gif" alt></p>
 <p><strong>总结</strong></p>
 <pre><code>1. &lt;a href=&quot;{% url 'url_name' %}&quot;&gt; &lt;/a&gt;
@@ -937,7 +938,7 @@ http://127.0.0.1:8000/login/?user=&quot;Tashi&quot;&amp;pwd=&quot;123456&quot;
 <li>在<code>templatetags</code>新建自定义python文件</li>
 <li>定义过滤器</li>
 </ol>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> django <span class="token keyword">import</span> template
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> django <span class="token keyword">import</span> template
 
 register <span class="token operator">=</span> template<span class="token punctuation">.</span>Library<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
@@ -947,27 +948,27 @@ register <span class="token operator">=</span> template<span class="token punctu
     <span class="token keyword">return</span> value<span class="token operator">+</span>word
 
 register<span class="token punctuation">.</span>filter<span class="token punctuation">(</span><span class="token string">"great"</span><span class="token punctuation">,</span>myadd<span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ol start="4">
 <li>把过滤器这个app添加到<code>settings.py</code>中</li>
 <li>模板中使用<code>load</code>标签加载过滤器</li>
 </ol>
-<pre class=" language-python"><code class="language-python"><span class="token punctuation">{</span><span class="token operator">%</span> load  python文件名 <span class="token operator">%</span><span class="token punctuation">}</span>
-</code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">{</span><span class="token operator">%</span> load  python文件名 <span class="token operator">%</span><span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ol start="6">
 <li>使用</li>
 </ol>
 <pre><code>&quot;000&quot;|great:&quot;23&quot;
-</code></pre><h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#如果文章超过100字 以。。。中止</span>
+</code></pre><h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#如果文章超过100字 以。。。中止</span>
 article<span class="token punctuation">.</span>content<span class="token operator">|</span>truncatewords<span class="token punctuation">:</span><span class="token number">100</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>truncateword和slice的区别</p>
-<pre class=" language-python"><code class="language-python">content<span class="token operator">|</span>truncatewords<span class="token punctuation">:</span><span class="token string">"15"</span>
+<pre class="line-numbers language-python"><code class="language-python">content<span class="token operator">|</span>truncatewords<span class="token punctuation">:</span><span class="token string">"15"</span>
 表示显示变量content中前<span class="token number">15</span>个字符，适用于英文内容
 
 content<span class="token operator">|</span>slice<span class="token punctuation">:</span><span class="token string">"15"</span>
 表示显示变量content中的<span class="token number">15</span>个字符，使用于中文内容
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre><code># add
 &quot;Tashi&quot;|add:&quot;&lt;h1&gt;www.itaolaity.com&lt;/h1&gt;&quot; 
 &gt;&gt;&gt; Tashi www.itaolaity.com
@@ -1171,7 +1172,7 @@ date|date:&quot;Y-m-d  G:i:s&quot;
                     <span class="reprint-tip">
                         <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
                     </span>
-                    <a href="https://taoya7.github.io" class="b-link-green">Linis</a>
+                    <a href="https://taoya7.github.io" class="b-link-green">linis</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
                     <a href="/2019/04/django-mo-ban.html" class="b-link-green">模板</a>
                 </p>
@@ -1179,28 +1180,6 @@ date|date:&quot;Y-m-d  G:i:s&quot;
         </div>
     </div>
 
-    
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
-
-<div class="card gitalk-card" data-aos="fade-up">
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: '777c6869496344476594',
-        clientSecret: 'd0321f1e4cd149443dc7a1c303844c95a27540fc',
-        repo: 'taoya7.github.io',
-        owner: 'taoya7',
-        admin: "taoya7",
-        id: '2019-04-16T15-08-09',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
     
 
     
@@ -1344,7 +1323,7 @@ Py</div>
 
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
-            + '来源: Linis<br />'
+            + '来源: linis<br />'
             + '作者: linis<br />'
             + '链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';

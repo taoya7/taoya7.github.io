@@ -11,7 +11,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>PyQuery库 | Linis</title>
+    <title>PyQuery库 | linis</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
@@ -29,7 +29,8 @@
     <!--HightLine-->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -43,7 +44,7 @@
                         
                         <img src="/medias/logo.png" class="logo-img hide-on-small-only">
                         
-                        <span class="logo-span">Linis</span>
+                        <span class="logo-span">linis</span>
                     </a>
                 </div>
                 
@@ -110,10 +111,10 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Linis</div>
+        <div class="logo-name">linis</div>
         <div class="logo-desc">
             
-            守得住寂寞耐得住繁华
+            多言数穷，不如守中
             
         </div>
     </div>
@@ -377,7 +378,7 @@
             <div id="articleContent">
                 <p>#PyQuery</p>
 <p>强大又灵活的网页解析库</p>
-<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><h3 id="字符串初始化"><a href="#字符串初始化" class="headerlink" title="字符串初始化"></a>字符串初始化</h3><pre class=" language-python"><code class="language-python">
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><h3 id="字符串初始化"><a href="#字符串初始化" class="headerlink" title="字符串初始化"></a>字符串初始化</h3><pre class="line-numbers language-python"><code class="language-python">
 html <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
 &lt;div class="box">
 &lt;ul>
@@ -398,22 +399,22 @@ doc <span class="token operator">=</span> pq<span class="token punctuation">(</s
 <span class="token keyword">print</span><span class="token punctuation">(</span>doc<span class="token punctuation">(</span><span class="token string">'li'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 <span class="token comment" spellcheck="true">#打印所有的li标签</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>注释</strong></p>
 <p>首先引入PyQuery对象 取名pq。将HTML字符串当作参数传递给PyQuery类，就完成了初始化</p>
-<h3 id="URL初始化"><a href="#URL初始化" class="headerlink" title="URL初始化"></a>URL初始化</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> pyquery <span class="token keyword">import</span> PyQuery <span class="token keyword">as</span> pq
+<h3 id="URL初始化"><a href="#URL初始化" class="headerlink" title="URL初始化"></a>URL初始化</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> pyquery <span class="token keyword">import</span> PyQuery <span class="token keyword">as</span> pq
 doc <span class="token operator">=</span> pq<span class="token punctuation">(</span>url<span class="token operator">=</span><span class="token string">"http://www.itaolaity.com"</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>doc<span class="token punctuation">(</span><span class="token string">'title'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 <span class="token operator">>></span><span class="token operator">></span> <span class="token operator">&lt;</span>title<span class="token operator">></span>Tashi<span class="token operator">-</span>丛林深处有书和黄金屋<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">></span>
 
-</code></pre>
-<h3 id="文件初始化"><a href="#文件初始化" class="headerlink" title="文件初始化"></a>文件初始化</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> pyquery <span class="token keyword">import</span> PyQuery <span class="token keyword">as</span> pq
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="文件初始化"><a href="#文件初始化" class="headerlink" title="文件初始化"></a>文件初始化</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> pyquery <span class="token keyword">import</span> PyQuery <span class="token keyword">as</span> pq
 doc <span class="token operator">=</span> pq<span class="token punctuation">(</span>filename<span class="token operator">=</span><span class="token string">'Demo.html'</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>doc<span class="token punctuation">(</span><span class="token string">'title'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h2><p><strong>基本用法</strong></p>
-<pre class=" language-python"><code class="language-python">html <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
+<pre class="line-numbers language-python"><code class="language-python">html <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
 &lt;div class="box">
     &lt;ul>
         &lt;li>1&lt;/li>
@@ -431,7 +432,7 @@ doc <span class="token operator">=</span> pq<span class="token punctuation">(</s
 <span class="token keyword">from</span> pyquery <span class="token keyword">import</span> PyQuery <span class="token keyword">as</span> pq
 doc <span class="token operator">=</span> pq<span class="token punctuation">(</span>html<span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>doc<span class="token punctuation">(</span><span class="token string">".box li"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 选取CLSS为box的节点 然后再选取内部的li节点</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="查找结点"><a href="#查找结点" class="headerlink" title="查找结点"></a>查找结点</h3><ul>
 <li><strong>子节点</strong></li>
 </ul>
@@ -441,7 +442,7 @@ doc <span class="token operator">=</span> pq<span class="token punctuation">(</s
 <blockquote>
 <p>children() 方法查找子节点</p>
 </blockquote>
-<pre class=" language-python"><code class="language-python">html <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
+<pre class="line-numbers language-python"><code class="language-python">html <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
 &lt;div class="box">
 &lt;div class="init1">&lt;/div>
 &lt;div class="init2">
@@ -464,8 +465,8 @@ f <span class="token operator">=</span> doc<span class="token punctuation">(</sp
 s <span class="token operator">=</span> f<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'.init2'</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true">## 注释 先找到父节点box 然后通过父节点的find()方法 找子节点为class="init2"的</span>
-</code></pre>
-<pre class=" language-python"><code class="language-python">html <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python">html <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
 
 &lt;div class="box">
 
@@ -500,7 +501,7 @@ s <span class="token operator">=</span> f<span class="token punctuation">.</span
 s <span class="token operator">=</span> f<span class="token punctuation">.</span>children<span class="token punctuation">(</span><span class="token string">'#sign'</span><span class="token punctuation">)</span> # 找不到 只可以寻找子节点
 
 <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><strong>父节点</strong></li>
 </ul>
@@ -514,7 +515,7 @@ s <span class="token operator">=</span> f<span class="token punctuation">.</span
 <blockquote>
 <p>siblings()</p>
 </blockquote>
-<h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><pre class=" language-python"><code class="language-python">
+<h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><pre class="line-numbers language-python"><code class="language-python">
 html <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
 &lt;div class="box">
 &lt;ul class="nav1">
@@ -543,7 +544,7 @@ lis <span class="token operator">=</span> doc<span class="token punctuation">(</
 <span class="token keyword">for</span> li <span class="token keyword">in</span> lis<span class="token punctuation">:</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>li<span class="token punctuation">)</span>
 
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="获取信息"><a href="#获取信息" class="headerlink" title="获取信息"></a>获取信息</h2><h4 id="获取属性"><a href="#获取属性" class="headerlink" title="获取属性"></a>获取属性</h4><p>.attr(‘属性值’)</p>
 <h4 id="获取文本"><a href="#获取文本" class="headerlink" title="获取文本"></a>获取文本</h4><p>.text()</p>
 <h2 id="节点操作"><a href="#节点操作" class="headerlink" title="节点操作"></a>节点操作</h2><h4 id="增加节点和移除节点"><a href="#增加节点和移除节点" class="headerlink" title="增加节点和移除节点"></a>增加节点和移除节点</h4><ul>
@@ -552,7 +553,7 @@ lis <span class="token operator">=</span> doc<span class="token punctuation">(</
 <li><p>removeClass()</p>
 </li>
 </ul>
-<pre class=" language-python"><code class="language-python">tml <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
+<pre class="line-numbers language-python"><code class="language-python">tml <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
 &lt;div class="box1">&lt;/div>
 &lt;div class="box2">&lt;/div>
 """</span>
@@ -565,8 +566,8 @@ box<span class="token punctuation">.</span>addClass<span class="token punctuatio
 <span class="token keyword">print</span><span class="token punctuation">(</span>box<span class="token punctuation">)</span>
 box<span class="token punctuation">.</span>removeClass<span class="token punctuation">(</span><span class="token string">'box1'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">###</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>box<span class="token punctuation">)</span>
-</code></pre>
-<pre class=" language-python"><code class="language-python">html <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python">html <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
 
 
 
@@ -584,8 +585,8 @@ art<span class="token punctuation">.</span>text<span class="token punctuation">(
 <span class="token keyword">print</span><span class="token punctuation">(</span>art<span class="token punctuation">)</span>
 art<span class="token punctuation">.</span>html<span class="token punctuation">(</span><span class="token string">"&lt;span>真酷&lt;/span>"</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>art<span class="token punctuation">)</span>
-</code></pre>
-<h2 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h2><pre class=" language-python"><code class="language-python">
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h2><pre class="line-numbers language-python"><code class="language-python">
 html <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
 &lt;div class="box">
 &lt;ul>
@@ -605,7 +606,7 @@ li <span class="token operator">=</span> doc<span class="token punctuation">(</s
 <span class="token keyword">print</span><span class="token punctuation">(</span>li<span class="token punctuation">)</span>
 li <span class="token operator">=</span> doc<span class="token punctuation">(</span><span class="token string">'li:nth-child(3)'</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>li<span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr>
@@ -745,7 +746,7 @@ li <span class="token operator">=</span> doc<span class="token punctuation">(</s
                     <span class="reprint-tip">
                         <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
                     </span>
-                    <a href="https://taoya7.github.io" class="b-link-green">Linis</a>
+                    <a href="https://taoya7.github.io" class="b-link-green">linis</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
                     <a href="/2018/10/python-pyquery.html" class="b-link-green">PyQuery库</a>
                 </p>
@@ -753,28 +754,6 @@ li <span class="token operator">=</span> doc<span class="token punctuation">(</s
         </div>
     </div>
 
-    
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
-
-<div class="card gitalk-card" data-aos="fade-up">
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: '777c6869496344476594',
-        clientSecret: 'd0321f1e4cd149443dc7a1c303844c95a27540fc',
-        repo: 'taoya7.github.io',
-        owner: 'taoya7',
-        admin: "taoya7",
-        id: '2018-10-29T11-00-22',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
     
 
     
@@ -923,7 +902,7 @@ html = """
 
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
-            + '来源: Linis<br />'
+            + '来源: linis<br />'
             + '作者: linis<br />'
             + '链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
