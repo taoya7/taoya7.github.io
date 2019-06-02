@@ -114,7 +114,7 @@
         <div class="logo-name">linis</div>
         <div class="logo-desc">
             
-            多言数穷，不如守中
+            我的笔记居住地
             
         </div>
     </div>
@@ -331,6 +331,15 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JavaWeb/" class="post-category" target="_blank">
+                                JavaWeb
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -344,7 +353,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        464
+                        472
                     </div>
                     
 
@@ -370,176 +379,187 @@
                 <blockquote>
 <p>抽取工具类</p>
 </blockquote>
-<pre><code>//Util
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">//Util</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>hibernate<span class="token punctuation">.</span>Session<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>hibernate<span class="token punctuation">.</span>SessionFactory<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>hibernate<span class="token punctuation">.</span>cfg<span class="token punctuation">.</span>Configuration<span class="token punctuation">;</span>
 
-public class HibernateUtil {
-    public static final SessionFactory sessionFactory;
-        /*只需加载一次所以static*/
-    static {
-        //1. 加载Hibernate核心配置文件
-        Configuration configure = new Configuration().configure(); //就去找配置文件
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HibernateUtil</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> SessionFactory sessionFactory<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/*只需加载一次所以static*/</span>
+    <span class="token keyword">static</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//1. 加载Hibernate核心配置文件</span>
+        Configuration configure <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Configuration</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">configure</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//就去找配置文件</span>
 
-        //2. 创建sessionFactory
-        sessionFactory = configure.buildSessionFactory();
-    }
+        <span class="token comment" spellcheck="true">//2. 创建sessionFactory</span>
+        sessionFactory <span class="token operator">=</span> configure<span class="token punctuation">.</span><span class="token function">buildSessionFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public static Session openSession(){
-        //3. 获取session
-        Session session = sessionFactory.openSession();
-        return session;
-    }
-}
-</code></pre><hr>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> Session <span class="token function">openSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//3. 获取session</span>
+        Session session <span class="token operator">=</span> sessionFactory<span class="token punctuation">.</span><span class="token function">openSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> session<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
 <p><strong>保存</strong></p>
-<pre><code>@org.junit.Test
-    public void saveDemo()
-    {
-        Session session = HibernateUtil.openSession();
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@org</span><span class="token punctuation">.</span>junit<span class="token punctuation">.</span>Test
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">saveDemo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Session session <span class="token operator">=</span> HibernateUtil<span class="token punctuation">.</span><span class="token function">openSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        Students su = new Students();
-        su.setName(&quot;Tahsi&quot;);
-        su.setAge(6654);
-        su.setId(5);
+        Students su <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Students</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        su<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"Tahsi"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        su<span class="token punctuation">.</span><span class="token function">setAge</span><span class="token punctuation">(</span><span class="token number">6654</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        su<span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        //保存
-        session.save(su);
+        <span class="token comment" spellcheck="true">//保存</span>
+        session<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>su<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        //释放
-        session.close();
-    }
-</code></pre><p><strong>查询</strong></p>
-<pre><code>@org.junit.Test
-    public void queryOne(){
-        Session session = HibernateUtil.openSession();
+        <span class="token comment" spellcheck="true">//释放</span>
+        session<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>查询</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@org</span><span class="token punctuation">.</span>junit<span class="token punctuation">.</span>Test
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">queryOne</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        Session session <span class="token operator">=</span> HibernateUtil<span class="token punctuation">.</span><span class="token function">openSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        // 查询一条
-        Students students = session.get(Students.class, 11); //ID为1的同学消息
-        System.out.println(students);
+        <span class="token comment" spellcheck="true">// 查询一条</span>
+        Students students <span class="token operator">=</span> session<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Students<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//ID为1的同学消息</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>students<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        session.close();
-    }
-</code></pre><p><img src="/2019/04/hibernate-chang-yong-api/1556028998966.png" alt></p>
-<pre><code>@org.junit.Test
-    public void Test7(){
-        Session session = HibernateUtil.openSession();
-        //开启实务
-        Transaction transaction = session.beginTransaction();
+        session<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="/2019/04/hibernate-chang-yong-api/1556028998966.png" alt></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@org</span><span class="token punctuation">.</span>junit<span class="token punctuation">.</span>Test
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Test7</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        Session session <span class="token operator">=</span> HibernateUtil<span class="token punctuation">.</span><span class="token function">openSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//开启实务</span>
+        Transaction transaction <span class="token operator">=</span> session<span class="token punctuation">.</span><span class="token function">beginTransaction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        //HQL
-        Query query = session.createQuery(&quot;from  Demo1.Students&quot; );
+        <span class="token comment" spellcheck="true">//HQL</span>
+        Query query <span class="token operator">=</span> session<span class="token punctuation">.</span><span class="token function">createQuery</span><span class="token punctuation">(</span><span class="token string">"from  Demo1.Students"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        List&lt;Students&gt; list = query.list();
-        for(Students s: list){
-            System.out.println(s);
-        }
+        <span class="token comment" spellcheck="true">//Query以list方法访问查询的全部实例</span>
+        List<span class="token operator">&lt;</span>Students<span class="token operator">></span> list <span class="token operator">=</span> query<span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//遍历查询的全部结果</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>Students s<span class="token operator">:</span> list<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        //提交事务
-        transaction.commit();
+        <span class="token comment" spellcheck="true">//提交事务</span>
+        transaction<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        session.close();
-    }
-</code></pre><p><img src="/2019/04/hibernate-chang-yong-api/1556029702994.png" alt></p>
-<pre><code>/*原生SQL*/
+        session<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="/2019/04/hibernate-chang-yong-api/1556029702994.png" alt></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/*原生SQL*/</span>
 
-@org.junit.Test
-    public void Test8(){
-        Session session = HibernateUtil.openSession();
-        //开启实务
-        Transaction transaction = session.beginTransaction();
+<span class="token annotation punctuation">@org</span><span class="token punctuation">.</span>junit<span class="token punctuation">.</span>Test
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Test8</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        Session session <span class="token operator">=</span> HibernateUtil<span class="token punctuation">.</span><span class="token function">openSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//开启实务</span>
+        Transaction transaction <span class="token operator">=</span> session<span class="token punctuation">.</span><span class="token function">beginTransaction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        NativeQuery sqlQuery = session.createSQLQuery(&quot;select * from students&quot;);
-        List&lt;Object[]&gt; list = sqlQuery.list();
-        for(Object[] objects: list){
-            System.out.println(Arrays.toString(objects));
-        }
+        NativeQuery sqlQuery <span class="token operator">=</span> session<span class="token punctuation">.</span><span class="token function">createSQLQuery</span><span class="token punctuation">(</span><span class="token string">"select * from students"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        List<span class="token operator">&lt;</span>Object<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span> list <span class="token operator">=</span> sqlQuery<span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>Object<span class="token punctuation">[</span><span class="token punctuation">]</span> objects<span class="token operator">:</span> list<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Arrays<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>objects<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        //提交事务
-        transaction.commit();
+        <span class="token comment" spellcheck="true">//提交事务</span>
+        transaction<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        session.close();
-    }
-</code></pre><p><strong>修改</strong></p>
-<pre><code>@org.junit.Test
-    public void updateDemo(){
-        Session session = HibernateUtil.openSession();
-        //开启实务
-        Transaction transaction = session.beginTransaction();
+        session<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>修改</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@org</span><span class="token punctuation">.</span>junit<span class="token punctuation">.</span>Test
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">updateDemo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        Session session <span class="token operator">=</span> HibernateUtil<span class="token punctuation">.</span><span class="token function">openSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//开启实务</span>
+        Transaction transaction <span class="token operator">=</span> session<span class="token punctuation">.</span><span class="token function">beginTransaction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
-        //更新操作
-        /*
+        <span class="token comment" spellcheck="true">//更新操作</span>
+        <span class="token comment" spellcheck="true">/*
          * 注意 如果没有指定其他的字段 会把其他的字段设置为null
-         * */
-        Students su = new Students();
-        su.setId(1);
-        su.setName(&quot;李四&quot;);
-        su.setAge(15);
+         * */</span>
+        Students su <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Students</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        su<span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        su<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"李四"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        su<span class="token punctuation">.</span><span class="token function">setAge</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        session.update(su);
+        session<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>su<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        //提交事务
-        transaction.commit();
+        <span class="token comment" spellcheck="true">//提交事务</span>
+        transaction<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        session.close();
-    }
-</code></pre><pre><code>@org.junit.Test
-    public void Test4(){
-        Session session = HibernateUtil.openSession();
-        //开启实务
-        Transaction transaction = session.beginTransaction();
-
-
-        //更新操作
-        Students s = session.get(Students.class, 1);
-        s.setName(&quot;tao 666&quot;);
-        session.update(s);
+        session<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@org</span><span class="token punctuation">.</span>junit<span class="token punctuation">.</span>Test
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Test4</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        Session session <span class="token operator">=</span> HibernateUtil<span class="token punctuation">.</span><span class="token function">openSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//开启实务</span>
+        Transaction transaction <span class="token operator">=</span> session<span class="token punctuation">.</span><span class="token function">beginTransaction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
-        //提交事务
-        transaction.commit();
-
-        session.close();
-    }
-</code></pre><p><strong>删除</strong></p>
-<pre><code>@org.junit.Test
-    public void Test5(){
-        Session session = HibernateUtil.openSession();
-        //开启实务
-        Transaction transaction = session.beginTransaction();
+        <span class="token comment" spellcheck="true">//更新操作</span>
+        Students s <span class="token operator">=</span> session<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Students<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        s<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"tao 666"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        session<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
-        //删除操作
-        Students s = session.get(Students.class, 1);
-        session.delete(s);
+        <span class="token comment" spellcheck="true">//提交事务</span>
+        transaction<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        session<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>删除</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@org</span><span class="token punctuation">.</span>junit<span class="token punctuation">.</span>Test
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Test5</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        Session session <span class="token operator">=</span> HibernateUtil<span class="token punctuation">.</span><span class="token function">openSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//开启实务</span>
+        Transaction transaction <span class="token operator">=</span> session<span class="token punctuation">.</span><span class="token function">beginTransaction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
-        //提交事务
-        transaction.commit();
-
-        session.close();
-    }
-</code></pre><p><strong>保存或更新</strong></p>
-<pre><code>@org.junit.Test
-    public void Test6(){
-        Session session = HibernateUtil.openSession();
-        //开启实务
-        Transaction transaction = session.beginTransaction();
+        <span class="token comment" spellcheck="true">//删除操作</span>
+        Students s <span class="token operator">=</span> session<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Students<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        session<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
-       Students s = new Students();
-       s.setName(&quot;mySQL&quot;);
-       session.saveOrUpdate(s);
+        <span class="token comment" spellcheck="true">//提交事务</span>
+        transaction<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        session<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>保存或更新</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@org</span><span class="token punctuation">.</span>junit<span class="token punctuation">.</span>Test
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Test6</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        Session session <span class="token operator">=</span> HibernateUtil<span class="token punctuation">.</span><span class="token function">openSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//开启实务</span>
+        Transaction transaction <span class="token operator">=</span> session<span class="token punctuation">.</span><span class="token function">beginTransaction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
-        //提交事务
-        transaction.commit();
+       Students s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Students</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       s<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"mySQL"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       session<span class="token punctuation">.</span><span class="token function">saveOrUpdate</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        session.close();
-    }
-</code></pre>
+
+        <span class="token comment" spellcheck="true">//提交事务</span>
+        transaction<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        session<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
             </div>
             <hr>
 
@@ -738,8 +758,12 @@ Java类+映射文件
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            linis
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaWeb/" class="post-category" target="_blank">
+                                    JavaWeb
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -787,8 +811,12 @@ Java类+映射文件
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            linis
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaWeb/" class="post-category" target="_blank">
+                                    JavaWeb
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -918,7 +946,7 @@ Java类+映射文件
         <div class="col s12 m8 l8 copy-right footer-left">
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">51.7k</span>
+                <span class="white-color">59.5k</span>
             
 
             

@@ -114,7 +114,7 @@
         <div class="logo-name">linis</div>
         <div class="logo-desc">
             
-            多言数穷，不如守中
+            我的笔记居住地
             
         </div>
     </div>
@@ -331,6 +331,15 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JavaWeb/" class="post-category" target="_blank">
+                                JavaWeb
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -344,14 +353,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        423
+                        385
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        1 分
                     </div>
                     
                 
@@ -372,52 +381,56 @@
 </blockquote>
 <p>引入aop的包</p>
 <p>配置文件引入context约束</p>
-<pre><code>&lt;beans
-    xmlns=&quot;http://www.springframework.org/schema/beans&quot;
-    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-    xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
-    xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
-    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+<pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>beans</span>
+    <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans<span class="token punctuation">"</span></span>
+    <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
+    <span class="token attr-name"><span class="token namespace">xmlns:</span>p</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/p<span class="token punctuation">"</span></span>
+    <span class="token attr-name"><span class="token namespace">xmlns:</span>context</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/context<span class="token punctuation">"</span></span>
+    <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
     http://www.springframework.org/schema/context
-    http://www.springframework.org/schema/context/spring-context-3.0.xsd&quot;&gt;
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 
-&lt;!--指定注解扫描包--&gt;
-&lt;context:component-scan base-package=&quot;Unit1&quot;/&gt;
+<span class="token comment" spellcheck="true">&lt;!--指定注解扫描包--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">context:</span>component-scan</span> <span class="token attr-name">base-package</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Unit1<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
 
-&lt;/beans&gt;
-</code></pre><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>配置文件加入</p>
-<pre><code>&lt;!--指定注解扫描包--&gt;
-&lt;context:component-scan base-package=&quot;Unit1&quot;/&gt;
-</code></pre><p>类</p>
-<pre><code>@Component(&quot;stu&quot;)
-public class Student {
-    @Value(&quot;张三&quot;)
-    public String name;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>beans</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>配置文件加入</p>
+<pre class="line-numbers language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!--指定注解扫描包--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">context:</span>component-scan</span> <span class="token attr-name">base-package</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Unit1<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>类</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span><span class="token punctuation">(</span><span class="token string">"stu"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Student</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"张三"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> String name<span class="token punctuation">;</span>
 
-    @Override
-    public String toString() {
-        return &quot;Student{&quot; +
-                &quot;name=&#39;&quot; + name + &#39;\&#39;&#39; +
-                &#39;}&#39;;
-    }
-}
-</code></pre><p>测试</p>
-<pre><code>@org.junit.Test
-public void t1(){
-        //加载配置文件 - 自动创建对象
-        ApplicationContext applicationContext =
-                        new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"Student{"</span> <span class="token operator">+</span>
+                <span class="token string">"name='"</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">'\''</span> <span class="token operator">+</span>
+                <span class="token string">'}'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>测试</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@org</span><span class="token punctuation">.</span>junit<span class="token punctuation">.</span>Test
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">t1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//加载配置文件 - 自动创建对象</span>
+        ApplicationContext applicationContext <span class="token operator">=</span>
+                        <span class="token keyword">new</span> <span class="token class-name">ClassPathXmlApplicationContext</span><span class="token punctuation">(</span><span class="token string">"applicationContext.xml"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        //根据ID获取对象
-        Student stu = (Student)applicationContext.getBean(&quot;stu&quot;);
-
-
-        System.out.println(stu);
+        <span class="token comment" spellcheck="true">//根据ID获取对象</span>
+        Student stu <span class="token operator">=</span> <span class="token punctuation">(</span>Student<span class="token punctuation">)</span>applicationContext<span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token string">"stu"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
-}
-</code></pre><p>注意：要给属性初值，如果由set方法在set方法上添加@value() 如果没有set在属性上添加@value()</p>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>stu<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>注意：要给属性初值，如果由set方法在set方法上添加@value() 如果没有set在属性上添加@value()</p>
 <h2 id="注解详细解释"><a href="#注解详细解释" class="headerlink" title="注解详细解释"></a>注解详细解释</h2><p><code>@Component</code> 修改一个类将这个类给Spring管理，相当于配置文件中<code>&lt;bean id=&quot;&quot; class=&quot;&quot;&gt;</code></p>
 <p>@Component 衍生注解</p>
 <ul>
@@ -635,8 +648,12 @@ cgl</div>
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            linis
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaWeb/" class="post-category" target="_blank">
+                                    JavaWeb
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -695,8 +712,12 @@ Map集合
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            linis
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaWeb/" class="post-category" target="_blank">
+                                    JavaWeb
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -826,7 +847,7 @@ Map集合
         <div class="col s12 m8 l8 copy-right footer-left">
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">51.7k</span>
+                <span class="white-color">59.5k</span>
             
 
             

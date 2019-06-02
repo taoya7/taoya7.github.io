@@ -11,7 +11,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Java-Map集合 | linis</title>
+    <title>MySQL-事务 | linis</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
@@ -114,7 +114,7 @@
         <div class="logo-name">linis</div>
         <div class="logo-desc">
             
-            多言数穷，不如守中
+            我的笔记居住地
             
         </div>
     </div>
@@ -224,13 +224,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Java-Map集合
+                        MySQL-事务
                     </div>
                 </div>
             </div>
@@ -322,8 +322,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/" target="_blank">
-                                <span class="chip bg-color">Java</span>
+                            <a href="/tags/MySQL/" target="_blank">
+                                <span class="chip bg-color">MySQL</span>
                             </a>
                         
                     </div>
@@ -331,20 +331,29 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/MySQL/" class="post-category" target="_blank">
+                                MySQL
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-05-03
+                    2019-06-02
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        718
+                        1.1k
                     </div>
                     
 
@@ -367,121 +376,123 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><ul>
-<li>HashMap</li>
-</ul>
-<p>最常用的Map,它根据键的HashCode 值存储数据,根据键可以直接获取它的值，具有很快的访问速度。HashMap最多只允许一条记录的键为Null(多条会覆盖);允许多条记录的值为 Null。非同步的</p>
+                <h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><p><img src="http://itaolaity.com/20190602135346.png" alt></p>
+<blockquote>
+<h2 id="什么是事务"><a href="#什么是事务" class="headerlink" title="什么是事务"></a>什么是事务</h2></blockquote>
+<p>每条sql语句都是一个事务，不可分割的操作。</p>
+<p>不可分割的操作,假设该操作有ABCD四个步骤组成</p>
 <ul>
-<li>TreeMap</li>
+<li>若ABCD四个步骤都成功完成,则认为事务成功</li>
+<li>若ABCD中任意一个步骤操作失败,则认为事务失败</li>
 </ul>
-<p>能够把它保存的记录根据键(key)排序,默认是按升序排序，也可以指定排序的比较器，当用Iterator 遍历TreeMap时，得到的记录是排过序的。TreeMap不允许key的值为null。非同步的</p>
+<p><strong>注意</strong>：事务只对DML语句有效,对于DQL无效</p>
+<blockquote>
+<h2 id="事务的ACID"><a href="#事务的ACID" class="headerlink" title="事务的ACID"></a>事务的ACID</h2></blockquote>
 <ul>
-<li>Hashtable</li>
+<li>原子性（Atomicity）</li>
 </ul>
-<p>ey和value的值均不允许为null;它支持线程的同步，即任一时刻只有一个线程能写Hashtable,因此也导致了Hashtale在写入时会比较慢</p>
+<p>原子性是指事务包含的所有操作要么全部成功，要么全部失败回滚</p>
 <ul>
-<li>LinkedHashMap</li>
+<li>一致性（Consistency）</li>
 </ul>
-<p>保存了记录的插入顺序，在用Iterator遍历LinkedHashMap时，先得到的记录肯定是先插入的.在遍历的时候会比HashMap慢。key和value均允许为空，非同步的。</p>
-<h4 id="插入元素"><a href="#插入元素" class="headerlink" title="插入元素"></a>插入元素</h4><pre><code>public static void  main(String[] args){
-    HashMap&lt;Character, Integer&gt; map = new HashMap&lt;&gt;();
-    map.put(&#39;a&#39;,6);
-    map.put(&#39;b&#39;, 87);
-    System.out.println(map);
-}
-
-&gt;&gt;&gt; {a=6, b=87}
-</code></pre><h4 id="获取元素"><a href="#获取元素" class="headerlink" title="获取元素"></a>获取元素</h4><pre><code>Integer num = map.get(&#39;b&#39;);
-</code></pre><h4 id="移除元素"><a href="#移除元素" class="headerlink" title="移除元素"></a>移除元素</h4><pre><code>map.remove(&#39;b&#39;);
-</code></pre><h4 id="清空map"><a href="#清空map" class="headerlink" title="清空map"></a>清空map</h4><pre><code>map.clear();
-</code></pre><h4 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h4><p><strong>方式一</strong></p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">for</span><span class="token punctuation">(</span>Character key<span class="token operator">:</span>map<span class="token punctuation">.</span><span class="token function">keySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>key<span class="token operator">+</span><span class="token string">"\t"</span><span class="token operator">+</span>map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>本质是两个集合</p>
-<p><code>map.keySet()</code></p>
-<p><code>map.values()</code></p>
-<p><strong>方式二</strong></p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">for</span><span class="token punctuation">(</span>Map<span class="token punctuation">.</span>Entry<span class="token operator">&lt;</span>Character<span class="token punctuation">,</span>Integer<span class="token operator">></span>entry <span class="token operator">:</span> map<span class="token punctuation">.</span><span class="token function">entrySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>entry<span class="token punctuation">.</span><span class="token function">getKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"\t"</span> <span class="token operator">+</span> entry<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><strong>方式三：迭代器</strong></p>
-<pre class="line-numbers language-java"><code class="language-java">Iterator<span class="token operator">&lt;</span>Character<span class="token operator">></span> it <span class="token operator">=</span> map<span class="token punctuation">.</span><span class="token function">keySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">while</span><span class="token punctuation">(</span>it<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    Character key <span class="token operator">=</span> it<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>key <span class="token operator">+</span> <span class="token string">"\t"</span> <span class="token operator">+</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>方式四：entrySet()</strong></p>
-<p><code>entrySet()</code> 返回此地图中包含的映射的Set视图</p>
-<pre class="line-numbers language-java"><code class="language-java">Iterator<span class="token operator">&lt;</span>Map<span class="token punctuation">.</span>Entry<span class="token operator">&lt;</span>Character<span class="token punctuation">,</span> Integer<span class="token operator">>></span> it <span class="token operator">=</span> map<span class="token punctuation">.</span><span class="token function">entrySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-
-<span class="token keyword">while</span><span class="token punctuation">(</span>it<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    Map<span class="token punctuation">.</span>Entry<span class="token operator">&lt;</span>Character<span class="token punctuation">,</span> Integer<span class="token operator">></span> entry <span class="token operator">=</span> it<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>entry<span class="token punctuation">.</span><span class="token function">getKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"\t"</span> <span class="token operator">+</span> entry<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>遍历速度测试</strong></p>
-<p>for循环是比较慢的，最快的是entrySet迭代器遍历</p>
-<h4 id="Map排序"><a href="#Map排序" class="headerlink" title="Map排序"></a>Map排序</h4><p><strong>TreeMap 排序</strong></p>
-<p>使用比较器</p>
-<p>返回值-1逆序 返回值1顺序</p>
-<pre><code>public static void  main(String[] args){
-    TreeMap&lt;Character, Integer&gt; map = new TreeMap&lt;&gt;(new Comparator&lt;Character&gt;() {
-        @Override
-        public int compare(Character o1, Character o2) {
-            return -1;
-        }
-    });
-
-
-    map.put(&#39;a&#39;,6);
-    map.put(&#39;b&#39;, 87);
-    map.put(&#39;c&#39;, 666);
-
-    Iterator&lt;Map.Entry&lt;Character, Integer&gt;&gt; it = map.entrySet().iterator();
-
-
-    System.out.println(map);
-}
-</code></pre><p><strong>按照value排序</strong></p>
-<pre><code>public static void  main(String[] args){
-    TreeMap&lt;Character, Integer&gt; map = new TreeMap&lt;&gt;();
-
-
-    map.put(&#39;a&#39;,700);
-    map.put(&#39;b&#39;, 400);
-    map.put(&#39;c&#39;, 800);
-
-    //通过ArrayList构造函数把map.entrySet()转换成list
-    ArrayList&lt;Map.Entry&lt;Character,Integer&gt;&gt; list = new ArrayList&lt;Map.Entry&lt;Character, Integer&gt;&gt;(map.entrySet());
-    //通过比较器实现比较排序
-    Collections.sort(list, new Comparator&lt;Map.Entry&lt;Character, Integer&gt;&gt;() {
-        @Override
-        public int compare(Map.Entry&lt;Character, Integer&gt; o1, Map.Entry&lt;Character, Integer&gt; o2) {
-            return o1.getValue().compareTo(o2.getValue());
-        }
-    });
-
-
-    System.out.println(map);
-}
-</code></pre><h4 id="常用API"><a href="#常用API" class="headerlink" title="常用API"></a>常用API</h4><ul>
-<li>clear()</li>
-<li>remove(Object key)</li>
-<li>put(Object key, Object value)</li>
-<li>putAll(Map t) Map复制</li>
-<li>entrySet() 返回 Map 中所包含映射的 Set 视图.可以使用 getKey() 和 getValue() 方法</li>
-<li>keySet()</li>
-<li>values()</li>
-<li>get(Object key)</li>
-<li>containsKey(Object key)</li>
-<li>containsValue(Object value)</li>
-<li>isEmpty()</li>
-<li>size()</li>
+<p>一致性是指事务必须使数据库从一个一致性状态变换到另一个一致性状态，也就是说一个事务执行之前和执行之后都必须处于一致性状态。</p>
+<ul>
+<li>隔离性（Isolation）</li>
+</ul>
+<p>隔离性是当多个用户并发访问数据库时，比如操作同一张表时，数据库为每一个用户开启的事务，不能被其他事务的操作所干扰，多个并发事务之间要相互隔离。</p>
+<ul>
+<li>持久性（Durability）</li>
+</ul>
+<p>持久性是指一个事务一旦被提交了，就不能再回滚了，已经把数据保存到数据库当中了。</p>
+<blockquote>
+<h2 id="事务的使用"><a href="#事务的使用" class="headerlink" title="事务的使用"></a>事务的使用</h2></blockquote>
+<ul>
+<li><p>开启事务<code>start transaction</code></p>
+</li>
+<li><p>提交事务<code>commit</code></p>
+</li>
+<li><p>回滚事务<code>rollback</code></p>
+</li>
+</ul>
+<blockquote>
+<h2 id="事务的并发问题"><a href="#事务的并发问题" class="headerlink" title="事务的并发问题"></a>事务的并发问题</h2></blockquote>
+<ul>
+<li><p>脏读</p>
+</li>
+<li><p>不可重复读</p>
+</li>
+<li><p>重复读</p>
+</li>
+<li><p>幻读</p>
+</li>
+</ul>
+<h4 id="脏读"><a href="#脏读" class="headerlink" title="脏读"></a>脏读</h4><p>老板要给程序员发工资，程序员的工资是3.6万/月。但是发工资时老板不小心按错了数字，按成3.9万/月，该钱已经打到程序员的户口，但是事务还没有提交，就在这时，程序员去查看自己这个月的工资，发现比往常多了3千元，以为涨工资了非常高兴。但是老板及时发现了不对，马上回滚差点就提交了的事务，将数字改成3.6万再提交</p>
+<p>实际程序员这个月的工资还是3.6万，但是程序员看到的是3.9万。他看到的是老板还没提交事务时的数据。这就是脏读。</p>
+<p>解决问题：<code>Read committed!</code>读提交</p>
+<h4 id="不可重复读"><a href="#不可重复读" class="headerlink" title="不可重复读"></a>不可重复读</h4><p>程序员拿着工资卡（卡里当然是只有3.6万），当他买单时（程序员事务开启），收费系统事先检测到他的卡里有3.6万，就在这个时候！！程序员的妻子要把钱全部转出充当家用，并提交。当收费系统准备扣款时，再检测卡里的金额，发现已经没钱了。程序员就会很郁闷，明明卡里是有钱的…</p>
+<p>一个事务范围内两个相同的查询却返回了不同数据，这就是不可重复读</p>
+<p>解决问题：<code>Repeatable read</code></p>
+<h4 id="重复读"><a href="#重复读" class="headerlink" title="重复读"></a>重复读</h4><p>程序员拿着工资卡（卡里还是有3.6万），当他买时（事务开启，不允许其他事务的UPDATE修改操作），收费系统事先检测到他的卡里有3.6万。这个时候他的妻子不能转出金额了。接下来收费系统就可以扣款了。</p>
+<h4 id="幻读"><a href="#幻读" class="headerlink" title="幻读"></a>幻读</h4><p>程序员某一天去消费，花了2千元，然后他的妻子去查看他今天的消费记录（，妻子事务开启），看到确实是花了2千元，就在这个时候，程序员花了1万买了一部电脑，即新增INSERT了一条消费记录，并提交。当妻子打印程序员的消费记录清单时（妻子事务提交），发现花了1.2万元，似乎出现了幻觉，这就是幻读。</p>
+<p>解决问题：<code>Serializable</code></p>
+<h4 id="对应关系"><a href="#对应关系" class="headerlink" title="对应关系"></a>对应关系</h4><table>
+<thead>
+<tr>
+<th>事务隔离级别</th>
+<th>脏读</th>
+<th>不可重复读</th>
+<th>幻读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>读未提交（read-uncommitted）</td>
+<td>是</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>不可重复读（read-committed）</td>
+<td>否</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>可重复读（repeatable-read）</td>
+<td>否</td>
+<td>否</td>
+<td>是</td>
+</tr>
+<tr>
+<td>串行化（serializable）</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<h2 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h2></blockquote>
+<ul>
+<li><p>Read uncommitted 就是一个事务可以读取另一个未提交事务的数据</p>
+</li>
+<li><p>Read committed 一个事务要等另一个事务提交后才能读取数据</p>
+</li>
+<li><p>Repeatable read 就是在开始读取数据（事务开启）时，不再允许修改操作</p>
+</li>
+<li><p>Serializable  在该级别下，事务串行化顺序执行，可以避免脏读、不可重复读与幻读</p>
+</li>
+</ul>
+<blockquote>
+<h2 id="查看隔离级别"><a href="#查看隔离级别" class="headerlink" title="查看隔离级别"></a>查看隔离级别</h2></blockquote>
+<p><code>select @@global.tx_isolation,@@tx_isolation;</code></p>
+<blockquote>
+<h2 id="设置隔离级别"><a href="#设置隔离级别" class="headerlink" title="设置隔离级别"></a>设置隔离级别</h2></blockquote>
+<ul>
+<li>全局<pre><code>set global transaction isolation level read committed; 
+</code></pre></li>
+<li>当前会话<pre><code>set session transaction isolation level read committed;
+</code></pre></li>
 </ul>
 
             </div>
@@ -624,7 +635,7 @@
                     </span>
                     <a href="https://taoya7.github.io" class="b-link-green">linis</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/05/java-map-ji-he.html" class="b-link-green">Java-Map集合</a>
+                    <a href="/2019/06/mysql-shi-wu.html" class="b-link-green">MySQL-事务</a>
                 </p>
             </div>
         </div>
@@ -649,35 +660,40 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/05/struts2-ji-ben-shi-yong.html">
+                <a href="/2019/06/inux-yong-hu-guan-li.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Struts2基本使用">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Linux-用户管理">
                         
-                        <span class="card-title">Struts2基本使用</span>
+                        <span class="card-title">Linux-用户管理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">简介Stuts2是一个基于MVC设计的web应用框架。
-执行流程
+                    <div class="summary">Linux用户与组管理Linux是一个多用户多任务的操作系统
+分类
 
-使用
-创建web工程
-引入jar包
-创建jsp文件
+用户账户文件/etc/passwd
 
-&lt;a href=&quot;hello.action&quot;&gt;Yo!&lt;/a&gt;
+用户组账号文件 /etc/group
 
-编写Act</div>
+组账号文件 /etc/gshadow （加强组口令的安全性）
+
+用户组名
+加密组口令
+组成员</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-03
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-02
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            linis
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category" target="_blank">
+                                    Linux
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -685,8 +701,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Struts2/" target="_blank">
-                        <span class="chip bg-color">Struts2</span>
+                    <a href="/tags/Linux/" target="_blank">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
@@ -700,34 +716,40 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/05/xuan-ze-yuan-su.html">
+                <a href="/2019/06/ysql-quan-xian-guan-li.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="选择元素">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="MySQL-权限管理">
                         
-                        <span class="card-title">选择元素</span>
+                        <span class="card-title">MySQL-权限管理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">选择被操作的元素基本的CSS选择
-类选择器
-id选择器
-*
-selector1,selector2,selectorN
+                    <div class="summary">权限管理
+什么是权限
 
-层次选择器
-ser1 ser2 后代选择器
-parent&gt;child 子选择器
-prev+ next 相邻兄弟选</div>
+限制一个用户能够做什么事情，SQL中，可以设置全局权限，指定数据库权限，指定表权限，指定字段权限
+
+有哪些权限
+
+
+create  创建数据库，表，索引权限
+drop  删除数据库或表权限
+alter  更改表权限
+</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-02
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-02
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            linis
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL/" class="post-category" target="_blank">
+                                    MySQL
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -735,8 +757,8 @@ prev+ next 相邻兄弟选</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JQuery/" target="_blank">
-                        <span class="chip bg-color">JQuery</span>
+                    <a href="/tags/MySQL/" target="_blank">
+                        <span class="chip bg-color">MySQL</span>
                     </a>
                     
                 </div>
@@ -857,7 +879,7 @@ prev+ next 相邻兄弟选</div>
         <div class="col s12 m8 l8 copy-right footer-left">
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">51.7k</span>
+                <span class="white-color">59.5k</span>
             
 
             

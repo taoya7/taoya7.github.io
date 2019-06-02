@@ -1,0 +1,1183 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Re正则表达式 | linis</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+
+    <!--HightLine-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+<link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">linis</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search" title="搜索"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">linis</div>
+        <div class="logo-desc">
+            
+            我的笔记居住地
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link">
+    <a href="https://github.com/taoya7" class="tooltipped" target="_blank" data-tooltip="GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:569781231@qq.com" class="tooltipped" target="_blank" data-tooltip="Email" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=569781231" class="tooltipped" data-tooltip=" 569781231" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+<a href="tel:18735673472" class="tooltipped" target="_blank" data-tooltip="Phone" data-position="top" data-delay="50">
+     <i class="fa fa-phone"></i>
+</a>
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+
+
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Re正则表达式
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Python/" target="_blank">
+                                <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                Python
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-06-01
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        1.3k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        5 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p><strong>是什么</strong></p>
+<p>正则表达式(Regular Expression)目的是为了字符串模式匹配，从而实现搜索和替换功能。所以它是一种用来描述规则的表达式。</p>
+<h2 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h2><p>既然字符串是为了字符串的模式匹配</p>
+<p>所以组成</p>
+<ol>
+<li>字符</li>
+<li>元字符</li>
+</ol>
+<p>字符就是数字、英文字母。而元字符就是特殊字符，可以表示特殊语义的字符。</p>
+<p>我们所要做的就是利用元字符构造强大的表达式</p>
+<h3 id="单个字符"><a href="#单个字符" class="headerlink" title="单个字符"></a>单个字符</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#在apple中匹配ple</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"p"</span><span class="token punctuation">,</span><span class="token string">"apple"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token operator">></span> <span class="token punctuation">[</span><span class="token string">'p'</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>\</strong>转义字符</p>
+<table>
+<thead>
+<tr>
+<th>特殊字符</th>
+<th>正则表达式</th>
+<th>记忆方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>换行符</td>
+<td>\n</td>
+<td>new line</td>
+</tr>
+<tr>
+<td>换页符</td>
+<td>\f</td>
+<td>form feed</td>
+</tr>
+<tr>
+<td>回车符</td>
+<td>\r</td>
+<td>return</td>
+</tr>
+<tr>
+<td>空白符</td>
+<td>\s</td>
+<td>space</td>
+</tr>
+<tr>
+<td>制表符</td>
+<td>\t</td>
+<td>tab</td>
+</tr>
+<tr>
+<td>垂直制表符</td>
+<td>\v</td>
+<td>vertical tab</td>
+</tr>
+<tr>
+<td>回退符</td>
+<td>[\b]</td>
+<td>backspace,之所以使用[]符号是避免和\b重复</td>
+</tr>
+</tbody>
+</table>
+<h3 id="多个字符"><a href="#多个字符" class="headerlink" title="多个字符"></a>多个字符</h3><p>单个字符的映射关系是一对一的，即正则表达式的被用来筛选匹配的字符只有一个。而这显然是不够的，只要引入集合区间和通配符的方式就可以实现一对多的匹配了</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#匹配1 2 3三个字符</span>
+ <span class="token keyword">print</span><span class="token punctuation">(</span>re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"[123]"</span><span class="token punctuation">,</span><span class="token string">"[123456]"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+ <span class="token operator">></span> <span class="token punctuation">[</span><span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'3'</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>-</strong>表示区间范围</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"[1-3]"</span><span class="token punctuation">,</span><span class="token string">"[123456]"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token operator">></span> <span class="token punctuation">[</span><span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'3'</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>利用-表示区间范围，所以[0-9]就能匹配所有数字 [a-z] 就能匹配所有小写字母</p>
+<table>
+<thead>
+<tr>
+<th>匹配区间</th>
+<th>正则表达式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>除了换行符之外的任何字符</td>
+<td>.</td>
+</tr>
+<tr>
+<td>单个数字, [0-9]</td>
+<td>\d</td>
+</tr>
+<tr>
+<td>除了[0-9]</td>
+<td>\D</td>
+</tr>
+<tr>
+<td>包括下划线在内的单个字符，[A-Za-z0-9_]</td>
+<td>\w</td>
+</tr>
+<tr>
+<td>非单字字符</td>
+<td>\W</td>
+</tr>
+<tr>
+<td>匹配空白字符,包括空格、制表符、换页符和换行符</td>
+<td>\s</td>
+</tr>
+<tr>
+<td>匹配非空白字符</td>
+<td>\S</td>
+</tr>
+</tbody>
+</table>
+<h2 id="循环与重复"><a href="#循环与重复" class="headerlink" title="循环与重复"></a>循环与重复</h2><p>如何同时匹配多个字符。要实现多个字符的匹配我们只要多次循环，重复使用我们的之前的正则规则就可以了</p>
+<p><strong>分类</strong></p>
+<ul>
+<li>0次</li>
+<li>1次</li>
+<li>多次</li>
+<li>执行次</li>
+</ul>
+<p><strong>？</strong>代表匹配一个或0个</p>
+<p><strong> * </strong> 代表匹配0个或无数个</p>
+<p><strong>+</strong> 表示匹配1次或多次</p>
+<p><strong>{ }</strong> 表示匹配指定次数</p>
+<ul>
+<li>{n} n次</li>
+<li>{min,max} 介于</li>
+<li>{min,}至少min次</li>
+<li>{0,max}至多max次</li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> re
+<span class="token comment" spellcheck="true">#0~9的数字匹配三个</span>
+str <span class="token operator">=</span> <span class="token string">"a123456789"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>re<span class="token punctuation">.</span>search<span class="token punctuation">(</span><span class="token string">'[0-9]{3}'</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#返回对象</span>
+
+<span class="token operator">&lt;</span>re<span class="token punctuation">.</span>Match object<span class="token punctuation">;</span> span<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> match<span class="token operator">=</span><span class="token string">'123'</span><span class="token operator">></span>
+
+<span class="token comment" spellcheck="true"># 返回数字</span>
+str <span class="token operator">=</span> <span class="token string">"abc1s5df92f"</span>
+re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"[0-9]"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span>
+
+<span class="token punctuation">[</span><span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'5'</span><span class="token punctuation">,</span> <span class="token string">'9'</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true"># 从头匹配直到看到2</span>
+re<span class="token punctuation">.</span>search<span class="token punctuation">(</span><span class="token string">'.*2'</span><span class="token punctuation">,</span><span class="token string">'1a2bcc'</span><span class="token punctuation">)</span>
+<span class="token operator">></span> <span class="token number">1a2</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="边界"><a href="#边界" class="headerlink" title="边界"></a>边界</h2><p>在长文本字符串查找过程中，我们常常需要限制查询的位置。比如我只想在单词的开头结尾查找</p>
+<h3 id="单词边界"><a href="#单词边界" class="headerlink" title="单词边界"></a>单词边界</h3><p>单词是构成句子和文章的基本单位，一个常见的使用场景是把文章或句子中的特定单词找出来。</p>
+<pre class="line-numbers language-python"><code class="language-python">re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"cat"</span><span class="token punctuation">,</span><span class="token string">"more cat cat catkk"</span><span class="token punctuation">)</span>
+<span class="token operator">></span> <span class="token punctuation">[</span><span class="token string">'cat'</span><span class="token punctuation">,</span> <span class="token string">'cat'</span><span class="token punctuation">,</span> <span class="token string">'cat'</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>/b</strong>匹配单词边界</p>
+<p>它匹配一个单词的边界</p>
+<pre class="line-numbers language-python"><code class="language-python">
+re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span> r<span class="token string">'\bbc\b'</span> <span class="token punctuation">,</span> <span class="token string">"abc bc abbbc bcd"</span> <span class="token punctuation">)</span>
+<span class="token operator">></span> <span class="token punctuation">[</span><span class="token string">'bc'</span><span class="token punctuation">]</span>
+
+
+re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span> r<span class="token string">'bc\b'</span> <span class="token punctuation">,</span> <span class="token string">"abc bc abbbc bcd"</span> <span class="token punctuation">)</span>
+<span class="token operator">></span> <span class="token punctuation">[</span><span class="token string">'bc'</span><span class="token punctuation">,</span> <span class="token string">'bc'</span><span class="token punctuation">,</span> <span class="token string">'bc'</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>/B</strong>匹配非边界</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#匹配包含bc但不以bc开头的 和以bc结尾的  </span>
+re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span> r<span class="token string">'\Bbc\b'</span> <span class="token punctuation">,</span> <span class="token string">"abc bc abbbc bcd"</span> <span class="token punctuation">)</span>
+<span class="token operator">></span> <span class="token punctuation">[</span><span class="token string">'bc'</span><span class="token punctuation">,</span> <span class="token string">'bc'</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="字符串边界"><a href="#字符串边界" class="headerlink" title="字符串边界"></a>字符串边界</h3><p><strong>^</strong> 表示字符串的开头</p>
+<p><strong>$</strong> 表示字符串的结尾</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#匹配以he开头的</span>
+re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"^he"</span><span class="token punctuation">,</span><span class="token string">"he is hello "</span><span class="token punctuation">)</span>
+
+<span class="token operator">></span> <span class="token punctuation">[</span><span class="token string">'he'</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> re
+
+data <span class="token operator">=</span> <span class="token string">"tashi123ale"</span>
+res <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span><span class="token string">'([a-z]*)([0-9]*)([a-z]*)'</span><span class="token punctuation">,</span>data<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>groups<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#身份证验证</span>
+data <span class="token operator">=</span> <span class="token string">"140830199810040017"</span>
+res <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span><span class="token string">'(?P&lt;province>\d{3})(?P&lt;city>\d{3})(?P&lt;year>\d{4})'</span><span class="token punctuation">,</span>data<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>groups<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>groupdict<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#转变字典</span>
+
+
+<span class="token punctuation">(</span><span class="token string">'tashi'</span><span class="token punctuation">,</span> <span class="token string">'123'</span><span class="token punctuation">,</span> <span class="token string">'ale'</span><span class="token punctuation">)</span>
+tashi
+<span class="token punctuation">(</span><span class="token string">'140'</span><span class="token punctuation">,</span> <span class="token string">'830'</span><span class="token punctuation">,</span> <span class="token string">'1998'</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span><span class="token string">'province'</span><span class="token punctuation">:</span> <span class="token string">'140'</span><span class="token punctuation">,</span> <span class="token string">'city'</span><span class="token punctuation">:</span> <span class="token string">'830'</span><span class="token punctuation">,</span> <span class="token string">'year'</span><span class="token punctuation">:</span> <span class="token string">'1998'</span><span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="匹配分割"><a href="#匹配分割" class="headerlink" title="匹配分割"></a>匹配分割</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> re
+
+data <span class="token operator">=</span> <span class="token string">"小红,小明,小花"</span>
+res <span class="token operator">=</span> re<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">,</span>data<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
+
+<span class="token punctuation">[</span><span class="token string">'小红'</span><span class="token punctuation">,</span> <span class="token string">'小明'</span><span class="token punctuation">,</span> <span class="token string">'小花'</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="匹配替换"><a href="#匹配替换" class="headerlink" title="匹配替换"></a>匹配替换</h2><p>参数1 匹配规则</p>
+<p>参数2 要替换的字符</p>
+<p>参数3 替换的数据</p>
+<p>参数4 替换几个</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> re
+
+<span class="token comment" spellcheck="true"># help(re)</span>
+data <span class="token operator">=</span> <span class="token string">"小红,小明,小花"</span>
+res <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">,</span><span class="token string">'__'</span><span class="token punctuation">,</span>data<span class="token punctuation">,</span>count<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
+
+小红__小明<span class="token punctuation">,</span>小花
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><table>
+<thead>
+<tr>
+<th>正则表达式</th>
+<th>代表的匹配字符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>代表任意字符</td>
+</tr>
+<tr>
+<td>\</td>
+<td>逻辑或操作符</td>
+</tr>
+<tr>
+<td>[ ]</td>
+<td>匹配内部的任一字符或子表达式</td>
+</tr>
+<tr>
+<td>[^]</td>
+<td>对字符集和取非</td>
+</tr>
+<tr>
+<td>-</td>
+<td>定义一个区间</td>
+</tr>
+<tr>
+<td>*</td>
+<td>匹配前面的字符或者子表达式0次或多次</td>
+</tr>
+<tr>
+<td>*?</td>
+<td>惰性匹配上一个</td>
+</tr>
+<tr>
+<td>+</td>
+<td>匹配前一个字符或子表达式一次或多次</td>
+</tr>
+<tr>
+<td>?</td>
+<td>匹配前一个字符或子表达式0次或1次重复</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>匹配前一个字符或子表达式</td>
+</tr>
+<tr>
+<td>^</td>
+<td>匹配字符串的开头</td>
+</tr>
+<tr>
+<td>\A</td>
+<td>匹配字符串开头</td>
+</tr>
+<tr>
+<td>$</td>
+<td>匹配字符串结束</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>单个数字0-9</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>除了0-9</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>单个字符a-z A-Z 0-9</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>除了[A-Za-z0-9]</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配空白字符,包括空格、制表符、换页符和换行符</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>匹配非空白字符    </td>
+</tr>
+</tbody>
+</table>
+<p><strong>Python</strong></p>
+<ul>
+<li>re.match() 从头开始匹配,找到返回</li>
+<li>re.search() 全局匹配包含</li>
+<li><p>re.findall() 搜索字符串,以列表形式返回全部能匹配的子串</p>
+</li>
+<li><p>re.split() 以匹配到的字符当作列表分隔符</p>
+</li>
+<li>re.sub() 匹配字符并替换</li>
+<li>re.fullmatch()全部匹配</li>
+</ul>
+<p><strong>标识符</strong></p>
+<ul>
+<li>re.I 忽略大小写</li>
+<li>re.S 改变.的行为</li>
+<li>re.M 多行模式</li>
+<li>re.X 给表达式写注释</li>
+</ul>
+<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 请写出一个正则来处理数字千分位，如12345替换为12,345</span>
+<span class="token keyword">import</span> re
+str <span class="token operator">=</span> <span class="token string">"12345"</span>
+re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"(\d{0,})(\d{3})"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <!-- 
+<link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script> -->
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://taoya7.github.io" class="b-link-green">linis</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/06/python-re.html" class="b-link-green">Re正则表达式</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/06/string-zong-jie.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="String(总结)">
+                        
+                        <span class="card-title">String(总结)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Str具有不可改变性。所有的操作基于新的字符串并不会改变以前的字符串。
+
+toString()与valueOf()返回的都是自己
+
+let str = "Tashi";
+console.log(str.toString());
+consol</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JavaScript/" target="_blank">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/05/xin-xi-shou-ji-zhi-jing-xiang-ke-long.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="信息收集之镜像克隆">
+                        
+                        <span class="card-title">信息收集之镜像克隆</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Htteack下载地址
+版本
+
+Windows
+Linux
+Android
+
+Windows
+新建工程
+选择存放路径
+设置网站地址
+开始执行
+
+
+通过查看是挺完美的
+
+Linux
+安装
+
+apt-get install webhttrack</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-31
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/信息安全/" class="post-category" target="_blank">
+                                    信息安全
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/工具的使用/" target="_blank">
+                        <span class="chip bg-color">工具的使用</span>
+                    </a>
+                    
+                    <a href="/tags/安全/" target="_blank">
+                        <span class="chip bg-color">安全</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: linis<br />'
+            + '作者: linis<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<style type="text/css">
+    .page-footer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 0;
+     }
+        .footer-con{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+<footer class="page-footer bg-color">
+    
+    <div class="container row footer-con">
+        <div class="col s12 m8 l8 copy-right footer-left">
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">59.5k</span>
+            
+
+            
+
+
+			
+                <br>
+                
+                
+            
+
+
+        </div>
+        <div class="col s12 m4 l4 social-link footer-rightsocial-statis">
+    <a href="https://github.com/taoya7" class="tooltipped" target="_blank" data-tooltip="GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:569781231@qq.com" class="tooltipped" target="_blank" data-tooltip="Email" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=569781231" class="tooltipped" data-tooltip=" 569781231" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+<a href="tel:18735673472" class="tooltipped" target="_blank" data-tooltip="Phone" data-position="top" data-delay="50">
+     <i class="fa fa-phone"></i>
+</a>
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

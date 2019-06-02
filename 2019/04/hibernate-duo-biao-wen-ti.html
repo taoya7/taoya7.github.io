@@ -114,7 +114,7 @@
         <div class="logo-name">linis</div>
         <div class="logo-desc">
             
-            多言数穷，不如守中
+            我的笔记居住地
             
         </div>
     </div>
@@ -331,6 +331,15 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JavaWeb/" class="post-category" target="_blank">
+                                JavaWeb
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -344,7 +353,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        748
+                        626
                     </div>
                     
 
@@ -394,122 +403,127 @@
 <span class="token punctuation">}</span>
 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre><code>import lombok.Getter;
-import lombok.Setter;
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">import</span> lombok<span class="token punctuation">.</span>Getter<span class="token punctuation">;</span>
+<span class="token keyword">import</span> lombok<span class="token punctuation">.</span>Setter<span class="token punctuation">;</span>
 
-@Setter@Getter
-public class Grade {
-    private Integer gra_id;
-    private String gra_name;
-    private Integer gra_num;
-    private Integer stu_gra;
+<span class="token annotation punctuation">@Setter</span><span class="token annotation punctuation">@Getter</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Grade</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> Integer gra_id<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String gra_name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> Integer gra_num<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> Integer stu_gra<span class="token punctuation">;</span>
 
-    //某个成绩只对一个学生有效
-    private Students stu;
+    <span class="token comment" spellcheck="true">//某个成绩只对一个学生有效</span>
+    <span class="token keyword">private</span> Students stu<span class="token punctuation">;</span>
 
-}
+<span class="token punctuation">}</span>
 
-</code></pre><blockquote>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
 <ol start="2">
 <li>配置映射文件<br><code>grade.hbm.xml</code>  <code>students.hbm.xml</code></li>
 </ol>
 </blockquote>
-<pre><code>&lt;!--student.hbm.xml--&gt;
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+<pre class="line-numbers language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!--student.hbm.xml--></span>
+<span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 
-&lt;!DOCTYPE hibernate-mapping PUBLIC
-        &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
-        &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;
+<span class="token doctype">&lt;!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"></span>
 
-&lt;hibernate-mapping&gt;
-    &lt;class name=&quot;多表查询.Students&quot; table=&quot;students&quot; &gt;
-        &lt;!--建立类属性哪一个是主键  还要跟数据库当中主键进行对象--&gt;
-        &lt;id name=&quot;stu_gra&quot; column=&quot;stu_gra&quot; &gt;
-            &lt;generator class=&quot;native&quot;/&gt;
-        &lt;/id&gt;
-        &lt;!--建立类中的普通属性与数据库当中字段进行关联--&gt;
-        &lt;property name=&quot;stu_name&quot; column=&quot;stu_name&quot; /&gt;
-        &lt;property name=&quot;stu_age&quot; column=&quot;stu_age&quot;/&gt;
-
-
-        &lt;!--一对多的配置--&gt;
-        &lt;set name=&quot;gras&quot; &gt; &lt;!--属性名称--&gt;
-            &lt;key column=&quot;stu_link_gra&quot;&gt; &lt;!--外键名称--&gt;&lt;/key&gt;
-            &lt;one-to-many class=&quot;多表查询.Grade&quot;&gt;&lt;/one-to-many&gt;
-        &lt;/set&gt;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hibernate-mapping</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>class</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>多表查询.Students<span class="token punctuation">"</span></span> <span class="token attr-name">table</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>students<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span>
+        <span class="token comment" spellcheck="true">&lt;!--建立类属性哪一个是主键  还要跟数据库当中主键进行对象--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stu_gra<span class="token punctuation">"</span></span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stu_gra<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>generator</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>native<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">></span></span>
+        <span class="token comment" spellcheck="true">&lt;!--建立类中的普通属性与数据库当中字段进行关联--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stu_name<span class="token punctuation">"</span></span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stu_name<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stu_age<span class="token punctuation">"</span></span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stu_age<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
 
 
-    &lt;/class&gt;
-&lt;/hibernate-mapping&gt;
-</code></pre><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        <span class="token comment" spellcheck="true">&lt;!--一对多的配置--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>set</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>gras<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span> <span class="token comment" spellcheck="true">&lt;!--属性名称--></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>key</span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stu_link_gra<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> <span class="token comment" spellcheck="true">&lt;!--外键名称--></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>key</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>one-to-many</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>多表查询.Grade<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>one-to-many</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>set</span><span class="token punctuation">></span></span>
 
-&lt;!DOCTYPE hibernate-mapping PUBLIC
-        &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
-        &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;
 
-&lt;hibernate-mapping&gt;
-    &lt;class name=&quot;多表查询.Grade&quot; table=&quot;students&quot; &gt;
-        &lt;!--建立类属性哪一个是主键  还要跟数据库当中主键进行对象--&gt;
-        &lt;id name=&quot;gra_id&quot; column=&quot;gra_id&quot; &gt;
-            &lt;generator class=&quot;native&quot;/&gt;
-        &lt;/id&gt;
-        &lt;!--建立类中的普通属性与数据库当中字段进行关联--&gt;
-        &lt;property name=&quot;gra_name&quot; column=&quot;gra_name&quot; /&gt;
-        &lt;property name=&quot;gra_num&quot; column=&quot;gra_num&quot;/&gt;
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>class</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>hibernate-mapping</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 
-        &lt;many-to-one name=&quot;stu&quot; class=&quot;多表查询.Students&quot; column=&quot;stu_link_gra&quot;&gt;
+<span class="token doctype">&lt;!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"></span>
 
-        &lt;/many-to-one&gt;
-    &lt;/class&gt;
-&lt;/hibernate-mapping&gt;
-</code></pre><p>注意：映射不需要添加外键。<code>&lt;set&gt;&lt;/set&gt;</code> 中name属性指的是ORM模型中最后的变量，colmn是数据库中外键的名称，class属性是ORM类的路径。</p>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hibernate-mapping</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>class</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>多表查询.Grade<span class="token punctuation">"</span></span> <span class="token attr-name">table</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>students<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span>
+        <span class="token comment" spellcheck="true">&lt;!--建立类属性哪一个是主键  还要跟数据库当中主键进行对象--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>gra_id<span class="token punctuation">"</span></span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>gra_id<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>generator</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>native<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">></span></span>
+        <span class="token comment" spellcheck="true">&lt;!--建立类中的普通属性与数据库当中字段进行关联--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>gra_name<span class="token punctuation">"</span></span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>gra_name<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>gra_num<span class="token punctuation">"</span></span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>gra_num<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>many-to-one</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stu<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>多表查询.Students<span class="token punctuation">"</span></span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stu_link_gra<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>many-to-one</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>class</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>hibernate-mapping</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>注意：映射不需要添加外键。<code>&lt;set&gt;&lt;/set&gt;</code> 中name属性指的是ORM模型中最后的变量，colmn是数据库中外键的名称，class属性是ORM类的路径。</p>
 <p>加载映射文件</p>
-<pre><code>&lt;!--hibernate.cfg.xml--&gt;
+<pre class="line-numbers language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!--hibernate.cfg.xml--></span>
 
-&lt;!--映射文件--&gt;
-&lt;mapping resource=&quot;多表查询/grade.hbm.xml&quot;/&gt;
-&lt;mapping resource=&quot;多表查询/student.hbm.xml&quot;/&gt;
-</code></pre><blockquote>
+<span class="token comment" spellcheck="true">&lt;!--映射文件--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mapping</span> <span class="token attr-name">resource</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>多表查询/grade.hbm.xml<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mapping</span> <span class="token attr-name">resource</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>多表查询/student.hbm.xml<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
 <ol start="3">
 <li>操作</li>
 </ol>
 </blockquote>
 <p><strong>添加</strong></p>
-<pre><code>@Test
-    public void t1(){
-        Session session = HibernateUtil.openSession();
-        Transaction transaction = session.beginTransaction();//开启事务
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">t1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        Session session <span class="token operator">=</span> HibernateUtil<span class="token punctuation">.</span><span class="token function">openSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Transaction transaction <span class="token operator">=</span> session<span class="token punctuation">.</span><span class="token function">beginTransaction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//开启事务</span>
 
-        /*配置*/
-        Students stu1 = new Students();
-        Students stu2 = new Students();
-        Students stu3 = new Students();
-        stu1.setStu_name(&quot;小红&quot;);
-        stu2.setStu_name(&quot;小明&quot;);
-        stu3.setStu_name(&quot;小刚&quot;);
+        <span class="token comment" spellcheck="true">/*配置*/</span>
+        Students stu1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Students</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Students stu2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Students</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Students stu3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Students</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        stu1<span class="token punctuation">.</span><span class="token function">setStu_name</span><span class="token punctuation">(</span><span class="token string">"小红"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        stu2<span class="token punctuation">.</span><span class="token function">setStu_name</span><span class="token punctuation">(</span><span class="token string">"小明"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        stu3<span class="token punctuation">.</span><span class="token function">setStu_name</span><span class="token punctuation">(</span><span class="token string">"小刚"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        Grade gra1 = new Grade();
-        Grade gra2 = new Grade();
-        Grade gra3 = new Grade();
-        gra1.setGra_name(&quot;数学&quot;); gra1.setGra_num(90);
-        gra2.setGra_name(&quot;语文&quot;); gra1.setGra_num(75);
-        gra3.setGra_name(&quot;英语&quot;); gra1.setGra_num(80);
+        Grade gra1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Grade</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Grade gra2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Grade</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Grade gra3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Grade</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        gra1<span class="token punctuation">.</span><span class="token function">setGra_name</span><span class="token punctuation">(</span><span class="token string">"数学"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> gra1<span class="token punctuation">.</span><span class="token function">setGra_num</span><span class="token punctuation">(</span><span class="token number">90</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        gra2<span class="token punctuation">.</span><span class="token function">setGra_name</span><span class="token punctuation">(</span><span class="token string">"语文"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> gra1<span class="token punctuation">.</span><span class="token function">setGra_num</span><span class="token punctuation">(</span><span class="token number">75</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        gra3<span class="token punctuation">.</span><span class="token function">setGra_name</span><span class="token punctuation">(</span><span class="token string">"英语"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> gra1<span class="token punctuation">.</span><span class="token function">setGra_num</span><span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        stu1.getGras().add(gra1); /*添加*/
-        stu2.getGras().add(gra2);
-        stu3.getGras().add(gra3);
+        stu1<span class="token punctuation">.</span><span class="token function">getGras</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>gra1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*添加*/</span>
+        stu2<span class="token punctuation">.</span><span class="token function">getGras</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>gra2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        stu3<span class="token punctuation">.</span><span class="token function">getGras</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>gra3<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        session.save(stu1); /*保存*/
-        session.save(stu2);
-        session.save(stu3);
-        session.save(gra1);
-        session.save(gra2);
-        session.save(gra3);
+        session<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>stu1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*保存*/</span>
+        session<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>stu2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        session<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>stu3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        session<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>gra1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        session<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>gra2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        session<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>gra3<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
-        transaction.commit();
-    }
-</code></pre>
+        transaction<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
             </div>
             <hr>
 
@@ -903,7 +917,7 @@ scrapy.cf</div>
         <div class="col s12 m8 l8 copy-right footer-left">
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">51.7k</span>
+                <span class="white-color">59.5k</span>
             
 
             

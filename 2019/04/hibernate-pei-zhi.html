@@ -114,7 +114,7 @@
         <div class="logo-name">linis</div>
         <div class="logo-desc">
             
-            多言数穷，不如守中
+            我的笔记居住地
             
         </div>
     </div>
@@ -331,6 +331,15 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JavaWeb/" class="post-category" target="_blank">
+                                JavaWeb
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -492,6 +501,8 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="/2019/04/hibernate-pei-zhi/1556012406566.png" alt></p>
 <h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p><strong>映射配置</strong></p>
+<p>xxx.hbm.xml</p>
+<p>xxx对应持久化类后面的.hbm.xml是固定写法</p>
 <p><img src="/2019/04/hibernate-pei-zhi/1556014193448.png" alt></p>
 <p><code>hibernate-mapping标签</code></p>
 <p>注意的是一个映射文件只可以有一个hibernate-mapping标签</p>
@@ -528,6 +539,8 @@
 <li>generated 是否由数据库生成</li>
 </ul>
 <p><strong>核心配置</strong></p>
+<p>hibernate.cfg.xml</p>
+<p>当程序调用Configuration对象的configure()方法时，Hibernate就会自动加载该文件。hibernate-configuration是根元素。根元素包含session-factory子元素子元素又有property元素，而这些property属性则是配置Hibernate连接数据库的重要信息</p>
 <p><img src="/2019/04/hibernate-pei-zhi/1556014516906.png" alt></p>
 <p>自动建表<code>hibernate.hbm2ddl.auto</code></p>
 <p>格式化SQL<code>hibernate.format_sql</code></p>
@@ -536,22 +549,23 @@
 <p>File -&gt; Settings -&gt; Sehemas and DTD</p>
 <p><img src="/2019/04/hibernate-pei-zhi/1556014950257.png" alt></p>
 <p><strong>配置连接池</strong></p>
-<pre><code>&lt;!--C3PO--&gt;
-        &lt;property name=&quot;connection.provider_class&quot;&gt;org.hibernate.c3p0.internal.C3P0ConnectionProvider&lt;/property&gt;
-        &lt;!--在连接池中可用的数据库连接的最少数目 --&gt;
-        &lt;property name=&quot;c3p0.min_size&quot;&gt;5&lt;/property&gt;
-        &lt;!--在连接池中所有数据库连接的最大数目  --&gt;
-        &lt;property name=&quot;c3p0.max_size&quot;&gt;20&lt;/property&gt;
-        &lt;!--设定数据库连接的过期时间,以秒为单位,
-        如果连接池中的某个数据库连接处于空闲状态的时间超过了timeout时间,就会从连接池中清除 --&gt;
-        &lt;property name=&quot;c3p0.timeout&quot;&gt;120&lt;/property&gt;
-        &lt;!--每3000秒检查所有连接池中的空闲连接 以秒为单位--&gt;
-        &lt;property name=&quot;c3p0.idle_test_period&quot;&gt;3000&lt;/property&gt;
-        &lt;!--设置事务的隔离级别--&gt;
-        &lt;property name=&quot;hibernate.connection.isolation&quot;&gt;4&lt;/property&gt;
-        &lt;!--创建一个session绑定到当前线程--&gt;
-        &lt;property name=&quot;current_session_context_class&quot;&gt;thread&lt;/property&gt;
-</code></pre><h2 id="日志查看"><a href="#日志查看" class="headerlink" title="日志查看"></a>日志查看</h2><p><strong>导包</strong></p>
+<pre class="line-numbers language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!--C3PO--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>connection.provider_class<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>org.hibernate.c3p0.internal.C3P0ConnectionProvider<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+<span class="token comment" spellcheck="true">&lt;!--在连接池中可用的数据库连接的最少数目 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>c3p0.min_size<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>5<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+<span class="token comment" spellcheck="true">&lt;!--在连接池中所有数据库连接的最大数目  --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>c3p0.max_size<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>20<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+<span class="token comment" spellcheck="true">&lt;!--设定数据库连接的过期时间,以秒为单位,
+如果连接池中的某个数据库连接处于空闲状态的时间超过了timeout时间,就会从连接池中清除 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>c3p0.timeout<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>120<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+<span class="token comment" spellcheck="true">&lt;!--每3000秒检查所有连接池中的空闲连接 以秒为单位--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>c3p0.idle_test_period<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>3000<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+<span class="token comment" spellcheck="true">&lt;!--设置事务的隔离级别--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hibernate.connection.isolation<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>4<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+<span class="token comment" spellcheck="true">&lt;!--创建一个session绑定到当前线程--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>current_session_context_class<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>thread<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="日志查看"><a href="#日志查看" class="headerlink" title="日志查看"></a>日志查看</h2><p><strong>导包</strong></p>
 <p><code>log4j-1.2.16.jar</code> </p>
 <p><code>log4j.preperties</code>放在src目录下</p>
 <p><strong>级别</strong></p>
@@ -751,8 +765,12 @@ import org.hibernate.cfg.Configuration</div>
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            linis
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaWeb/" class="post-category" target="_blank">
+                                    JavaWeb
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -798,8 +816,12 @@ application 共享信息servletC</div>
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            linis
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaWeb/" class="post-category" target="_blank">
+                                    JavaWeb
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -933,7 +955,7 @@ application 共享信息servletC</div>
         <div class="col s12 m8 l8 copy-right footer-left">
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">51.7k</span>
+                <span class="white-color">59.5k</span>
             
 
             

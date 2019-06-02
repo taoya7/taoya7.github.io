@@ -114,7 +114,7 @@
         <div class="logo-name">linis</div>
         <div class="logo-desc">
             
-            多言数穷，不如守中
+            我的笔记居住地
             
         </div>
     </div>
@@ -331,6 +331,15 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JavaWeb/" class="post-category" target="_blank">
+                                JavaWeb
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -404,26 +413,27 @@
 <li>当调用save(),update(),saveOrUpdate() 时如果session缓存没有相应的对象，则会自动从数据库查询相应的信息。</li>
 <li>当调用load(),get() 方法，以及Query 接口的list iterator方法会判断缓存当中是否存在该对象，有则返回，不会查询数据库。</li>
 </ol>
-<pre><code>@org.junit.Test
-    public void T9(){
-        Session session = HibernateUtil.openSession();
-        //开启事务
-        Transaction transaction = session.beginTransaction();
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@org</span><span class="token punctuation">.</span>junit<span class="token punctuation">.</span>Test
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">T9</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        Session session <span class="token operator">=</span> HibernateUtil<span class="token punctuation">.</span><span class="token function">openSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//开启事务</span>
+        Transaction transaction <span class="token operator">=</span> session<span class="token punctuation">.</span><span class="token function">beginTransaction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        Students stu1 = session.get(Students.class, 3);
-        System.out.println(stu1);//会自动把数据存放到一级缓存
+        Students stu1 <span class="token operator">=</span> session<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Students<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>stu1<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//会自动把数据存放到一级缓存</span>
 
-        Students stu2 = session.get(Students.class, 3);//直接使用上个数据
-        System.out.println(stu2);
+        Students stu2 <span class="token operator">=</span> session<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Students<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//直接使用上个数据</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>stu2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        System.out.println(stu1 == stu2 );
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>stu1 <span class="token operator">==</span> stu2 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        //提交
-        transaction.commit();
-        //释放资源
-        session.close();
-    }
-</code></pre><h2 id="事务管理"><a href="#事务管理" class="headerlink" title="事务管理"></a>事务管理</h2><p>Hibernate设置事务的隔离级别。在核心配置文件<code>hibernate.cfg.xml</code>配置，通过数字来代表不同的隔离级别。</p>
+        <span class="token comment" spellcheck="true">//提交</span>
+        transaction<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//释放资源</span>
+        session<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="事务管理"><a href="#事务管理" class="headerlink" title="事务管理"></a>事务管理</h2><p>Hibernate设置事务的隔离级别。在核心配置文件<code>hibernate.cfg.xml</code>配置，通过数字来代表不同的隔离级别。</p>
 <p><img src="/2019/04/hibernate-zhu-jian-sheng-cheng-ce-lue/1556034136178.png" alt></p>
 
             </div>
@@ -617,8 +627,12 @@ Django自带表单类编写表单类
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            linis
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -664,8 +678,12 @@ import org.hibernate.cfg.Configuration</div>
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            linis
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaWeb/" class="post-category" target="_blank">
+                                    JavaWeb
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -795,7 +813,7 @@ import org.hibernate.cfg.Configuration</div>
         <div class="col s12 m8 l8 copy-right footer-left">
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">51.7k</span>
+                <span class="white-color">59.5k</span>
             
 
             
