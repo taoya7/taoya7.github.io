@@ -12,9 +12,9 @@
     box-shadow: 0 2px 5px rgba(0,0,25,0.1), 0 5px 75px 1px rgba(0,0,50,0.2);
 }
 .card-content p code{
-    padding:10px 15px;
-    color:#032d3c;
-    background: #dedede;
+    margin:0 5px;
+    color:#fbfbfb;
+    background: #002f35;
     border-radius: 3px;
 }
 .card-conten table{

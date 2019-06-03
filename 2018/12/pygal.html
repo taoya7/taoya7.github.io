@@ -353,14 +353,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        629
+                        1k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        5 分
                     </div>
                     
                 
@@ -376,7 +376,23 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Pygal"><a href="#Pygal" class="headerlink" title="Pygal"></a>Pygal</h1><h3 id="折线图"><a href="#折线图" class="headerlink" title="折线图"></a>折线图</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> pygal
+                <h1 id="Pygal"><a href="#Pygal" class="headerlink" title="Pygal"></a>Pygal</h1><blockquote>
+<p>安装</p>
+</blockquote>
+<pre class="line-numbers language-python"><code class="language-python">pip install pygal
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li>创建pygal对象。pygal为不同的数据图提供了不同的类<ol>
+<li>柱状图pygal.Bar</li>
+<li>饼图pygal.Pie</li>
+<li>折线图pygal.Line</li>
+</ol>
+</li>
+<li>调用add()方法添加数据</li>
+<li>调用Config对象配置数据图</li>
+<li>render_to_xxx()将数据渲染出来</li>
+</ol>
+<h3 id="折线图"><a href="#折线图" class="headerlink" title="折线图"></a>折线图</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> pygal
 
 radar_chart <span class="token operator">=</span> pygal<span class="token punctuation">.</span>XY<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#设置散点图</span>
 radar_chart<span class="token punctuation">.</span>title <span class="token operator">=</span> <span class="token string">'Tashi'</span> <span class="token comment" spellcheck="true">#设置图标标题</span>
@@ -419,7 +435,15 @@ radar_chart<span class="token punctuation">.</span>add<span class="token punctua
 radar_chart<span class="token punctuation">.</span>render_to_file<span class="token punctuation">(</span><span class="token string">'die_visual.svg'</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="/2018/12/Pygal/1.png" alt></p>
-<h3 id="条形图"><a href="#条形图" class="headerlink" title="条形图"></a>条形图</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> pygal
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>通过 对象来配置</p>
+<pre class="line-numbers language-python"><code class="language-python">bar<span class="token punctuation">.</span>x_label_roration<span class="token operator">=</span><span class="token number">30</span> <span class="token comment" spellcheck="true">#X轴刻度旋转45deg</span>
+bar<span class="token punctuation">.</span>legend_at_bottom<span class="token operator">=</span><span class="token boolean">True</span> <span class="token comment" spellcheck="true">#图例放在底部</span>
+bar<span class="token punctuation">.</span>margin <span class="token operator">=</span> <span class="token number">15</span>
+bar<span class="token punctuation">.</span>show_y_guides <span class="token operator">=</span> <span class="token boolean">False</span> <span class="token comment" spellcheck="true">#隐藏X轴网格线</span>
+bar<span class="token punctuation">.</span>show_x_guides <span class="token operator">=</span> <span class="token boolean">True</span> <span class="token comment" spellcheck="true">#显示Y轴网格线</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="http://itaolaity.com/20190603155930.png" alt></p>
+<h3 id="柱状图"><a href="#柱状图" class="headerlink" title="柱状图"></a>柱状图</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> pygal
 
 
 <span class="token comment" spellcheck="true"># 条形图</span>
@@ -438,6 +462,38 @@ hist<span class="token punctuation">.</span>add<span class="token punctuation">(
 hist<span class="token punctuation">.</span>render_to_file<span class="token punctuation">(</span><span class="token string">'bar_chart.svg'</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="/2018/12/Pygal/2.png" alt></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> pygal
+
+<span class="token comment" spellcheck="true"># 条形图</span>
+bar <span class="token operator">=</span> pygal<span class="token punctuation">.</span>HorizontalBar<span class="token punctuation">(</span><span class="token punctuation">)</span>
+bar<span class="token punctuation">.</span>x_labels <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#X坐标</span>
+bar<span class="token punctuation">.</span>y_labels <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">90</span><span class="token punctuation">,</span> <span class="token number">120</span><span class="token punctuation">,</span> <span class="token number">150</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#Y坐标</span>
+bar<span class="token punctuation">.</span>x_title <span class="token operator">=</span> <span class="token string">'Result'</span> <span class="token comment" spellcheck="true">#X描述</span>
+bar<span class="token punctuation">.</span>y_title <span class="token operator">=</span> <span class="token string">'Frequency of Result'</span> <span class="token comment" spellcheck="true">#Y描述</span>
+
+<span class="token comment" spellcheck="true">#Data</span>
+data1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">158</span><span class="token punctuation">,</span> <span class="token number">163</span><span class="token punctuation">,</span> <span class="token number">147</span><span class="token punctuation">,</span> <span class="token number">189</span><span class="token punctuation">,</span> <span class="token number">179</span><span class="token punctuation">,</span> <span class="token number">164</span><span class="token punctuation">]</span>
+data2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">47</span><span class="token punctuation">,</span> <span class="token number">89</span><span class="token punctuation">,</span> <span class="token number">79</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">]</span>
+bar<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">'D6'</span><span class="token punctuation">,</span> data1<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#添加</span>
+bar<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">'D7'</span><span class="token punctuation">,</span> data2<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#配置</span>
+bar<span class="token punctuation">.</span>title <span class="token operator">=</span> <span class="token string">'Tashi'</span> <span class="token comment" spellcheck="true">#设置标题</span>
+bar<span class="token punctuation">.</span>legend_at_bottom<span class="token operator">=</span><span class="token boolean">True</span> <span class="token comment" spellcheck="true">#图例放在底部</span>
+bar<span class="token punctuation">.</span>margin <span class="token operator">=</span> <span class="token number">15</span>
+
+
+bar<span class="token punctuation">.</span>render_to_file<span class="token punctuation">(</span><span class="token string">'die_visual.svg'</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="http://itaolaity.com/20190603160852.png" alt></p>
+<p><strong>分类</strong></p>
+<ol>
+<li>水平柱状图 HorizontalBar()</li>
+<li>水平折线图 HorizontalLine()</li>
+<li>水平叠加柱状图 HorizontalStackedBar()</li>
+<li>水平叠加折线图 HorizontalStackedLine()</li>
+</ol>
+<p><img src="http://itaolaity.com/20190603161142.png" alt></p>
 <h3 id="雷达图"><a href="#雷达图" class="headerlink" title="雷达图"></a>雷达图</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> pygal
 
 hist <span class="token operator">=</span> pygal<span class="token punctuation">.</span>Radar<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -459,6 +515,62 @@ hist<span class="token punctuation">.</span>add<span class="token punctuation">(
 hist<span class="token punctuation">.</span>render_to_file<span class="token punctuation">(</span><span class="token string">'bar_chart.svg'</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="/2018/12/Pygal/3.png" alt></p>
+<h3 id="饼图-Pie"><a href="#饼图-Pie" class="headerlink" title="饼图 Pie"></a>饼图 Pie</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> pygal
+
+<span class="token comment" spellcheck="true">#创建对象</span>
+pie <span class="token operator">=</span> pygal<span class="token punctuation">.</span>Pie<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#对象属性</span>
+<span class="token comment" spellcheck="true">#1. inner_radius</span>
+<span class="token comment" spellcheck="true">#2. half_pie</span>
+
+data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0.16</span><span class="token punctuation">,</span><span class="token number">0.14</span><span class="token punctuation">,</span><span class="token number">0.07</span><span class="token punctuation">,</span><span class="token number">0.68</span><span class="token punctuation">]</span>
+
+labels <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Java"</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">,</span><span class="token string">'Html'</span><span class="token punctuation">,</span><span class="token string">'Css'</span><span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true">#循环赋值</span>
+<span class="token keyword">for</span> i<span class="token punctuation">,</span>per <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    pie<span class="token punctuation">.</span>add<span class="token punctuation">(</span>labels<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> per<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#配置</span>
+pie<span class="token punctuation">.</span>title<span class="token operator">=</span><span class="token string">"饼图Show"</span>
+pie<span class="token punctuation">.</span>legend_at_bottom <span class="token operator">=</span> <span class="token boolean">True</span>
+pie<span class="token punctuation">.</span>inner_radius <span class="token operator">=</span> <span class="token number">0.4</span>
+pie<span class="token punctuation">.</span>half_pie <span class="token operator">=</span> <span class="token boolean">False</span>
+
+<span class="token comment" spellcheck="true">#保存</span>
+pie<span class="token punctuation">.</span>render_to_file<span class="token punctuation">(</span><span class="token string">'die_visual.svg'</span><span class="token punctuation">)</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="http://itaolaity.com/20190603161814.png" alt></p>
+<p>如果将pie.half_pie = False -&gt; True</p>
+<p><img src="http://itaolaity.com/20190603161918.png" alt></p>
+<h3 id="点图Dot"><a href="#点图Dot" class="headerlink" title="点图Dot"></a>点图Dot</h3><p>点图用点的大小表示数值的大小</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> pygal
+
+<span class="token comment" spellcheck="true">#创建对象</span>
+dot <span class="token operator">=</span> pygal<span class="token punctuation">.</span>Dot<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+x_label <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2015</span><span class="token punctuation">,</span><span class="token number">2016</span><span class="token punctuation">,</span><span class="token number">2017</span><span class="token punctuation">,</span><span class="token number">2018</span><span class="token punctuation">,</span><span class="token number">2019</span><span class="token punctuation">,</span><span class="token number">2020</span><span class="token punctuation">]</span>
+data1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3000</span><span class="token punctuation">,</span><span class="token number">5000</span><span class="token punctuation">,</span><span class="token number">2000</span><span class="token punctuation">,</span><span class="token number">8000</span><span class="token punctuation">,</span><span class="token number">15000</span><span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true">#添加数据</span>
+dot<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">"Book"</span><span class="token punctuation">,</span>data1<span class="token punctuation">)</span>
+
+
+<span class="token comment" spellcheck="true">#配置</span>
+dot<span class="token punctuation">.</span>title <span class="token operator">=</span> <span class="token string">"点图"</span>
+dot<span class="token punctuation">.</span>x_labels <span class="token operator">=</span> x_label
+dot<span class="token punctuation">.</span>y_labels <span class="token operator">=</span> <span class="token string">"Y info"</span>
+dot<span class="token punctuation">.</span>y_label_rotation <span class="token operator">=</span> <span class="token number">45</span>
+dot<span class="token punctuation">.</span>x_title <span class="token operator">=</span> <span class="token string">"年份"</span>
+dot<span class="token punctuation">.</span>legend_at_bottom <span class="token operator">=</span> <span class="token boolean">True</span>
+
+
+<span class="token comment" spellcheck="true">#保存</span>
+dot<span class="token punctuation">.</span>render_to_file<span class="token punctuation">(</span><span class="token string">'die_visual.svg'</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="http://itaolaity.com/20190603162614.png" alt></p>
 <h3 id="阅览"><a href="#阅览" class="headerlink" title="阅览"></a>阅览</h3><ul>
 <li><p>render_to_file() 保存SVG文件</p>
 </li>
@@ -476,7 +588,7 @@ hist<span class="token punctuation">.</span>render_to_file<span class="token pun
 </ul>
 </li>
 </ul>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ul>
+<h3 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h3><ul>
 <li><p>title_font_size=66 设置标题字体大小</p>
 </li>
 <li><p>label_font_size=14 副标题字体大小</p>
@@ -857,7 +969,7 @@ nodename          选取此节点的所有子节点
         <div class="col s12 m8 l8 copy-right footer-left">
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">59.5k</span>
+                <span class="white-color">60.1k</span>
             
 
             

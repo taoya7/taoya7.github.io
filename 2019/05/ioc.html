@@ -11,7 +11,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>IOC | linis</title>
+    <title>IOC(XML) | linis</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
@@ -230,7 +230,7 @@
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        IOC
+                        IOC(XML)
                     </div>
                 </div>
             </div>
@@ -353,14 +353,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        789
+                        923
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        4 分
                     </div>
                     
                 
@@ -376,7 +376,13 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="IOC（Inbersion-Of-Control）控制反转"><a href="#IOC（Inbersion-Of-Control）控制反转" class="headerlink" title="IOC（Inbersion Of Control）控制反转"></a>IOC（Inbersion Of Control）控制反转</h1><p>将对象的创建权转给Spring</p>
+                <h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><p>Spring是一站式框架</p>
+<ul>
+<li>Web层  SpringMVC</li>
+<li>Service层 Spring的Bean管理</li>
+<li>Dao层 Spring的JDBC模板 Spring ORM模块</li>
+</ul>
+<h1 id="IOC（Inbersion-Of-Control）控制反转"><a href="#IOC（Inbersion-Of-Control）控制反转" class="headerlink" title="IOC（Inbersion Of Control）控制反转"></a>IOC（Inbersion Of Control）控制反转</h1><p>将对象的创建权转给Spring</p>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><blockquote>
 <p>下载</p>
 </blockquote>
@@ -415,7 +421,7 @@
         stu<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="DI"><a href="#DI" class="headerlink" title="DI"></a>DI</h1><p><strong>依赖注入</strong></p>
+<h1 id="DI-依赖注入"><a href="#DI-依赖注入" class="headerlink" title="DI(依赖注入)"></a>DI(依赖注入)</h1><p><strong>依赖注入</strong></p>
 <p>前提必须具有IOC环境，给Spring管理类当中依赖的属性，通过配置文件进行赋值的过程</p>
 <p>配置文件(类中属性要Public还要提供set方法)</p>
 <pre class="line-numbers language-xml"><code class="language-xml">   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stu<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Unit1.Student<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -443,17 +449,18 @@
 <ul>
 <li>id 指向该Bean的唯一标识，程序通过id属性值访问bean实例 </li>
 <li>class  类路径，实现类，利用反射来创建该实现类的实例</li>
-<li><p>scope </p>
-<ul>
+<li>scope  bean的作用范围<ul>
 <li>singleton 单例(默认值：无论创建多少对象都是一个)</li>
 <li>prototype 多例模式</li>
 <li>request 这个类存在req范围中</li>
 <li>session 这个类存在session范围中</li>
-<li>globalsession<br><strong>生命周期</strong></li>
+<li>globalsession  应用在web应用中 须在porlet环境下使用</li>
 </ul>
 </li>
-<li><p>init-method 初始化执行的方法</p>
-</li>
+</ul>
+<p><strong>生命周期</strong></p>
+<ul>
+<li>init-method 初始化执行的方法</li>
 <li>destory-method 销毁执行的方法</li>
 </ul>
 <p>初始化就会先执行Student类的init()方法。</p>
@@ -529,6 +536,19 @@
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>beans</span><span class="token punctuation">></span></span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h5><p>每次请求都会创建Spring工厂，浪费服务器资源</p>
+<p><strong>解决</strong></p>
+<ol>
+<li>在服务器启动的时候创建Spring工厂</li>
+<li>将工厂保存在ServletContext中</li>
+<li>每次获取工厂从ServletContext中获取</li>
+</ol>
+<p><strong>Demo</strong></p>
+<ol>
+<li>引入spring_web.jar包</li>
+<li>配置修改加载配置文件的路径</li>
+<li>通过工具类获取工具</li>
+</ol>
 
             </div>
             <hr>
@@ -670,7 +690,7 @@
                     </span>
                     <a href="https://taoya7.github.io" class="b-link-green">linis</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/05/ioc.html" class="b-link-green">IOC</a>
+                    <a href="/2019/05/ioc.html" class="b-link-green">IOC(XML)</a>
                 </p>
             </div>
         </div>
@@ -898,7 +918,7 @@ DHCP(Dynamic Host Configuration Protocol)DHCP是动态主机配置协议，动�
         <div class="col s12 m8 l8 copy-right footer-left">
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">59.5k</span>
+                <span class="white-color">60.1k</span>
             
 
             

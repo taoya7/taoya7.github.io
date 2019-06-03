@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://taoya7.github.io/"/>
-  <updated>2019-06-02T10:50:57.967Z</updated>
+  <updated>2019-06-03T03:30:14.126Z</updated>
   <id>https://taoya7.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://taoya7.github.io/2019/06/uiautomator2.html"/>
     <id>https://taoya7.github.io/2019/06/uiautomator2.html</id>
     <published>2019-06-02T10:48:00.000Z</published>
-    <updated>2019-06-02T10:50:57.967Z</updated>
+    <updated>2019-06-03T03:30:14.126Z</updated>
     
     <summary type="html">
     
@@ -29,11 +29,7 @@
       
         
         
-          &lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;配置Android-adb&lt;/li&gt;
-&lt;li&gt;安装uiautomator2&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre
+          &lt;h2 id=&quot;Uiautomator2&quot;&gt;&lt;a href=&quot;#Uiautomator2&quot; class=&quot;headerlink&quot; title=&quot;Uiautomator2&quot;&gt;&lt;/a&gt;Uiautomator2&lt;/h2&gt;&lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot;
         
       
     
@@ -266,7 +262,7 @@
     <link href="https://taoya7.github.io/2019/05/springboot-kuai-su-shang-shou.html"/>
     <id>https://taoya7.github.io/2019/05/springboot-kuai-su-shang-shou.html</id>
     <published>2019-05-31T08:22:00.000Z</published>
-    <updated>2019-05-31T14:16:41.676Z</updated>
+    <updated>2019-06-03T09:25:12.540Z</updated>
     
     <summary type="html">
     
@@ -274,10 +270,7 @@
       
         
         
-          &lt;h3 id=&quot;创建&quot;&gt;&lt;a href=&quot;#创建&quot; class=&quot;headerlink&quot; title=&quot;创建&quot;&gt;&lt;/a&gt;创建&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;下载Maven&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;a
+          &lt;h3 id=&quot;使用Maven构建项目&quot;&gt;&lt;a href=&quot;#使用Maven构建项目&quot; class=&quot;headerlink&quot;
         
       
     

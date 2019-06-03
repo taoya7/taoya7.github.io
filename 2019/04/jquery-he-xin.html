@@ -380,10 +380,11 @@
     alert("Hello");
 });
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<pre><code>$(window).on(&#39;load&#39;,function(){
-    alert(&quot;Hello&quot;);
-});
-</code></pre><h3 id="JQuery核心函数"><a href="#JQuery核心函数" class="headerlink" title="JQuery核心函数$();"></a>JQuery核心函数<code>$();</code></h3><p><strong>用法</strong></p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'load'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="JQuery核心函数"><a href="#JQuery核心函数" class="headerlink" title="JQuery核心函数$();"></a>JQuery核心函数<code>$();</code></h3><p><strong>用法</strong></p>
 <pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 接收一个函数</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -610,25 +611,28 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </ul>
 <h3 id="JQuery-文档处理"><a href="#JQuery-文档处理" class="headerlink" title="JQuery-文档处理"></a>JQuery-文档处理</h3><p><strong>添加节点</strong></p>
 <ul>
-<li><p>内部插入</p>
+<li>内部插入</li>
+</ul>
 <pre class="line-numbers language-js"><code class="language-js"><span class="token function">append</span><span class="token punctuation">(</span>content<span class="token operator">|</span>fn<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//元素添加到指定元素内部</span>
 <span class="token function">appendTo</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span>
 <span class="token function">prepend</span><span class="token punctuation">(</span>content<span class="token operator">|</span>fn<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//将元素添加到指定元素的最前面</span>
 <span class="token function">prependTo</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>外部插入<br><code>`</code>js<br>after(content|fn) //将元素添加到指定元素外部的后面<br>insertAfter(content)</p>
-</li>
+<ul>
+<li>外部插入</li>
 </ul>
-<p>before(content|fn)//将元素添加到指定元素外部的前面<br>insertBefore(content)</p>
-<pre><code>
-**删除节点**
+<pre class="line-numbers language-js"><code class="language-js"><span class="token function">after</span><span class="token punctuation">(</span>content<span class="token operator">|</span>fn<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//将元素添加到指定元素外部的后面</span>
+<span class="token function">insertAfter</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span>
 
-```js
-remove() //删除指定元素
-empty() //删除指定元素的内容和子元素，指定元素自身不会被删除
-detach([expr]) //删除所有匹配的元素
-</code></pre><p><strong>替换</strong></p>
+<span class="token function">before</span><span class="token punctuation">(</span>content<span class="token operator">|</span>fn<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//将元素添加到指定元素外部的前面</span>
+<span class="token function">insertBefore</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>删除节点</strong></p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//删除指定元素</span>
+<span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//删除指定元素的内容和子元素，指定元素自身不会被删除</span>
+<span class="token function">detach</span><span class="token punctuation">(</span><span class="token punctuation">[</span>expr<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//删除所有匹配的元素</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>替换</strong></p>
 <pre class="line-numbers language-js"><code class="language-js"><span class="token function">replaceWith</span><span class="token punctuation">(</span>content<span class="token operator">|</span>fn<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//替换所有匹配的元素</span>
 
 <span class="token function">replaceAll</span><span class="token punctuation">(</span>selector<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//替换顺序不一样</span>
@@ -1021,7 +1025,7 @@ display：inline-flex 将对象作为弹性伸缩盒展示，用于行内元素
         <div class="col s12 m8 l8 copy-right footer-left">
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">59.5k</span>
+                <span class="white-color">60.1k</span>
             
 
             
