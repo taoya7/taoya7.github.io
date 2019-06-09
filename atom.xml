@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://taoya7.github.io/"/>
-  <updated>2019-06-03T03:30:14.126Z</updated>
+  <updated>2019-06-09T09:38:21.212Z</updated>
   <id>https://taoya7.github.io/</id>
   
   <author>
@@ -15,6 +15,112 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ES6知识点</title>
+    <link href="https://taoya7.github.io/2019/06/es6.html"/>
+    <id>https://taoya7.github.io/2019/06/es6.html</id>
+    <published>2019-06-08T08:27:06.000Z</published>
+    <updated>2019-06-09T09:38:21.212Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;ES6&quot;&gt;&lt;a href=&quot;#ES6&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://taoya7.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="Vue" scheme="https://taoya7.github.io/tags/Vue/"/>
+    
+      <category term="JavaScript" scheme="https://taoya7.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue项目构建</title>
+    <link href="https://taoya7.github.io/2019/06/vue-xiang-mu-gou-jian.html"/>
+    <id>https://taoya7.github.io/2019/06/vue-xiang-mu-gou-jian.html</id>
+    <published>2019-06-07T08:27:06.000Z</published>
+    <updated>2019-06-07T15:31:23.953Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Vue项目构建&quot;&gt;&lt;a href=&quot;#Vue项目构建&quot; class=&quot;headerlink&quot; title=&quot;Vue项目构建&quot;&gt;&lt;/a&gt;Vue项目构建&lt;/h1&gt;&lt;h2 id=&quot;1-单文件组成&quot;&gt;&lt;a href=&quot;#1-单文件组成&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Vue" scheme="https://taoya7.github.io/categories/Vue/"/>
+    
+    
+      <category term="Vue" scheme="https://taoya7.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue-cli初步使用</title>
+    <link href="https://taoya7.github.io/2019/06/vue-cli.html"/>
+    <id>https://taoya7.github.io/2019/06/vue-cli.html</id>
+    <published>2019-06-05T08:27:06.000Z</published>
+    <updated>2019-06-07T13:04:47.543Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Vue-cli初步使用&quot;&gt;&lt;a href=&quot;#Vue-cli初步使用&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Vue" scheme="https://taoya7.github.io/categories/Vue/"/>
+    
+    
+      <category term="Vue" scheme="https://taoya7.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue-网络请求</title>
+    <link href="https://taoya7.github.io/2019/06/vue-wang-luo-qing-qiu.html"/>
+    <id>https://taoya7.github.io/2019/06/vue-wang-luo-qing-qiu.html</id>
+    <published>2019-06-05T06:27:06.000Z</published>
+    <updated>2019-06-07T05:32:40.926Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Axios&quot;&gt;&lt;a href=&quot;#Axios&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Vue" scheme="https://taoya7.github.io/categories/Vue/"/>
+    
+    
+      <category term="Vue" scheme="https://taoya7.github.io/tags/Vue/"/>
+    
+  </entry>
   
   <entry>
     <title>Uiautomator2</title>
@@ -262,7 +368,7 @@
     <link href="https://taoya7.github.io/2019/05/springboot-kuai-su-shang-shou.html"/>
     <id>https://taoya7.github.io/2019/05/springboot-kuai-su-shang-shou.html</id>
     <published>2019-05-31T08:22:00.000Z</published>
-    <updated>2019-06-03T09:25:12.540Z</updated>
+    <updated>2019-06-05T04:59:21.926Z</updated>
     
     <summary type="html">
     
@@ -270,7 +376,7 @@
       
         
         
-          &lt;h3 id=&quot;使用Maven构建项目&quot;&gt;&lt;a href=&quot;#使用Maven构建项目&quot; class=&quot;headerlink&quot;
+          &lt;h2 id=&quot;1-Maven&quot;&gt;&lt;a href=&quot;#1-Maven&quot; class=&quot;headerlink&quot; title=&quot;1.Maven&quot;&gt;&lt;/a&gt;1.Maven&lt;/h2&gt;&lt;p&gt;&lt;a
         
       
     
@@ -279,7 +385,7 @@
       <category term="JavaWeb" scheme="https://taoya7.github.io/categories/JavaWeb/"/>
     
     
-      <category term="StringBoot" scheme="https://taoya7.github.io/tags/StringBoot/"/>
+      <category term="SpringBoot" scheme="https://taoya7.github.io/tags/SpringBoot/"/>
     
   </entry>
   
@@ -397,7 +503,7 @@
     <link href="https://taoya7.github.io/2019/05/webpack-da-bao-gong-ju.html"/>
     <id>https://taoya7.github.io/2019/05/webpack-da-bao-gong-ju.html</id>
     <published>2019-05-19T14:48:47.000Z</published>
-    <updated>2019-05-31T14:00:00.285Z</updated>
+    <updated>2019-06-06T11:21:37.232Z</updated>
     
     <summary type="html">
     
@@ -405,7 +511,9 @@
       
         
         
-          &lt;h1 id=&quot;WebPack&quot;&gt;&lt;a href=&quot;#WebPack&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;WebPack&quot;&gt;&lt;a href=&quot;#WebPack&quot; class=&quot;headerlink&quot; title=&quot;WebPack&quot;&gt;&lt;/a&gt;WebPack&lt;/h1&gt;&lt;p&gt;是一个资源加载打包工具&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;使用&lt;/strong&gt;&lt;/p&gt;
+&lt;pre
         
       
     
@@ -446,113 +554,6 @@
     
     
       <category term="Linux" scheme="https://taoya7.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Samba服务实验</title>
-    <link href="https://taoya7.github.io/2019/05/samba-fu-wu-shi-yan.html"/>
-    <id>https://taoya7.github.io/2019/05/samba-fu-wu-shi-yan.html</id>
-    <published>2019-05-15T12:17:10.000Z</published>
-    <updated>2019-05-31T14:07:35.642Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Samba服务器&quot;&gt;&lt;a href=&quot;#Samba服务器&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Linux" scheme="https://taoya7.github.io/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="https://taoya7.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring-总结</title>
-    <link href="https://taoya7.github.io/2019/05/spring-zong-jie.html"/>
-    <id>https://taoya7.github.io/2019/05/spring-zong-jie.html</id>
-    <published>2019-05-13T09:28:11.000Z</published>
-    <updated>2019-05-31T14:01:33.209Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Spring 是一个轻量级的控制反转（IOC）和面向切面（AOP）的容器框架。&lt;/p&gt;
-&lt;p&gt;Spring是一个从实际开发中抽取出来的框架，因此完成了大量开发中通用的步骤&lt;/p&gt;
-&lt;h2 id=&quot;学习目标&quot;&gt;&lt;a href=&quot;#学习目标&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="JavaWeb" scheme="https://taoya7.github.io/categories/JavaWeb/"/>
-    
-    
-      <category term="Spring" scheme="https://taoya7.github.io/tags/Spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring-事务</title>
-    <link href="https://taoya7.github.io/2019/05/spring-shi-wu.html"/>
-    <id>https://taoya7.github.io/2019/05/spring-shi-wu.html</id>
-    <published>2019-05-12T12:14:00.000Z</published>
-    <updated>2019-05-31T14:05:51.106Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;事务&quot;&gt;&lt;a href=&quot;#事务&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="JavaWeb" scheme="https://taoya7.github.io/categories/JavaWeb/"/>
-    
-    
-      <category term="Spring" scheme="https://taoya7.github.io/tags/Spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring-JDBC</title>
-    <link href="https://taoya7.github.io/2019/05/spring-jdbc.html"/>
-    <id>https://taoya7.github.io/2019/05/spring-jdbc.html</id>
-    <published>2019-05-12T10:06:08.000Z</published>
-    <updated>2019-06-01T07:39:45.569Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Spring框架会对定义在配置文件中的bean实例自动管理，也就是说Bean就是Java的实例Java组件&lt;/p&gt;
-&lt;h2 id=&quot;模板写法&quot;&gt;&lt;a href=&quot;#模板写法&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="JavaWeb" scheme="https://taoya7.github.io/categories/JavaWeb/"/>
-    
-    
-      <category term="Spring" scheme="https://taoya7.github.io/tags/Spring/"/>
     
   </entry>
   

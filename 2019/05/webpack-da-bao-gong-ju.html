@@ -361,14 +361,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        204
+                        880
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        4 分
                     </div>
                     
                 
@@ -386,23 +386,26 @@
             <div id="articleContent">
                 <h1 id="WebPack"><a href="#WebPack" class="headerlink" title="WebPack"></a>WebPack</h1><p>是一个资源加载打包工具</p>
 <p><strong>使用</strong></p>
-<pre><code>npm -g 全局安装（C:\Users\Administrator\AppData\Roaming\npm）
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> -g 全局安装（C:\Users\Administrator\AppData\Roaming\npm）
 
-npm install &lt;Model Name&gt; 本地安装
-</code></pre><pre><code>//安装
-npm install webpack -g
+<span class="token function">npm</span> <span class="token function">install</span> <span class="token operator">&lt;</span>Model Name<span class="token operator">></span> 本地安装
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">//安装
+<span class="token function">npm</span> <span class="token function">install</span> webpack -g
 
-npm install webpack-cli -g
+<span class="token function">npm</span> <span class="token function">install</span> webpack-cli -g
 
 //使用
 npx webpack main.js 
-</code></pre><p><strong>本地安装-不同文件不同版本号</strong></p>
-<pre><code>npm init -y
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>本地安装-不同文件不同版本号</strong></p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> init -y
 
-npm install webpack@4.13.5 -D
+<span class="token function">npm</span> <span class="token function">install</span> webpack@4.13.5 -D
 
 npx webpack 
-</code></pre><h5 id="模块打包工具"><a href="#模块打包工具" class="headerlink" title="模块打包工具"></a>模块打包工具</h5><p>分析项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其转换和打包为合适的格式供浏览器使用</p>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="模块打包工具"><a href="#模块打包工具" class="headerlink" title="模块打包工具"></a>模块打包工具</h5><p>分析项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其转换和打包为合适的格式供浏览器使用</p>
 <h5 id="模块配置文件"><a href="#模块配置文件" class="headerlink" title="模块配置文件"></a>模块配置文件</h5><p><strong>创建</strong></p>
 <p><code>touch webpack.config.js</code></p>
 <p><strong>进行配置</strong></p>
@@ -421,6 +424,127 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>最后只要在html中引入<code>./bundle.js</code>就可以了</p>
+<h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><pre class="line-numbers language-js"><code class="language-js"><span class="token punctuation">{</span>
+  <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"web"</span><span class="token punctuation">,</span>
+  <span class="token string">"version"</span><span class="token punctuation">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span>
+  <span class="token string">"description"</span><span class="token punctuation">:</span> <span class="token string">"A Vue.js project"</span><span class="token punctuation">,</span>
+  <span class="token string">"author"</span><span class="token punctuation">:</span> <span class="token string">"taoya7 &lt;569781231@qq.com>"</span><span class="token punctuation">,</span>
+  <span class="token string">"private"</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token string">"scripts"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"dev"</span><span class="token punctuation">:</span> <span class="token string">"webpack-dev-server --inline --progress --config build/webpack.dev.conf.js"</span><span class="token punctuation">,</span>
+    <span class="token string">"start"</span><span class="token punctuation">:</span> <span class="token string">"npm run dev"</span><span class="token punctuation">,</span>
+    <span class="token string">"unit"</span><span class="token punctuation">:</span> <span class="token string">"jest --config test/unit/jest.conf.js --coverage"</span><span class="token punctuation">,</span>
+    <span class="token string">"e2e"</span><span class="token punctuation">:</span> <span class="token string">"node test/e2e/runner.js"</span><span class="token punctuation">,</span>
+    <span class="token string">"test"</span><span class="token punctuation">:</span> <span class="token string">"npm run unit &amp;&amp; npm run e2e"</span><span class="token punctuation">,</span>
+    <span class="token string">"lint"</span><span class="token punctuation">:</span> <span class="token string">"eslint --ext .js,.vue src test/unit test/e2e/specs"</span><span class="token punctuation">,</span>
+    <span class="token string">"build"</span><span class="token punctuation">:</span> <span class="token string">"node build/build.js"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token string">"dependencies"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"iview"</span><span class="token punctuation">:</span> <span class="token string">"^3.4.2"</span><span class="token punctuation">,</span>
+    <span class="token string">"vue"</span><span class="token punctuation">:</span> <span class="token string">"^2.5.2"</span><span class="token punctuation">,</span>
+    <span class="token string">"vue-router"</span><span class="token punctuation">:</span> <span class="token string">"^3.0.1"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token string">"devDependencies"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"autoprefixer"</span><span class="token punctuation">:</span> <span class="token string">"^7.1.2"</span><span class="token punctuation">,</span>
+    <span class="token string">"babel-core"</span><span class="token punctuation">:</span> <span class="token string">"^6.22.1"</span><span class="token punctuation">,</span>
+    <span class="token string">"babel-eslint"</span><span class="token punctuation">:</span> <span class="token string">"^8.2.1"</span><span class="token punctuation">,</span>
+    <span class="token string">"babel-helper-vue-jsx-merge-props"</span><span class="token punctuation">:</span> <span class="token string">"^2.0.3"</span><span class="token punctuation">,</span>
+    <span class="token string">"babel-jest"</span><span class="token punctuation">:</span> <span class="token string">"^21.0.2"</span><span class="token punctuation">,</span>
+    <span class="token string">"babel-loader"</span><span class="token punctuation">:</span> <span class="token string">"^7.1.1"</span><span class="token punctuation">,</span>
+    <span class="token string">"babel-plugin-dynamic-import-node"</span><span class="token punctuation">:</span> <span class="token string">"^1.2.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"babel-plugin-syntax-jsx"</span><span class="token punctuation">:</span> <span class="token string">"^6.18.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"babel-plugin-transform-es2015-modules-commonjs"</span><span class="token punctuation">:</span> <span class="token string">"^6.26.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"babel-plugin-transform-runtime"</span><span class="token punctuation">:</span> <span class="token string">"^6.22.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"babel-plugin-transform-vue-jsx"</span><span class="token punctuation">:</span> <span class="token string">"^3.5.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"babel-preset-env"</span><span class="token punctuation">:</span> <span class="token string">"^1.3.2"</span><span class="token punctuation">,</span>
+    <span class="token string">"babel-preset-stage-2"</span><span class="token punctuation">:</span> <span class="token string">"^6.22.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"babel-register"</span><span class="token punctuation">:</span> <span class="token string">"^6.22.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"chalk"</span><span class="token punctuation">:</span> <span class="token string">"^2.0.1"</span><span class="token punctuation">,</span>
+    <span class="token string">"chromedriver"</span><span class="token punctuation">:</span> <span class="token string">"^2.27.2"</span><span class="token punctuation">,</span>
+    <span class="token string">"copy-webpack-plugin"</span><span class="token punctuation">:</span> <span class="token string">"^4.0.1"</span><span class="token punctuation">,</span>
+    <span class="token string">"cross-spawn"</span><span class="token punctuation">:</span> <span class="token string">"^5.0.1"</span><span class="token punctuation">,</span>
+    <span class="token string">"css-loader"</span><span class="token punctuation">:</span> <span class="token string">"^0.28.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"eslint"</span><span class="token punctuation">:</span> <span class="token string">"^4.15.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"eslint-config-standard"</span><span class="token punctuation">:</span> <span class="token string">"^10.2.1"</span><span class="token punctuation">,</span>
+    <span class="token string">"eslint-friendly-formatter"</span><span class="token punctuation">:</span> <span class="token string">"^3.0.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"eslint-loader"</span><span class="token punctuation">:</span> <span class="token string">"^1.7.1"</span><span class="token punctuation">,</span>
+    <span class="token string">"eslint-plugin-import"</span><span class="token punctuation">:</span> <span class="token string">"^2.7.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"eslint-plugin-node"</span><span class="token punctuation">:</span> <span class="token string">"^5.2.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"eslint-plugin-promise"</span><span class="token punctuation">:</span> <span class="token string">"^3.4.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"eslint-plugin-standard"</span><span class="token punctuation">:</span> <span class="token string">"^3.0.1"</span><span class="token punctuation">,</span>
+    <span class="token string">"eslint-plugin-vue"</span><span class="token punctuation">:</span> <span class="token string">"^4.0.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"extract-text-webpack-plugin"</span><span class="token punctuation">:</span> <span class="token string">"^3.0.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"file-loader"</span><span class="token punctuation">:</span> <span class="token string">"^1.1.4"</span><span class="token punctuation">,</span>
+    <span class="token string">"friendly-errors-webpack-plugin"</span><span class="token punctuation">:</span> <span class="token string">"^1.6.1"</span><span class="token punctuation">,</span>
+    <span class="token string">"html-webpack-plugin"</span><span class="token punctuation">:</span> <span class="token string">"^2.30.1"</span><span class="token punctuation">,</span>
+    <span class="token string">"jest"</span><span class="token punctuation">:</span> <span class="token string">"^22.0.4"</span><span class="token punctuation">,</span>
+    <span class="token string">"jest-serializer-vue"</span><span class="token punctuation">:</span> <span class="token string">"^0.3.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"nightwatch"</span><span class="token punctuation">:</span> <span class="token string">"^0.9.12"</span><span class="token punctuation">,</span>
+    <span class="token string">"node-notifier"</span><span class="token punctuation">:</span> <span class="token string">"^5.1.2"</span><span class="token punctuation">,</span>
+    <span class="token string">"optimize-css-assets-webpack-plugin"</span><span class="token punctuation">:</span> <span class="token string">"^3.2.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"ora"</span><span class="token punctuation">:</span> <span class="token string">"^1.2.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"portfinder"</span><span class="token punctuation">:</span> <span class="token string">"^1.0.13"</span><span class="token punctuation">,</span>
+    <span class="token string">"postcss-import"</span><span class="token punctuation">:</span> <span class="token string">"^11.0.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"postcss-loader"</span><span class="token punctuation">:</span> <span class="token string">"^2.0.8"</span><span class="token punctuation">,</span>
+    <span class="token string">"postcss-url"</span><span class="token punctuation">:</span> <span class="token string">"^7.2.1"</span><span class="token punctuation">,</span>
+    <span class="token string">"rimraf"</span><span class="token punctuation">:</span> <span class="token string">"^2.6.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"selenium-server"</span><span class="token punctuation">:</span> <span class="token string">"^3.0.1"</span><span class="token punctuation">,</span>
+    <span class="token string">"semver"</span><span class="token punctuation">:</span> <span class="token string">"^5.3.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"shelljs"</span><span class="token punctuation">:</span> <span class="token string">"^0.7.6"</span><span class="token punctuation">,</span>
+    <span class="token string">"uglifyjs-webpack-plugin"</span><span class="token punctuation">:</span> <span class="token string">"^1.1.1"</span><span class="token punctuation">,</span>
+    <span class="token string">"url-loader"</span><span class="token punctuation">:</span> <span class="token string">"^0.5.8"</span><span class="token punctuation">,</span>
+    <span class="token string">"vue-jest"</span><span class="token punctuation">:</span> <span class="token string">"^1.0.2"</span><span class="token punctuation">,</span>
+    <span class="token string">"vue-loader"</span><span class="token punctuation">:</span> <span class="token string">"^13.3.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"vue-style-loader"</span><span class="token punctuation">:</span> <span class="token string">"^3.0.1"</span><span class="token punctuation">,</span>
+    <span class="token string">"vue-template-compiler"</span><span class="token punctuation">:</span> <span class="token string">"^2.5.2"</span><span class="token punctuation">,</span>
+    <span class="token string">"webpack"</span><span class="token punctuation">:</span> <span class="token string">"^3.6.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"webpack-bundle-analyzer"</span><span class="token punctuation">:</span> <span class="token string">"^2.9.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"webpack-dev-server"</span><span class="token punctuation">:</span> <span class="token string">"^2.9.1"</span><span class="token punctuation">,</span>
+    <span class="token string">"webpack-merge"</span><span class="token punctuation">:</span> <span class="token string">"^4.1.0"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token string">"engines"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"node"</span><span class="token punctuation">:</span> <span class="token string">">= 6.0.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"npm"</span><span class="token punctuation">:</span> <span class="token string">">= 3.0.0"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token string">"browserslist"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token string">"> 1%"</span><span class="token punctuation">,</span>
+    <span class="token string">"last 2 versions"</span><span class="token punctuation">,</span>
+    <span class="token string">"not ie &lt;= 8"</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="1-常用命令"><a href="#1-常用命令" class="headerlink" title="1.常用命令"></a>1.常用命令</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 生成 package.json 文件（需要手动选择配置）</span>
+<span class="token function">npm</span> init
+
+<span class="token comment" spellcheck="true"># 生成 package.json 文件（使用默认配置）</span>
+<span class="token function">npm</span> init -y
+
+<span class="token comment" spellcheck="true"># 一键安装 package.json 下的依赖包</span>
+<span class="token function">npm</span> i
+
+<span class="token comment" spellcheck="true"># 在项目中安装包名为 xxx 的依赖包（配置在 dependencies 下）</span>
+<span class="token function">npm</span> i xxx
+
+<span class="token comment" spellcheck="true"># 在项目中安装包名为 xxx 的依赖包（配置在 dependencies 下）</span>
+<span class="token function">npm</span> i xxx --save
+
+<span class="token comment" spellcheck="true"># 在项目中安装包名为 xxx 的依赖包（配置在 devDependencies 下）</span>
+<span class="token function">npm</span> i xxx --save-dev
+
+<span class="token comment" spellcheck="true"># 全局安装包名为 xxx 的依赖包</span>
+<span class="token function">npm</span> i -g xxx
+
+<span class="token comment" spellcheck="true"># 运行 package.json 中 scripts 下的命令</span>
+<span class="token function">npm</span> run xxx
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-第三方插件"><a href="#2-第三方插件" class="headerlink" title="2.第三方插件"></a>2.第三方插件</h3><pre class="line-numbers language-js"><code class="language-js"><span class="token string">"browserslist"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token string">"> 1%"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 表示包含所有使用率 > 1% 的浏览器</span>
+    <span class="token string">"last 2 versions"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 表示包含浏览器最新的两个版本</span>
+    <span class="token string">"not ie &lt;= 8"</span> <span class="token comment" spellcheck="true">// 表示不包含 ie8 及以下版本</span>
+<span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>上面的package.json文件最后有这个配置。代表的是第三方插件配置</p>
+<p>主要作用：用于在不同的前端工具之间共享目标浏览器和 Node.js 的版本</p>
 
             </div>
             <hr>
@@ -803,7 +927,7 @@ export</div>
         <div class="col s12 m8 l8 copy-right footer-left">
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">60.1k</span>
+                <span class="white-color">63.8k</span>
             
 
             

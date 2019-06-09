@@ -353,7 +353,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        93
+                        103
                     </div>
                     
 
@@ -376,33 +376,42 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h1><p><code>Vue.filter</code></p>
-<pre><code>&lt;div id=&quot;app&quot;&gt;
-    &lt;h1&gt;{{price|currency}}&lt;/h1&gt;
-&lt;/div&gt;
-</code></pre><pre><code>/*过滤器*/
-Vue.filter(&quot;currency&quot;,function (val) {
-        val=val||0;
-        return &quot;￥&quot;+val;
-});
+                <h1 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h1><p>可以用作一些常见的文本格式化，比如日期，钱等。</p>
+<p><strong>分类</strong></p>
+<ul>
+<li>全局过滤器</li>
+<li>私有过滤器</li>
+</ul>
+<p><code>Vue.filter</code></p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>{{price|currency}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">/*过滤器*/</span>
+Vue<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token string">"currency"</span><span class="token punctuation">,</span><span class="token keyword">function</span> <span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        val<span class="token operator">=</span>val<span class="token operator">||</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token string">"￥"</span><span class="token operator">+</span>val<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-var app = new Vue({
-        el: &#39;#app&#39;,
-        data: {
-                price:10
-        }
+<span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        el<span class="token punctuation">:</span> <span class="token string">'#app'</span><span class="token punctuation">,</span>
+        data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                price<span class="token punctuation">:</span><span class="token number">10</span>
+        <span class="token punctuation">}</span>
 
-})
-</code></pre><p><strong>过滤器传递参数</strong></p>
-<pre><code>&lt;div id=&quot;app&quot;&gt;
-    &lt;h1&gt;{{price|currency('元')}}&lt;/h1&gt;
-&lt;/div&gt;
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>过滤器传递参数</strong></p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>h1<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>price<span class="token operator">|</span><span class="token function">currency</span><span class="token punctuation">(</span><span class="token string">'元'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
 
-Vue.filter(&quot;currency&quot;,function (val,end) {
-        val=val||0;
-        return &quot;￥&quot;+val+end;
-});
-</code></pre><p><img src="/2019/05/vue-guo-lu-qi/1557127359113.png" alt></p>
+Vue<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token string">"currency"</span><span class="token punctuation">,</span><span class="token keyword">function</span> <span class="token punctuation">(</span>val<span class="token punctuation">,</span>end<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        val<span class="token operator">=</span>val<span class="token operator">||</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token string">"￥"</span><span class="token operator">+</span>val<span class="token operator">+</span>end<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="/2019/05/vue-guo-lu-qi/1557127359113.png" alt></p>
 
             </div>
             <hr>
@@ -638,12 +647,13 @@ Vue.filter(&quot;currency&quot;,function (val,end) {
 全局组件
 
 Vue.component
-&lt;div id=&quot;app&quot;&gt;
-    &lt;tao&gt;&lt;/tao&gt;
-&lt;/div&gt;
+&lt;div id="app">
+    &lt;tao>&lt;/tao>
+&lt;/div>
 
 //创建构造器
-var Alert = Vue.</div>
+var Alert = Vue.extend( {
+        temp</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-05
@@ -785,7 +795,7 @@ var Alert = Vue.</div>
         <div class="col s12 m8 l8 copy-right footer-left">
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">60.1k</span>
+                <span class="white-color">63.8k</span>
             
 
             
